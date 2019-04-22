@@ -82,14 +82,14 @@
 <meta name="description" content="Jarvis OJ PWN题wp（level0 - level4）level0 这题注意是x64的，开始做的时候把rbp当0x4h计算了…脑抽了  main函数反编译：12345int __cdecl main(int argc, const char **argv, const char **envp)&amp;#123;  write(1, &quot;Hello, World\n&quot;, 0xDuLL);  re">
 <meta name="keywords" content="ctf,pwn,入门">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JarvisOJ-pwn-0~4">
+<meta property="og:title" content="JarvisOJ-pwn-0~4题解">
 <meta property="og:url" content="http://yoursite.com/2019/04/22/JarvisOJ-pwn-0-4/index.html">
 <meta property="og:site_name" content="学逆向的阿昆达">
 <meta property="og:description" content="Jarvis OJ PWN题wp（level0 - level4）level0 这题注意是x64的，开始做的时候把rbp当0x4h计算了…脑抽了  main函数反编译：12345int __cdecl main(int argc, const char **argv, const char **envp)&amp;#123;  write(1, &quot;Hello, World\n&quot;, 0xDuLL);  re">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-04-22T06:39:14.308Z">
+<meta property="og:updated_time" content="2019-04-22T06:52:37.877Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JarvisOJ-pwn-0~4">
+<meta name="twitter:title" content="JarvisOJ-pwn-0~4题解">
 <meta name="twitter:description" content="Jarvis OJ PWN题wp（level0 - level4）level0 这题注意是x64的，开始做的时候把rbp当0x4h计算了…脑抽了  main函数反编译：12345int __cdecl main(int argc, const char **argv, const char **envp)&amp;#123;  write(1, &quot;Hello, World\n&quot;, 0xDuLL);  re">
 
 
@@ -126,7 +126,7 @@
 
 
 
-  <title>JarvisOJ-pwn-0~4 | 学逆向的阿昆达</title>
+  <title>JarvisOJ-pwn-0~4题解 | 学逆向的阿昆达</title>
   
 
 
@@ -161,7 +161,7 @@
       </a>
     </div>
       
-        <p class="site-subtitle"></p>
+        <p class="site-subtitle">发牢骚记笔记的地方。</p>
       
   </div>
 
@@ -260,7 +260,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">JarvisOJ-pwn-0~4</h1>
+          <h1 class="post-title" itemprop="name headline">JarvisOJ-pwn-0~4题解</h1>
         
 
         <div class="post-meta">
@@ -282,28 +282,6 @@
             
           </span>
 
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/CTF/" itemprop="url" rel="index">
-                    <span itemprop="name">CTF</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -395,15 +373,15 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/04/22/TEST-BLOG/" rel="next" title="TEST BLOG">
-                <i class="fa fa-chevron-left"></i> TEST BLOG
-              </a>
-            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/04/22/寒假任务笔记/" rel="prev" title="寒假任务笔记">
+                寒假任务笔记 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -472,7 +450,7 @@
               <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="Bwonsamdi">
             
               <p class="site-author-name" itemprop="name">Bwonsamdi</p>
-              <p class="site-description motion-element" itemprop="description">发牢骚记笔记的地方。</p>
+              <p class="site-description motion-element" itemprop="description"></p>
           </div>
 
           <nav class="site-state motion-element">
@@ -482,21 +460,12 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">2</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
             
 
-            
-              
-              
-              <div class="site-state-item site-state-categories">
-                
-                  <span class="site-state-item-count">2</span>
-                  <span class="site-state-item-name">分类</span>
-                
-              </div>
             
 
             
@@ -504,7 +473,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
