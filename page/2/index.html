@@ -45,6 +45,32 @@
 
 
 
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="https://fonts.loli.net/css?family=Noto Serif SC:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
 
 
 
@@ -389,7 +415,8 @@
           Jarvis OJ PWN题wp（level0 - level4）level0
 这题注意是x64的，开始做的时候把rbp当0x4h计算了…脑抽了
 
-main函数反编译：12345int __cdecl main(int argc, const char **argv, const char **en
+main函数反编译：12345int __cdecl main(int argc, const char **argv, const char **envp)&#123;  write(1, "Hello, World\n", 0xDuLL);  return vulnerable_function(1LL, "Hello, World\n");&#125;
+vulnerable_function函数反编译：123456ssize_t vulner
           ...
           <!--noindex-->
           <div class="post-button text-center">

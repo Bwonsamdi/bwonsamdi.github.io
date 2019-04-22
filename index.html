@@ -45,6 +45,32 @@
 
 
 
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="https://fonts.loli.net/css?family=Noto Serif SC:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
 
 
 
@@ -386,8 +412,9 @@
         
         
           
-          写于20190422终于，在想了很久之后，把博客搭起来了。虽然搭建的时候没添加一些花里胡哨的东西，但还是折腾了一两个小时。以前没写过多少东西，索性不论质量先把文章都扔上来吧。今天看了奈沙夜影师傅的CSDN博客，觉得像夜影师傅这样每天都坚持记下一点心得发布文章，对我来说还是有点难了。目前还没想好怎么维
-          ...
+          写于20190422终于，在想了很久之后，把博客搭起来了。虽然搭建的时候没添加一些花里胡哨的东西，但还是折腾了一两个小时。以前没写过多少东西，索性不论质量先把文章都扔上来吧。今天看了奈沙夜影师傅的CSDN博客，觉得像夜影师傅这样每天都坚持记下一点心得发布文章，对我来说还是有点难了。目前还没想好怎么维护这个小小的博客，先走一步看一步了。目前最要紧的事情大概是要复习操作系统/数据库/面向对象了，虽然Python第一个考试，但是考查课没什么需要慌的。还是觉得Python课比较水，不知道考试会不会考Django + vue那些东西……
+
+          
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2019/04/22/20190422/#more" rel="contents">
@@ -539,7 +566,8 @@
           Hello, world!
 本章以经典的hello world程序解释了在x86、x86-64、ARM、MIPS不同架构下不同编译环境产生的结果的差异
 
-x86MSVC201012345678910_main proc    push ebp    mov ebp, esp    push offs
+x86MSVC201012345678910_main proc    push ebp    mov ebp, esp    push offset $sg3830     ;对应字符串存储地址，笔记中没有记述全部的代码    call _printf    add esp, 4              ;将栈指针移出，4对应32位字节数    xor eax, eax    pop ebp    ret 0_main endp
+汇编语言
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -694,8 +722,11 @@ x86MSVC201012345678910_main proc    push ebp    mov ebp, esp    push offs
 
 x86123f:    mov eax, 123    ret
 ARM1234f proc    mov r0, #0x7b ; 123    bx lr    endp
-ARM中
-          ...
+ARM中，r0保存函数返回值，lr保存返回地址（区别于x86的函数栈），bx为跳转指令。
+MIPS12j $31li $2, 123     # 0x7b
+j为跳转，$31、$2表示寄存器，根据RISC的特性，赋值语句在转移指令之前执行，因此顺序颠倒。
+
+          
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2019/04/22/逆向工程权威指南读书笔记-2/#more" rel="contents">
@@ -853,7 +884,14 @@ x86
 x86-64
 ARM64
 ARM(属于RISC CPU)
-Thumb模式(指令为2字节大小)节省了传统ARM统一指令码长度为4字节的情况下占用空间较大的问题。需要注意Thumb不能封装所有ARM指令，传统
+Thumb模式(指令为2字节大小)节省了传统ARM统一指令码长度为4字节的情况下占用空间较大的问题。需要注意Thumb不能封装所有ARM指令，传统ARM的4字节模式可以和Thumb模式同时存在
+
+Thumb-2模式包含了2字节指令和4字节指令，但不是简单的Thumb与ARM的复合，而是一种独立运行模式，应用于iPod、iPhone、iPad应用程序，Xcode编译器默认使用此模式编译
+
+
+
+
+ARM指令集分三类，ARM、ARM64、Thumb
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1007,7 +1045,13 @@ Thumb模式(指令为2字节大小)节省了传统ARM统一指令码长度为4�
 因为之前已经有一定基础，所以假期的学习重点放在了补充基础知识上，顺便针对性地做了几道有代表性的题，每道题的知识点是很单一的栈溢出/格式化字符串/堆溢出，但是也不算简单到秒杀级别，因为会夹杂一些坑，并且出题人挖的坑一个不剩的全踩到了……
 
 一、基础知识
-这部分主要是放一些基础的做题前置知
+这部分主要是放一些基础的做题前置知识，以前学过的和新掌握的都放在一起了。
+
+1.汇编、栈溢出常见寄存器如图
+
+其中重点在于ESP、EBP。esp用于保存栈顶指针，ebp保存栈底（主要和栈帧联系在一起）。下面谈一个栈溢出的前置知识：栈帧
+
+栈帧实际上就是函数调用的记录。CPU没有多余的寄存器保存多个函数的返回地址，而一旦出现2个以上函
           ...
           <!--noindex-->
           <div class="post-button text-center">
