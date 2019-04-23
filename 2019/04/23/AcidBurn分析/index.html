@@ -94,7 +94,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="逆向工程,">
 
 
 
@@ -105,13 +105,22 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="学逆向的阿昆达">
-<meta property="og:url" content="http://yoursite.com/tags/入门/index.html">
+<meta name="description" content="AcidBurn的爆破、查找key的解法就不再记录了，十分基础。这篇主要记录程序的注册算法，即下图所示窗口。开始根据错误提示信息（如下图）搜索字符串，反查字符串调用。1234567890042FA3B | 8B 45 EC                 | mov eax,dword ptr ss:[ebp-14]           |0042FA3E | 0F B6 40 02">
+<meta name="keywords" content="逆向工程">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AcidBurn分析">
+<meta property="og:url" content="http://yoursite.com/2019/04/23/AcidBurn分析/index.html">
 <meta property="og:site_name" content="学逆向的阿昆达">
+<meta property="og:description" content="AcidBurn的爆破、查找key的解法就不再记录了，十分基础。这篇主要记录程序的注册算法，即下图所示窗口。开始根据错误提示信息（如下图）搜索字符串，反查字符串调用。1234567890042FA3B | 8B 45 EC                 | mov eax,dword ptr ss:[ebp-14]           |0042FA3E | 0F B6 40 02">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://yoursite.com/2019/04/23/AcidBurn分析/1.png">
+<meta property="og:image" content="http://yoursite.com/2019/04/23/AcidBurn分析/2.png">
+<meta property="og:image" content="http://yoursite.com/2019/04/23/AcidBurn分析/1.png">
+<meta property="og:updated_time" content="2019-04-23T13:21:00.362Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="学逆向的阿昆达">
+<meta name="twitter:title" content="AcidBurn分析">
+<meta name="twitter:description" content="AcidBurn的爆破、查找key的解法就不再记录了，十分基础。这篇主要记录程序的注册算法，即下图所示窗口。开始根据错误提示信息（如下图）搜索字符串，反查字符串调用。1234567890042FA3B | 8B 45 EC                 | mov eax,dword ptr ss:[ebp-14]           |0042FA3E | 0F B6 40 02">
+<meta name="twitter:image" content="http://yoursite.com/2019/04/23/AcidBurn分析/1.png">
 
 
 
@@ -141,13 +150,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/tags/入门/">
+  <link rel="canonical" href="http://yoursite.com/2019/04/23/AcidBurn分析/">
 
 
 
 
 
-  <title>标签: 入门 | 学逆向的阿昆达</title>
+  <title>AcidBurn分析 | 学逆向的阿昆达</title>
   
 
 
@@ -172,7 +181,7 @@
     
   
 
-  <div class="container sidebar-position-right ">
+  <div class="container sidebar-position-right page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -308,156 +317,174 @@
           <div id="content" class="content">
             
 
+  <div id="posts" class="posts-expand">
+    
+
+  
+
   
   
   
-  <div class="post-block tag">
-
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>入门<small>标签</small>
-        </h1>
-      </div>
-
-      
-        
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/23/AcidBurn分析/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Bwonsamdi">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="学逆向的阿昆达">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2019/04/22/逆向工程权威指南读书笔记-3/" itemprop="url">
-              
-                <span itemprop="name">逆向工程权威指南读书笔记-3</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">AcidBurn分析</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-04-22T15:03:55+08:00" content="2019-04-22">
-          04-22
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-23T20:04:03+08:00">
+                2019-04-23
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/玩安全/" itemprop="url" rel="index">
+                    <span itemprop="name">玩安全</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/04/22/逆向工程权威指南读书笔记-2/" itemprop="url">
-              
-                <span itemprop="name">逆向工程权威指南读书笔记-2</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-04-22T15:03:50+08:00" content="2019-04-22">
-          04-22
-        </time>
-      </div>
-
-    </header>
-  </article>
-
+      
 
       
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/04/22/逆向工程权威指南读书笔记-1/" itemprop="url">
-              
-                <span itemprop="name">逆向工程权威指南读书笔记-1</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-04-22T15:02:37+08:00" content="2019-04-22">
-          04-22
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/04/22/寒假任务笔记/" itemprop="url">
-              
-                <span itemprop="name">寒假任务笔记</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-04-22T14:51:34+08:00" content="2019-04-22">
-          04-22
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/04/22/JarvisOJ-pwn-0-4/" itemprop="url">
-              
-                <span itemprop="name">JarvisOJ-pwn-0~4题解</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-04-22T14:37:36+08:00" content="2019-04-22">
-          04-22
-        </time>
-      </div>
-
-    </header>
-  </article>
-
+        <p>AcidBurn的爆破、查找key的解法就不再记录了，十分基础。这篇主要记录程序的注册算法，即下图所示窗口。<br><img src="/2019/04/23/AcidBurn分析/1.png" alt="1.png"><br>开始根据错误提示信息（如下图）搜索字符串，反查字符串调用。<br><img src="/2019/04/23/AcidBurn分析/2.png" alt="2.png"><br><figure class="highlight x86asm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">0042FA3B | 8B <span class="number">45</span> EC                 | <span class="keyword">mov</span> <span class="built_in">eax</span>,<span class="built_in">dword</span> <span class="built_in">ptr</span> <span class="built_in">ss</span>:[<span class="built_in">ebp</span>-<span class="number">14</span>]           |</span><br><span class="line">0042FA3E | 0F B6 <span class="number">40</span> <span class="number">02</span>              | <span class="keyword">movzx</span> <span class="built_in">eax</span>,<span class="built_in">byte</span> <span class="built_in">ptr</span> <span class="built_in">ds</span>:[<span class="built_in">eax</span>+<span class="number">2</span>]           |</span><br><span class="line">0042FA42 | 6B C0 0E                 | <span class="keyword">imul</span> <span class="built_in">eax</span>,<span class="built_in">eax</span>,E                          |</span><br><span class="line">0042FA45 | <span class="number">03</span> F0                    | <span class="keyword">add</span> <span class="built_in">esi</span>,<span class="built_in">eax</span>                             |</span><br><span class="line">0042FA47 | <span class="number">89</span> <span class="number">35</span> <span class="number">58</span> <span class="number">17</span> <span class="number">43</span> <span class="number">00</span>        | <span class="keyword">mov</span> <span class="built_in">dword</span> <span class="built_in">ptr</span> <span class="built_in">ds</span>:[<span class="number">431758</span>],<span class="built_in">esi</span>           |</span><br><span class="line">0042FA4D | A1 6C <span class="number">17</span> <span class="number">43</span> <span class="number">00</span>           | <span class="keyword">mov</span> <span class="built_in">eax</span>,<span class="built_in">dword</span> <span class="built_in">ptr</span> <span class="built_in">ds</span>:[43176C]           |</span><br><span class="line">0042FA52 | E8 D9 6E FD FF           | <span class="keyword">call</span> 去除弹窗.<span class="number">406930</span>                        |</span><br><span class="line">0042FA57 | <span class="number">83</span> F8 <span class="number">04</span>                 | <span class="keyword">cmp</span> <span class="built_in">eax</span>,<span class="number">4</span>                               |</span><br><span class="line">0042FA5A | <span class="number">7D</span> <span class="number">1D</span>                    | <span class="keyword">jge</span> 去除弹窗.42FA79                         |</span><br></pre></td></tr></table></figure></p>
+<p>可以看到42fa57处将eax的值与4进行了比较，向上找，<figure class="highlight plain"><figcaption><span>406930```之后eax的值变成了6（输入为123456），猜测406930会计算出输入的name字符串长度，改变name为123456789，调试发现再次执行到42fa57时，eax变成了9，基本证实了关于406930的功能猜想。再回来看```cmp eax,4```和下一行的jge，联系jge跳到的部分的内容，得出这里和4比较的原因是检查name的长度是否小于四，小于四就不再计算序列号，直接提示错误。</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">```x86asm</span><br><span class="line">0042FA5C | 6A 00                    | push 0                                  |</span><br><span class="line">0042FA5E | B9 74 FB 42 00           | mov ecx,去除弹窗.42FB74                     | 42FB74:&quot;Try Again!&quot;</span><br><span class="line">0042FA63 | BA 80 FB 42 00           | mov edx,去除弹窗.42FB80                     | edx:&quot;|諦&quot;, 42FB80:&quot;Sorry , The serial is incorect !&quot;</span><br><span class="line">0042FA68 | A1 48 0A 43 00           | mov eax,dword ptr ds:[430A48]           |</span><br><span class="line">0042FA6D | 8B 00                    | mov eax,dword ptr ds:[eax]              |</span><br><span class="line">0042FA6F | E8 FC A6 FF FF           | call 去除弹窗.42A170                        |</span><br><span class="line">0042FA74 | E9 BE 00 00 00           | jmp 去除弹窗.42FB37                         |</span><br><span class="line">0042FA79 | 8D 55 F0                 | lea edx,dword ptr ss:[ebp-10]           | [ebp-10]:&quot;123456789&quot;</span><br><span class="line">0042FA7C | 8B 83 DC 01 00 00        | mov eax,dword ptr ds:[ebx+1DC]          | [ebx+1DC]:&quot;\\癇&quot;</span><br><span class="line">0042FA82 | E8 D1 AF FE FF           | call 去除弹窗.41AA58                        |</span><br><span class="line">0042FA87 | 8B 45 F0                 | mov eax,dword ptr ss:[ebp-10]           | [ebp-10]:&quot;123456789&quot;</span><br><span class="line">0042FA8A | 0F B6 00                 | movzx eax,byte ptr ds:[eax]             |</span><br><span class="line">0042FA8D | F7 2D 50 17 43 00        | imul dword ptr ds:[431750]              | 00431750:L&quot;)&quot;</span><br><span class="line">0042FA93 | A3 50 17 43 00           | mov dword ptr ds:[431750],eax           | 00431750:L&quot;)&quot;</span><br><span class="line">0042FA98 | A1 50 17 43 00           | mov eax,dword ptr ds:[431750]           | 00431750:L&quot;)&quot;</span><br><span class="line">0042FA9D | 01 05 50 17 43 00        | add dword ptr ds:[431750],eax           | 00431750:L&quot;)&quot;</span><br><span class="line">0042FAA3 | 8D 45 FC                 | lea eax,dword ptr ss:[ebp-4]            |</span><br><span class="line">0042FAA6 | BA AC FB 42 00           | mov edx,去除弹窗.42FBAC                     | edx:&quot;|諦&quot;, 42FBAC:&quot;CW&quot;�</span><br><span class="line">0042FAAB | E8 58 3C FD FF           | call 去除弹窗.403708                        |</span><br><span class="line">0042FAB0 | 8D 45 F8                 | lea eax,dword ptr ss:[ebp-8]            |</span><br><span class="line">0042FAB3 | BA B8 FB 42 00           | mov edx,去除弹窗.42FBB8                     | edx:&quot;|諦&quot;, 42FBB8:&quot;CRACKED&quot;</span><br><span class="line">0042FAB8 | E8 4B 3C FD FF           | call 去除弹窗.403708                        |</span><br></pre></td></tr></table></figure></p>
+<p>接着往下看，jge跳转到42fa79处，到42fa87处eax指向了name字符串，接着读取了name的第一个字符（注意是字符’1’，这里值为0x31），接着与<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">这里的403808实际上是拼接字符串的函数，以前把这个当作了加密序列号的主要函数，结果F7进去之后懵了，看了夜影师傅的博客才恍然大悟（[传送门](https://blog.csdn.net/whklhhhh/article/details/72700446)）。</span><br><span class="line"></span><br><span class="line">继续向下走，</span><br><span class="line">```x86asm</span><br><span class="line">0042FABD | FF 75 FC                 | push dword ptr ss:[ebp-4]               | [ebp-4]:&quot;CW&quot;</span><br><span class="line">0042FAC0 | 68 C8 FB 42 00           | push 去除弹窗.42FBC8                        | 42FBC8:L&quot;-&quot;</span><br><span class="line">0042FAC5 | 8D 55 E8                 | lea edx,dword ptr ss:[ebp-18]           |</span><br><span class="line">0042FAC8 | A1 50 17 43 00           | mov eax,dword ptr ds:[431750]           | eax:&quot;耕B&quot;==&amp;&quot;CRACKED&quot;</span><br><span class="line">0042FACD | E8 46 6C FD FF           | call 去除弹窗.406718                        |</span><br><span class="line">0042FAD2 | FF 75 E8                 | push dword ptr ss:[ebp-18]              |</span><br><span class="line">0042FAD5 | 68 C8 FB 42 00           | push 去除弹窗.42FBC8                        | 42FBC8:L&quot;-&quot;</span><br><span class="line">0042FADA | FF 75 F8                 | push dword ptr ss:[ebp-8]               | [ebp-8]:&quot;CRACKED&quot;</span><br><span class="line">0042FADD | 8D 45 F4                 | lea eax,dword ptr ss:[ebp-C]            |</span><br><span class="line">0042FAE0 | BA 05 00 00 00           | mov edx,5                               |</span><br><span class="line">0042FAE5 | E8 C2 3E FD FF           | call 去除弹窗.4039AC                        |</span><br><span class="line">0042FAEA | 8D 55 F0                 | lea edx,dword ptr ss:[ebp-10]           | [ebp-10]:&quot;123456789&quot;</span><br><span class="line">0042FAED | 8B 83 E0 01 00 00        | mov eax,dword ptr ds:[ebx+1E0]          | eax:&quot;耕B&quot;==&amp;&quot;CRACKED&quot;, [ebx+1E0]:&quot;\\癇&quot;=&amp;&quot;CRACKED&quot;</span><br><span class="line">0042FAF3 | E8 60 AF FE FF           | call 去除弹窗.41AA58                        |</span><br><span class="line">0042FAF8 | 8B 55 F0                 | mov edx,dword ptr ss:[ebp-10]           | [ebp-10]:&quot;123456789&quot;</span><br><span class="line">0042FAFB | 8B 45 F4                 | mov eax,dword ptr ss:[ebp-C]            |</span><br><span class="line">0042FAFE | E8 F9 3E FD FF           | call 去除弹窗.4039FC                        |</span><br><span class="line">0042FB03 | 75 1A                    | jne 去除弹窗.42FB1F                         |</span><br><span class="line">0042FB05 | 6A 00                    | push 0                                  |</span><br><span class="line">0042FB07 | B9 CC FB 42 00           | mov ecx,去除弹窗.42FBCC                     | 42FBCC:&quot;Congratz !!&quot;</span><br><span class="line">0042FB0C | BA D8 FB 42 00           | mov edx,去除弹窗.42FBD8                     | 42FBD8:&quot;Good job dude =)&quot;</span><br><span class="line">0042FB11 | A1 48 0A 43 00           | mov eax,dword ptr ds:[430A48]           | eax:&quot;耕B&quot;==&amp;&quot;CRACKED&quot;</span><br><span class="line">0042FB16 | 8B 00                    | mov eax,dword ptr ds:[eax]              | eax:&quot;耕B&quot;==&amp;&quot;CRACKED&quot;, [eax]:&quot;CRACKED&quot;&quot;CRACKED&quot;</span><br></pre></td></tr></table></figure></p>
+<p>到42fac8处，看到调用了<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">用python写了个小注册机</span><br><span class="line">```python</span><br><span class="line">s = input(&apos;程序中输入的name（长度大于等于4）：&apos;)</span><br><span class="line">print(&apos;生成的序列号为：CW-%d-CRACKED&apos; % (ord(s[0])*0x29*2) )</span><br></pre></td></tr></table></figure></p>
+<p>最后结果就是这样：<br><img src="/2019/04/23/AcidBurn分析/1.png" alt="3.png"></p>
+<p>最后再次膜夜影师傅，简单几句话就让我从一头雾水中走出来~</p>
 
       
     </div>
+    
+    
+    
 
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/逆向工程/" rel="tag"><i class="fa fa-tag"></i> 逆向工程</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/04/23/20190423/" rel="next" title="20190423">
+                <i class="fa fa-chevron-left"></i> 20190423
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -465,6 +492,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -503,7 +534,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -525,7 +556,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -691,6 +722,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
