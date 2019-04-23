@@ -105,18 +105,18 @@
 
 
 
-<meta name="description" content="Jarvis OJ PWN题wp（level0 - level4）level0 这题注意是x64的，开始做的时候把rbp当0x4h计算了…脑抽了  main函数反编译：12345int __cdecl main(int argc, const char **argv, const char **envp)&amp;#123;  write(1, &quot;Hello, World\n&quot;, 0xDuLL);  re">
+<meta name="description" content="level0 这题注意是x64的，开始做的时候把rbp当0x4h计算了…脑抽了  main函数反编译：12345int __cdecl main(int argc, const char **argv, const char **envp)&amp;#123;  write(1, &quot;Hello, World\n&quot;, 0xDuLL);  return vulnerable_function(1LL, &quot;He">
 <meta name="keywords" content="入门,ctf,pwn">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JarvisOJ-pwn-0~4题解">
 <meta property="og:url" content="http://yoursite.com/2019/04/22/JarvisOJ-pwn-0-4/index.html">
 <meta property="og:site_name" content="学逆向的阿昆达">
-<meta property="og:description" content="Jarvis OJ PWN题wp（level0 - level4）level0 这题注意是x64的，开始做的时候把rbp当0x4h计算了…脑抽了  main函数反编译：12345int __cdecl main(int argc, const char **argv, const char **envp)&amp;#123;  write(1, &quot;Hello, World\n&quot;, 0xDuLL);  re">
+<meta property="og:description" content="level0 这题注意是x64的，开始做的时候把rbp当0x4h计算了…脑抽了  main函数反编译：12345int __cdecl main(int argc, const char **argv, const char **envp)&amp;#123;  write(1, &quot;Hello, World\n&quot;, 0xDuLL);  return vulnerable_function(1LL, &quot;He">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-04-22T07:01:34.577Z">
+<meta property="og:updated_time" content="2019-04-23T12:01:21.132Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JarvisOJ-pwn-0~4题解">
-<meta name="twitter:description" content="Jarvis OJ PWN题wp（level0 - level4）level0 这题注意是x64的，开始做的时候把rbp当0x4h计算了…脑抽了  main函数反编译：12345int __cdecl main(int argc, const char **argv, const char **envp)&amp;#123;  write(1, &quot;Hello, World\n&quot;, 0xDuLL);  re">
+<meta name="twitter:description" content="level0 这题注意是x64的，开始做的时候把rbp当0x4h计算了…脑抽了  main函数反编译：12345int __cdecl main(int argc, const char **argv, const char **envp)&amp;#123;  write(1, &quot;Hello, World\n&quot;, 0xDuLL);  return vulnerable_function(1LL, &quot;He">
 
 
 
@@ -416,7 +416,7 @@
       
 
       
-        <h1 id="Jarvis-OJ-PWN题wp（level0-level4）"><a href="#Jarvis-OJ-PWN题wp（level0-level4）" class="headerlink" title="Jarvis OJ PWN题wp（level0 - level4）"></a>Jarvis OJ PWN题wp（level0 - level4）</h1><h2 id="level0"><a href="#level0" class="headerlink" title="level0"></a>level0</h2><blockquote>
+        <h2 id="level0"><a href="#level0" class="headerlink" title="level0"></a>level0</h2><blockquote>
 <p>这题注意是x64的，开始做的时候把rbp当0x4h计算了…脑抽了</p>
 </blockquote>
 <p><code>main</code>函数反编译：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> __<span class="function">cdecl <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">const</span> <span class="keyword">char</span> **argv, <span class="keyword">const</span> <span class="keyword">char</span> **envp)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  write(<span class="number">1</span>, <span class="string">"Hello, World\n"</span>, <span class="number">0xD</span>uLL);</span><br><span class="line">  <span class="keyword">return</span> vulnerable_function(<span class="number">1L</span>L, <span class="string">"Hello, World\n"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
@@ -621,7 +621,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Jarvis-OJ-PWN题wp（level0-level4）"><span class="nav-number">1.</span> <span class="nav-text">Jarvis OJ PWN题wp（level0 - level4）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#level0"><span class="nav-number">1.1.</span> <span class="nav-text">level0</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#level1"><span class="nav-number">1.2.</span> <span class="nav-text">level1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#level2"><span class="nav-number">1.3.</span> <span class="nav-text">level2</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#level3"><span class="nav-number">1.4.</span> <span class="nav-text">level3</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#level4"><span class="nav-number">1.5.</span> <span class="nav-text">level4</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#level0"><span class="nav-number">1.</span> <span class="nav-text">level0</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#level1"><span class="nav-number">2.</span> <span class="nav-text">level1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#level2"><span class="nav-number">3.</span> <span class="nav-text">level2</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#level3"><span class="nav-number">4.</span> <span class="nav-text">level3</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#level4"><span class="nav-number">5.</span> <span class="nav-text">level4</span></a></li></ol></div>
             
 
           </div>

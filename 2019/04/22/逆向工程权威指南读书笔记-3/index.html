@@ -105,18 +105,18 @@
 
 
 
-<meta name="description" content="Hello, world! 本章以经典的hello world程序解释了在x86、x86-64、ARM、MIPS不同架构下不同编译环境产生的结果的差异  x86MSVC201012345678910_main proc    push ebp    mov ebp, esp    push offset $sg3830     ;对应字符串存储地址，笔记中没有记述全部的代码    call _pr">
+<meta name="description" content="本章以经典的hello world程序解释了在x86、x86-64、ARM、MIPS不同架构下不同编译环境产生的结果的差异  x86MSVC201012345678910_main proc    push ebp    mov ebp, esp    push offset $sg3830     ;对应字符串存储地址，笔记中没有记述全部的代码    call _printf    add e">
 <meta name="keywords" content="逆向工程,入门,读书笔记">
 <meta property="og:type" content="article">
 <meta property="og:title" content="逆向工程权威指南读书笔记-3">
 <meta property="og:url" content="http://yoursite.com/2019/04/22/逆向工程权威指南读书笔记-3/index.html">
 <meta property="og:site_name" content="学逆向的阿昆达">
-<meta property="og:description" content="Hello, world! 本章以经典的hello world程序解释了在x86、x86-64、ARM、MIPS不同架构下不同编译环境产生的结果的差异  x86MSVC201012345678910_main proc    push ebp    mov ebp, esp    push offset $sg3830     ;对应字符串存储地址，笔记中没有记述全部的代码    call _pr">
+<meta property="og:description" content="本章以经典的hello world程序解释了在x86、x86-64、ARM、MIPS不同架构下不同编译环境产生的结果的差异  x86MSVC201012345678910_main proc    push ebp    mov ebp, esp    push offset $sg3830     ;对应字符串存储地址，笔记中没有记述全部的代码    call _printf    add e">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-04-22T07:04:38.134Z">
+<meta property="og:updated_time" content="2019-04-23T12:01:20.320Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="逆向工程权威指南读书笔记-3">
-<meta name="twitter:description" content="Hello, world! 本章以经典的hello world程序解释了在x86、x86-64、ARM、MIPS不同架构下不同编译环境产生的结果的差异  x86MSVC201012345678910_main proc    push ebp    mov ebp, esp    push offset $sg3830     ;对应字符串存储地址，笔记中没有记述全部的代码    call _pr">
+<meta name="twitter:description" content="本章以经典的hello world程序解释了在x86、x86-64、ARM、MIPS不同架构下不同编译环境产生的结果的差异  x86MSVC201012345678910_main proc    push ebp    mov ebp, esp    push offset $sg3830     ;对应字符串存储地址，笔记中没有记述全部的代码    call _printf    add e">
 
 
 
@@ -416,7 +416,7 @@
       
 
       
-        <h1 id="Hello-world"><a href="#Hello-world" class="headerlink" title="Hello, world!"></a>Hello, world!</h1><blockquote>
+        <blockquote>
 <p>本章以经典的hello world程序解释了在x86、x86-64、ARM、MIPS不同架构下不同编译环境产生的结果的差异</p>
 </blockquote>
 <h2 id="x86"><a href="#x86" class="headerlink" title="x86"></a>x86</h2><h4 id="MSVC2010"><a href="#MSVC2010" class="headerlink" title="MSVC2010"></a>MSVC2010</h4><figure class="highlight x86asm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">_main proc</span><br><span class="line">    <span class="keyword">push</span> <span class="built_in">ebp</span></span><br><span class="line">    <span class="keyword">mov</span> <span class="built_in">ebp</span>, <span class="built_in">esp</span></span><br><span class="line">    <span class="keyword">push</span> offset $sg3830     <span class="comment">;对应字符串存储地址，笔记中没有记述全部的代码</span></span><br><span class="line">    <span class="keyword">call</span> _printf</span><br><span class="line">    <span class="keyword">add</span> <span class="built_in">esp</span>, <span class="number">4</span>              <span class="comment">;将栈指针移出，4对应32位字节数</span></span><br><span class="line">    <span class="keyword">xor</span> <span class="built_in">eax</span>, <span class="built_in">eax</span></span><br><span class="line">    <span class="keyword">pop</span> <span class="built_in">ebp</span></span><br><span class="line">    <span class="keyword">ret</span> <span class="number">0</span></span><br><span class="line">_main endp</span><br></pre></td></tr></table></figure>
@@ -633,7 +633,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Hello-world"><span class="nav-number">1.</span> <span class="nav-text">Hello, world!</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#x86"><span class="nav-number">1.1.</span> <span class="nav-text">x86</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#MSVC2010"><span class="nav-number">1.1.0.1.</span> <span class="nav-text">MSVC2010</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#GCC-4-4-1"><span class="nav-number">1.1.0.2.</span> <span class="nav-text">GCC 4.4.1</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#GCC-4-7-3-AT-amp-T（常见于UNIX）"><span class="nav-number">1.1.0.3.</span> <span class="nav-text">GCC 4.7.3: AT&amp;T（常见于UNIX）</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#x86-64"><span class="nav-number">1.2.</span> <span class="nav-text">x86-64</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#MSVC-2012-x64"><span class="nav-number">1.2.0.1.</span> <span class="nav-text">MSVC 2012 x64</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#GCC-4-4-6-X64"><span class="nav-number">1.2.0.2.</span> <span class="nav-text">GCC 4.4.6 X64</span></a></li></ol></li></ol><li class="nav-item nav-level-2"><a class="nav-link" href="#ARM"><span class="nav-number">1.3.</span> <span class="nav-text">ARM</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Keli-6-2013-ARM模式"><span class="nav-number">1.3.0.1.</span> <span class="nav-text">Keli 6/2013 ARM模式</span></a></li></ol></li></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#x86"><span class="nav-number">1.</span> <span class="nav-text">x86</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#MSVC2010"><span class="nav-number">1.0.1.</span> <span class="nav-text">MSVC2010</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#GCC-4-4-1"><span class="nav-number">1.0.2.</span> <span class="nav-text">GCC 4.4.1</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#GCC-4-7-3-AT-amp-T（常见于UNIX）"><span class="nav-number">1.0.3.</span> <span class="nav-text">GCC 4.7.3: AT&amp;T（常见于UNIX）</span></a></li></ol></li></ol><li class="nav-item nav-level-2"><a class="nav-link" href="#x86-64"><span class="nav-number">2.</span> <span class="nav-text">x86-64</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#MSVC-2012-x64"><span class="nav-number">2.0.1.</span> <span class="nav-text">MSVC 2012 x64</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#GCC-4-4-6-X64"><span class="nav-number">2.0.2.</span> <span class="nav-text">GCC 4.4.6 X64</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ARM"><span class="nav-number">3.</span> <span class="nav-text">ARM</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Keli-6-2013-ARM模式"><span class="nav-number">3.0.1.</span> <span class="nav-text">Keli 6/2013 ARM模式</span></a></li></ol></li></div>
             
 
           </div>

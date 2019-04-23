@@ -418,7 +418,7 @@
         
         
           
-          寒假任务提交
+          
 因为之前已经有一定基础，所以假期的学习重点放在了补充基础知识上，顺便针对性地做了几道有代表性的题，每道题的知识点是很单一的栈溢出/格式化字符串/堆溢出，但是也不算简单到秒杀级别，因为会夹杂一些坑，并且出题人挖的坑一个不剩的全踩到了……
 
 一、基础知识
@@ -428,7 +428,7 @@
 
 其中重点在于ESP、EBP。esp用于保存栈顶指针，ebp保存栈底（主要和栈帧联系在一起）。下面谈一个栈溢出的前置知识：栈帧
 
-栈帧实际上就是函数调用的记录。CPU没有多余的寄存器保存多个函数的返回地址，而一旦出现2个以上函
+栈帧实际上就是函数调用的记录。CPU没有多余的寄存器保存多个函数的返回地址，而一旦出现2个以上函数的嵌套调用
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -578,11 +578,11 @@
         
         
           
-          Jarvis OJ PWN题wp（level0 - level4）level0
+          level0
 这题注意是x64的，开始做的时候把rbp当0x4h计算了…脑抽了
 
 main函数反编译：12345int __cdecl main(int argc, const char **argv, const char **envp)&#123;  write(1, "Hello, World\n", 0xDuLL);  return vulnerable_function(1LL, "Hello, World\n");&#125;
-vulnerable_function函数反编译：123456ssize_t vulner
+vulnerable_function函数反编译：123456ssize_t vulnerable_function()&#123;  char buf; 
           ...
           <!--noindex-->
           <div class="post-button text-center">
