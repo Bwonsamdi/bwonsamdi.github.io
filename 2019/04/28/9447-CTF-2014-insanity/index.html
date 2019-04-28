@@ -113,7 +113,7 @@
 <meta property="og:site_name" content="学逆向的阿昆达">
 <meta property="og:description" content="一道假的题，运行随机暂停一段时间，之后打印flag…… 这道题太简单，按理说不应该单发的，但是有点小强迫症，要把攻防世界逆向的每道题都单发出来。 12345678910111213int __cdecl main(int argc, const char **argv, const char **envp)&amp;#123;  unsigned int v3; // eax  unsigned int">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-04-28T10:41:13.405Z">
+<meta property="og:updated_time" content="2019-04-28T12:12:45.711Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="9447 CTF 2014 insanity">
 <meta name="twitter:description" content="一道假的题，运行随机暂停一段时间，之后打印flag…… 这道题太简单，按理说不应该单发的，但是有点小强迫症，要把攻防世界逆向的每道题都单发出来。 12345678910111213int __cdecl main(int argc, const char **argv, const char **envp)&amp;#123;  unsigned int v3; // eax  unsigned int">
@@ -416,7 +416,7 @@
       
 
       
-        <p><a href="9447-CTF-2014-insanity/insanity">一道假的题</a>，运行随机暂停一段时间，之后打印flag……</p>
+        <p><a href="insanity">一道假的题</a>，运行随机暂停一段时间，之后打印flag……</p>
 <p>这道题太简单，按理说不应该单发的，但是有点小强迫症，要把攻防世界逆向的每道题都单发出来。</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> __<span class="function">cdecl <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">const</span> <span class="keyword">char</span> **argv, <span class="keyword">const</span> <span class="keyword">char</span> **envp)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="keyword">unsigned</span> <span class="keyword">int</span> v3; <span class="comment">// eax</span></span><br><span class="line">  <span class="keyword">unsigned</span> <span class="keyword">int</span> v4; <span class="comment">// eax</span></span><br><span class="line"></span><br><span class="line">  <span class="built_in">puts</span>(<span class="string">"Reticulating splines, please wait.."</span>);</span><br><span class="line">  sleep(<span class="number">5u</span>);</span><br><span class="line">  v3 = time(<span class="number">0</span>);</span><br><span class="line">  srand(v3);</span><br><span class="line">  v4 = rand();</span><br><span class="line">  <span class="built_in">puts</span>((&amp;strs)[v4 % <span class="number">0xA</span>]);</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><del>双击666</del>双击&amp;strs直接出。<del>或者运行随缘出。</del></p>
