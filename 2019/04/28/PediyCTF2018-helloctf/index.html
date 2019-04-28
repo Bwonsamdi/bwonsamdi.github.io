@@ -94,7 +94,7 @@
 
 
 
-  <meta name="keywords" content="逆向工程,读书笔记,">
+  <meta name="keywords" content="逆向工程,">
 
 
 
@@ -105,18 +105,18 @@
 
 
 
-<meta name="description" content="最简函数 本章以一个函数int f(){return 123;}在不同指令集下的编译结果，简单描述了指令集间的差异。  x86123f:    mov eax, 123    ret ARM1234f proc    mov r0, #0x7b ; 123    bx lr    endp ARM中，r0保存函数返回值，lr保存返回地址（区别于x86的函数栈），bx为跳转指令。 MIPS12j $">
-<meta name="keywords" content="逆向工程,读书笔记">
+<meta name="description" content="这道题提示是flag不是明文比较的，意味着shift+f12不能立刻出flag了23333。目前的几道题我都省略了查壳（因为新手入门题要么没壳，要么直接工具脱。逆向的大概流程应该是先查壳脱壳再静态分析最后动态调试吧。  IDA查看: 1234567891011121314151617181920212223242526272829303132333435363738394041424344454">
+<meta name="keywords" content="逆向工程">
 <meta property="og:type" content="article">
-<meta property="og:title" content="逆向工程权威指南读书笔记-2">
-<meta property="og:url" content="http://yoursite.com/2019/04/22/逆向工程权威指南读书笔记-2/index.html">
+<meta property="og:title" content="PediyCTF2018 helloctf">
+<meta property="og:url" content="http://yoursite.com/2019/04/28/PediyCTF2018-helloctf/index.html">
 <meta property="og:site_name" content="学逆向的阿昆达">
-<meta property="og:description" content="最简函数 本章以一个函数int f(){return 123;}在不同指令集下的编译结果，简单描述了指令集间的差异。  x86123f:    mov eax, 123    ret ARM1234f proc    mov r0, #0x7b ; 123    bx lr    endp ARM中，r0保存函数返回值，lr保存返回地址（区别于x86的函数栈），bx为跳转指令。 MIPS12j $">
+<meta property="og:description" content="这道题提示是flag不是明文比较的，意味着shift+f12不能立刻出flag了23333。目前的几道题我都省略了查壳（因为新手入门题要么没壳，要么直接工具脱。逆向的大概流程应该是先查壳脱壳再静态分析最后动态调试吧。  IDA查看: 1234567891011121314151617181920212223242526272829303132333435363738394041424344454">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-04-28T05:38:55.600Z">
+<meta property="og:updated_time" content="2019-04-28T05:38:32.030Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="逆向工程权威指南读书笔记-2">
-<meta name="twitter:description" content="最简函数 本章以一个函数int f(){return 123;}在不同指令集下的编译结果，简单描述了指令集间的差异。  x86123f:    mov eax, 123    ret ARM1234f proc    mov r0, #0x7b ; 123    bx lr    endp ARM中，r0保存函数返回值，lr保存返回地址（区别于x86的函数栈），bx为跳转指令。 MIPS12j $">
+<meta name="twitter:title" content="PediyCTF2018 helloctf">
+<meta name="twitter:description" content="这道题提示是flag不是明文比较的，意味着shift+f12不能立刻出flag了23333。目前的几道题我都省略了查壳（因为新手入门题要么没壳，要么直接工具脱。逆向的大概流程应该是先查壳脱壳再静态分析最后动态调试吧。  IDA查看: 1234567891011121314151617181920212223242526272829303132333435363738394041424344454">
 
 
 
@@ -146,13 +146,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/04/22/逆向工程权威指南读书笔记-2/">
+  <link rel="canonical" href="http://yoursite.com/2019/04/28/PediyCTF2018-helloctf/">
 
 
 
 
 
-  <title>逆向工程权威指南读书笔记-2 | 学逆向的阿昆达</title>
+  <title>PediyCTF2018 helloctf | 学逆向的阿昆达</title>
   
 
 
@@ -327,7 +327,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/22/逆向工程权威指南读书笔记-2/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/28/PediyCTF2018-helloctf/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Bwonsamdi">
@@ -344,7 +344,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">逆向工程权威指南读书笔记-2</h1>
+          <h1 class="post-title" itemprop="name headline">PediyCTF2018 helloctf</h1>
         
 
         <div class="post-meta">
@@ -356,8 +356,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-22T15:03:50+08:00">
-                2019-04-22
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-28T11:55:35+08:00">
+                2019-04-28
               </time>
             
 
@@ -379,8 +379,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/笔记/" itemprop="url" rel="index">
-                    <span itemprop="name">笔记</span>
+                  <a href="/categories/玩安全/" itemprop="url" rel="index">
+                    <span itemprop="name">玩安全</span>
                   </a>
                 </span>
 
@@ -416,15 +416,13 @@
       
 
       
-        <h1 id="最简函数"><a href="#最简函数" class="headerlink" title="最简函数"></a>最简函数</h1><blockquote>
-<p>本章以一个函数<code>int f(){return 123;}</code>在不同指令集下的编译结果，简单描述了指令集间的差异。</p>
+        <blockquote>
+<p>这道题提示是flag不是明文比较的，意味着shift+f12不能立刻出flag了23333。<br>目前的几道题我都省略了查壳（因为新手入门题要么没壳，要么直接工具脱。<br>逆向的大概流程应该是先查壳脱壳再静态分析最后动态调试吧。</p>
 </blockquote>
-<h2 id="x86"><a href="#x86" class="headerlink" title="x86"></a>x86</h2><figure class="highlight x86asm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">f:</span></span><br><span class="line">    <span class="keyword">mov</span> <span class="built_in">eax</span>, <span class="number">123</span></span><br><span class="line">    <span class="keyword">ret</span></span><br></pre></td></tr></table></figure>
-<h2 id="ARM"><a href="#ARM" class="headerlink" title="ARM"></a>ARM</h2><figure class="highlight arm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">f <span class="meta">proc</span></span><br><span class="line">    <span class="keyword">mov </span><span class="built_in">r0</span>, <span class="number">#0x7b</span> <span class="comment">; 123</span></span><br><span class="line">    <span class="keyword">bx </span><span class="built_in">lr</span></span><br><span class="line">    <span class="meta">endp</span></span><br></pre></td></tr></table></figure>
-<p>ARM中，r0保存函数返回值，lr保存返回地址（区别于x86的函数栈），bx为跳转指令。</p>
-<h2 id="MIPS"><a href="#MIPS" class="headerlink" title="MIPS"></a>MIPS</h2><figure class="highlight mips"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">j </span>$<span class="number">31</span></span><br><span class="line">li $<span class="number">2</span>, <span class="number">123</span>     <span class="comment"># 0x7b</span></span><br></pre></td></tr></table></figure>
-<p>j为跳转，$31、$2表示寄存器，根据RISC的特性，赋值语句在转移指令之前执行，因此顺序颠倒。</p>
-
+<p>IDA查看:</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> __<span class="function">cdecl <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">const</span> <span class="keyword">char</span> **argv, <span class="keyword">const</span> <span class="keyword">char</span> **envp)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="keyword">signed</span> <span class="keyword">int</span> v3; <span class="comment">// ebx</span></span><br><span class="line">  <span class="keyword">char</span> v4; <span class="comment">// al</span></span><br><span class="line">  <span class="keyword">int</span> result; <span class="comment">// eax</span></span><br><span class="line">  <span class="keyword">int</span> v6; <span class="comment">// [esp+0h] [ebp-70h]</span></span><br><span class="line">  <span class="keyword">int</span> v7; <span class="comment">// [esp+0h] [ebp-70h]</span></span><br><span class="line">  <span class="keyword">char</span> v8; <span class="comment">// [esp+12h] [ebp-5Eh]</span></span><br><span class="line">  <span class="keyword">char</span> v9[<span class="number">20</span>]; <span class="comment">// [esp+14h] [ebp-5Ch]</span></span><br><span class="line">  <span class="keyword">char</span> v10; <span class="comment">// [esp+28h] [ebp-48h]</span></span><br><span class="line">  __int16 v11; <span class="comment">// [esp+48h] [ebp-28h]</span></span><br><span class="line">  <span class="keyword">char</span> v12; <span class="comment">// [esp+4Ah] [ebp-26h]</span></span><br><span class="line">  <span class="keyword">char</span> v13; <span class="comment">// [esp+4Ch] [ebp-24h]</span></span><br><span class="line"></span><br><span class="line">  <span class="built_in">strcpy</span>(&amp;v13, <span class="string">"437261636b4d654a757374466f7246756e"</span>);</span><br><span class="line">  <span class="keyword">while</span> ( <span class="number">1</span> )</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="built_in">memset</span>(&amp;v10, <span class="number">0</span>, <span class="number">0x20</span>u);</span><br><span class="line">    v11 = <span class="number">0</span>;</span><br><span class="line">    v12 = <span class="number">0</span>;</span><br><span class="line">    print(aPleaseInputYou, v6);</span><br><span class="line">    <span class="built_in">scanf</span>(aS, v9);</span><br><span class="line">    <span class="keyword">if</span> ( <span class="built_in">strlen</span>(v9) &gt; <span class="number">0x11</span> )</span><br><span class="line">      <span class="keyword">break</span>;</span><br><span class="line">    v3 = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">do</span></span><br><span class="line">    &#123;</span><br><span class="line">      v4 = v9[v3];</span><br><span class="line">      <span class="keyword">if</span> ( !v4 )</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">      <span class="built_in">sprintf</span>(&amp;v8, asc_408044, v4);</span><br><span class="line">      <span class="built_in">strcat</span>(&amp;v10, &amp;v8);</span><br><span class="line">      ++v3;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span> ( v3 &lt; <span class="number">17</span> );</span><br><span class="line">    <span class="keyword">if</span> ( !<span class="built_in">strcmp</span>(&amp;v10, &amp;v13) )</span><br><span class="line">      print(aSuccess, v7);</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">      print(aWrong, v7);</span><br><span class="line">  &#125;</span><br><span class="line">  print(aWrong, v7);</span><br><span class="line">  result = stru_408090._cnt-- - <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">if</span> ( stru_408090._cnt &lt; <span class="number">0</span> )</span><br><span class="line">    <span class="keyword">return</span> _filbuf(&amp;stru_408090);</span><br><span class="line">  ++stru_408090._ptr;</span><br><span class="line">  <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>可以推测出，flag长度为17，在while(1)内部的do-while中，程序逐个取出输入字符串的字符，格式化处理后存入v10，最后比较v10和v13，v13在上面已经赋值为437261636b4d654a757374466f7246756e，格式化处理的sprintf中，格式化参数为%x，即转换为十六进制，所以flag是按十六进制存储的，只要把v13转化回来就可以了。</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a=[<span class="number">0x43</span>,<span class="number">0x72</span>,<span class="number">0x61</span>,<span class="number">0x63</span>,<span class="number">0x6b</span>,<span class="number">0x4d</span>,<span class="number">0x65</span>,<span class="number">0x4a</span>,<span class="number">0x75</span>,<span class="number">0x73</span>,<span class="number">0x74</span>,<span class="number">0x46</span>,<span class="number">0x6f</span>,<span class="number">0x72</span>,<span class="number">0x46</span>,<span class="number">0x75</span>,<span class="number">0x6e</span>]</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> a:</span><br><span class="line">    print(chr(i),end=<span class="string">''</span>)</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -443,8 +441,6 @@
           
             <a href="/tags/逆向工程/" rel="tag"><i class="fa fa-tag"></i> 逆向工程</a>
           
-            <a href="/tags/读书笔记/" rel="tag"><i class="fa fa-tag"></i> 读书笔记</a>
-          
         </div>
       
 
@@ -456,8 +452,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/04/22/逆向工程权威指南读书笔记-1/" rel="next" title="逆向工程权威指南读书笔记-1">
-                <i class="fa fa-chevron-left"></i> 逆向工程权威指南读书笔记-1
+              <a href="/2019/04/28/ZSCTF-game/" rel="next" title="ZSCTF game">
+                <i class="fa fa-chevron-left"></i> ZSCTF game
               </a>
             
           </div>
@@ -465,10 +461,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/04/22/逆向工程权威指南读书笔记-3/" rel="prev" title="逆向工程权威指南读书笔记-3">
-                逆向工程权威指南读书笔记-3 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -520,17 +512,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -592,22 +575,6 @@
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#最简函数"><span class="nav-number">1.</span> <span class="nav-text">最简函数</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#x86"><span class="nav-number">1.1.</span> <span class="nav-text">x86</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ARM"><span class="nav-number">1.2.</span> <span class="nav-text">ARM</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MIPS"><span class="nav-number">1.3.</span> <span class="nav-text">MIPS</span></a></li></ol></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
