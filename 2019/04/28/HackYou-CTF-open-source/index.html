@@ -113,7 +113,7 @@
 <meta property="og:site_name" content="学逆向的阿昆达">
 <meta property="og:description" content="这道题给出了源码，不过就算不给我也会自觉F5的🙄。为了凑文章字数，把源码粘到了下面2333。  12345678910111213141516171819202122232425262728293031323334#include &amp;lt;stdio.h&amp;gt;#include &amp;lt;string.h&amp;gt;int main(int argc, char *argv[]) &amp;#123;">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-04-28T06:14:29.446Z">
+<meta property="og:updated_time" content="2019-04-28T10:19:08.414Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="HackYou CTF open-source">
 <meta name="twitter:description" content="这道题给出了源码，不过就算不给我也会自觉F5的🙄。为了凑文章字数，把源码粘到了下面2333。  12345678910111213141516171819202122232425262728293031323334#include &amp;lt;stdio.h&amp;gt;#include &amp;lt;string.h&amp;gt;int main(int argc, char *argv[]) &amp;#123;">
@@ -417,7 +417,7 @@
 
       
         <blockquote>
-<p><a href="code.c">这道题</a>给出了源码，不过就算不给我也会自觉F5的🙄。<br>为了凑文章字数，把源码粘到了下面2333。</p>
+<p><a href="HackYou-CTF-open-source/code.c">这道题</a>给出了源码，不过就算不给我也会自觉F5的🙄。<br>为了凑文章字数，把源码粘到了下面2333。</p>
 </blockquote>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> *argv[])</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (argc != <span class="number">4</span>) &#123;</span><br><span class="line">    	<span class="built_in">printf</span>(<span class="string">"what?\n"</span>);</span><br><span class="line">    	<span class="built_in">exit</span>(<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">int</span> first = atoi(argv[<span class="number">1</span>]);</span><br><span class="line">    <span class="keyword">if</span> (first != <span class="number">0xcafe</span>) &#123;</span><br><span class="line">    	<span class="built_in">printf</span>(<span class="string">"you are wrong, sorry.\n"</span>);</span><br><span class="line">    	<span class="built_in">exit</span>(<span class="number">2</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">int</span> second = atoi(argv[<span class="number">2</span>]);</span><br><span class="line">    <span class="keyword">if</span> (second % <span class="number">5</span> == <span class="number">3</span> || second % <span class="number">17</span> != <span class="number">8</span>) &#123;</span><br><span class="line">    	<span class="built_in">printf</span>(<span class="string">"ha, you won't get it!\n"</span>);</span><br><span class="line">    	<span class="built_in">exit</span>(<span class="number">3</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">strcmp</span>(<span class="string">"h4cky0u"</span>, argv[<span class="number">3</span>])) &#123;</span><br><span class="line">    	<span class="built_in">printf</span>(<span class="string">"so close, dude!\n"</span>);</span><br><span class="line">    	<span class="built_in">exit</span>(<span class="number">4</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"Brr wrrr grr\n"</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">int</span> hash = first * <span class="number">31337</span> + (second % <span class="number">17</span>) * <span class="number">11</span> + <span class="built_in">strlen</span>(argv[<span class="number">3</span>]) - <span class="number">1615810207</span>;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"Get your key: "</span>);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%x\n"</span>, hash);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>这个既然给了代码就没什么说的，直接看就好了。</p>
@@ -472,6 +472,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/04/28/simple-unpack/" rel="prev" title="simple-unpack">
+                simple-unpack <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -541,7 +545,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-count">21</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -563,7 +567,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
