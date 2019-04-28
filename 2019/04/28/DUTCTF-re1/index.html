@@ -94,7 +94,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="逆向工程,">
 
 
 
@@ -105,16 +105,18 @@
 
 
 
-<meta name="description" content="一只兴趣使然的逆向菜鸡。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="学逆向的阿昆达">
-<meta property="og:url" content="http://yoursite.com/page/2/index.html">
+<meta name="description" content="把以前做过的攻防世界上的题整理一下。题目文件也一并上传了。做逆向没什么经验，所以有些思路上的混乱还请指出（评论功能待施工）。  IDA看一下： 12345678910111213141516171819202122232425262728293031323334353637383940.text:00401000                 push    ebp.text:00401001">
+<meta name="keywords" content="逆向工程">
+<meta property="og:type" content="article">
+<meta property="og:title" content="DUTCTF re1">
+<meta property="og:url" content="http://yoursite.com/2019/04/28/DUTCTF-re1/index.html">
 <meta property="og:site_name" content="学逆向的阿昆达">
-<meta property="og:description" content="一只兴趣使然的逆向菜鸡。">
+<meta property="og:description" content="把以前做过的攻防世界上的题整理一下。题目文件也一并上传了。做逆向没什么经验，所以有些思路上的混乱还请指出（评论功能待施工）。  IDA看一下： 12345678910111213141516171819202122232425262728293031323334353637383940.text:00401000                 push    ebp.text:00401001">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-04-28T02:31:48.249Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="学逆向的阿昆达">
-<meta name="twitter:description" content="一只兴趣使然的逆向菜鸡。">
+<meta name="twitter:title" content="DUTCTF re1">
+<meta name="twitter:description" content="把以前做过的攻防世界上的题整理一下。题目文件也一并上传了。做逆向没什么经验，所以有些思路上的混乱还请指出（评论功能待施工）。  IDA看一下： 12345678910111213141516171819202122232425262728293031323334353637383940.text:00401000                 push    ebp.text:00401001">
 
 
 
@@ -144,13 +146,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/page/2/">
+  <link rel="canonical" href="http://yoursite.com/2019/04/28/DUTCTF-re1/">
 
 
 
 
 
-  <title>学逆向的阿昆达</title>
+  <title>DUTCTF re1 | 学逆向的阿昆达</title>
   
 
 
@@ -175,8 +177,7 @@
     
   
 
-  <div class="container sidebar-position-right 
-  page-home">
+  <div class="container sidebar-position-right page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -311,9 +312,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -326,7 +327,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/26/20190425/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/28/DUTCTF-re1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Bwonsamdi">
@@ -343,9 +344,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/04/26/20190425/" itemprop="url">20190425</a></h1>
+          <h1 class="post-title" itemprop="name headline">DUTCTF re1</h1>
         
 
         <div class="post-meta">
@@ -357,321 +356,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-26T16:02:47+08:00">
-                2019-04-26
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/生活/" itemprop="url" rel="index">
-                    <span itemprop="name">生活</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-      
-        
-        
-          
-          昨天看权游忘记写，今天补上。看了密码学书的第一章，学习了凯撒密码和仿射加密，读书笔记还没有写，等着之后补上。还看了自我修养前两章，虽然第一章属于基础知识的部分，但是看了第一章居然把这学期操作系统没太学明白的内容看明白了2333，确实是一本好书。整理一下欠账，以及需要长期进行的事项：
-
-第五空间任务发布及验收打分
-韩语
-哨笛
-七月前把自我修养刷一遍
-买一本CSAPP，暑期实习前刷一遍
-把第五空间的任务发布改到博客上（引流233
-操作系统实验…
-一周三道左右（最少一道）逆向题，做题量实在太少了
-整理出更多的欠账……
-
-
-          
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/04/26/20190425/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/24/20190424/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Bwonsamdi">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="学逆向的阿昆达">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/04/24/20190424/" itemprop="url">20190424</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-24T22:24:53+08:00">
-                2019-04-24
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/生活/" itemprop="url" rel="index">
-                    <span itemprop="name">生活</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-      
-        
-        
-          
-          听了个考研讲座，本来以为九点回来还能学点东西，结果讲了两小时送了一小时，学习计划取消……今天新开了运筹学的课，这个课主要是讲一些规划的算法，以及数学模型的建模方面的知识，感觉听听很有好处。程序员的自我修养、龙书、深入浅出密码学到货，看了自我修养的前两章，周末有时间记一下笔记~讲座上说本部的复试考CSAPP，看来还是要剁手买CSAPP了，虽然手上有一本英文版，但是根本没时间翻译啊……英语阅读起来比中文慢太多了。
-
-          
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/04/24/20190424/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/23/AcidBurn分析/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Bwonsamdi">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="学逆向的阿昆达">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/04/23/AcidBurn分析/" itemprop="url">AcidBurn分析</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-23T20:04:03+08:00">
-                2019-04-23
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-28T10:00:59+08:00">
+                2019-04-28
               </time>
             
 
@@ -730,21 +416,16 @@
       
 
       
-      
-        
-        
-          
-          AcidBurn的爆破、查找key的解法就不再记录了，十分基础。这篇主要记录程序的注册算法，即下图所示窗口。开始根据错误提示信息（如下图）搜索字符串，反查字符串调用。
-1234567890042FA3B | 8B 45 EC                 | mov eax,dword ptr ss:[ebp-14]           |0042FA3E | 0F B6 40 02              | movzx eax,byte ptr ds:[eax+2]           |0042FA42 | 6B C0 0E                 | imul eax,ea
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/04/23/AcidBurn分析/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
+        <blockquote>
+<p>把以前做过的<a href="https://adworld.xctf.org.cn/" target="_blank" rel="noopener">攻防世界</a>上的题整理一下。<br><a href="re1.exe">题目文件也一并上传了。</a><br>做逆向没什么经验，所以有些思路上的混乱还请指出（评论功能待施工）。</p>
+</blockquote>
+<p>IDA看一下：</p>
+<figure class="highlight x86asm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">.text:</span><span class="number">00401000</span>                 <span class="keyword">push</span>    <span class="built_in">ebp</span></span><br><span class="line"><span class="symbol">.text:</span><span class="number">00401001</span>                 <span class="keyword">mov</span>     <span class="built_in">ebp</span>, <span class="built_in">esp</span></span><br><span class="line"><span class="symbol">.text:</span><span class="number">00401003</span>                 <span class="keyword">sub</span>     <span class="built_in">esp</span>, <span class="number">44h</span></span><br><span class="line"><span class="symbol">.text:</span><span class="number">00401006</span>                 <span class="keyword">mov</span>     <span class="built_in">eax</span>, <span class="built_in">dword</span> <span class="built_in">ptr</span> ___security_cookie</span><br><span class="line"><span class="symbol">.text:</span>0040100B                 <span class="keyword">xor</span>     <span class="built_in">eax</span>, <span class="built_in">ebp</span></span><br><span class="line"><span class="symbol">.text:</span><span class="number">0040100D</span>                 <span class="keyword">mov</span>     [<span class="built_in">ebp</span>+var_4], <span class="built_in">eax</span></span><br><span class="line"><span class="symbol">.text:</span><span class="number">00401010</span>                 <span class="keyword">movdqu</span>  <span class="built_in">xmm0</span>, <span class="built_in">ds</span>:xmmword_413E34</span><br><span class="line"><span class="symbol">.text:</span><span class="number">00401018</span>                 <span class="keyword">xor</span>     <span class="built_in">eax</span>, <span class="built_in">eax</span></span><br><span class="line"><span class="symbol">.text:</span>0040101A                 <span class="keyword">push</span>    offset aDutctf  <span class="comment">; "欢迎来到DUTCTF呦\n"</span></span><br><span class="line"><span class="symbol">.text:</span>0040101F                 <span class="keyword">movdqu</span>  [<span class="built_in">ebp</span>+var_44], <span class="built_in">xmm0</span></span><br><span class="line"><span class="symbol">.text:</span><span class="number">00401024</span>                 <span class="keyword">mov</span>     [<span class="built_in">ebp</span>+var_2C], <span class="built_in">eax</span></span><br><span class="line"><span class="symbol">.text:</span><span class="number">00401027</span>                 <span class="keyword">movq</span>    <span class="built_in">xmm0</span>, <span class="built_in">ds</span>:qword_413E44</span><br><span class="line"><span class="symbol">.text:</span>0040102F                 <span class="keyword">movq</span>    [<span class="built_in">ebp</span>+var_34], <span class="built_in">xmm0</span></span><br><span class="line"><span class="symbol">.text:</span><span class="number">00401034</span>                 <span class="keyword">mov</span>     [<span class="built_in">ebp</span>+var_28], <span class="built_in">ax</span></span><br><span class="line"><span class="symbol">.text:</span><span class="number">00401038</span>                 <span class="keyword">call</span>    _printf</span><br><span class="line"><span class="symbol">.text:</span><span class="number">0040103D</span>                 <span class="keyword">push</span>    offset asc_413E60 <span class="comment">; "这是一道很可爱很简单的逆向题呦\n"</span></span><br><span class="line"><span class="symbol">.text:</span><span class="number">00401042</span>                 <span class="keyword">call</span>    _printf</span><br><span class="line"><span class="symbol">.text:</span><span class="number">00401047</span>                 <span class="keyword">push</span>    offset aFlag    <span class="comment">; "输入flag吧:"</span></span><br><span class="line"><span class="symbol">.text:</span>0040104C                 <span class="keyword">call</span>    _printf</span><br><span class="line"><span class="symbol">.text:</span><span class="number">00401051</span>                 <span class="keyword">lea</span>     <span class="built_in">eax</span>, [<span class="built_in">ebp</span>+var_24]</span><br><span class="line"><span class="symbol">.text:</span><span class="number">00401054</span>                 <span class="keyword">push</span>    <span class="built_in">eax</span></span><br><span class="line"><span class="symbol">.text:</span><span class="number">00401055</span>                 <span class="keyword">push</span>    offset aS       <span class="comment">; "%s"</span></span><br><span class="line"><span class="symbol">.text:</span>0040105A                 <span class="keyword">call</span>    _scanf</span><br><span class="line"><span class="symbol">.text:</span>0040105F                 <span class="keyword">add</span>     <span class="built_in">esp</span>, <span class="number">14h</span></span><br><span class="line"><span class="symbol">.text:</span><span class="number">00401062</span>                 <span class="keyword">lea</span>     <span class="built_in">eax</span>, [<span class="built_in">ebp</span>+var_24]</span><br><span class="line"><span class="symbol">.text:</span><span class="number">00401065</span>                 <span class="keyword">lea</span>     <span class="built_in">ecx</span>, [<span class="built_in">ebp</span>+var_44]</span><br><span class="line"><span class="symbol">.text:</span><span class="number">00401068</span></span><br><span class="line"><span class="symbol">.text:</span><span class="number">00401068</span> loc_401068:                             <span class="comment">; CODE XREF: _main+82↓j</span></span><br><span class="line"><span class="symbol">.text:</span><span class="number">00401068</span>                 <span class="keyword">mov</span>     <span class="built_in">dl</span>, [<span class="built_in">ecx</span>]</span><br><span class="line"><span class="symbol">.text:</span>0040106A                 <span class="keyword">cmp</span>     <span class="built_in">dl</span>, [<span class="built_in">eax</span>]</span><br><span class="line"><span class="symbol">.text:</span>0040106C                 <span class="keyword">jnz</span>     short loc_401088</span><br><span class="line"><span class="symbol">.text:</span>0040106E                 <span class="keyword">test</span>    <span class="built_in">dl</span>, <span class="built_in">dl</span></span><br><span class="line"><span class="symbol">.text:</span><span class="number">00401070</span>                 <span class="keyword">jz</span>      short loc_401084</span><br><span class="line"><span class="symbol">.text:</span><span class="number">00401072</span>                 <span class="keyword">mov</span>     <span class="built_in">dl</span>, [<span class="built_in">ecx</span>+<span class="number">1</span>]</span><br><span class="line"><span class="symbol">.text:</span><span class="number">00401075</span>                 <span class="keyword">cmp</span>     <span class="built_in">dl</span>, [<span class="built_in">eax</span>+<span class="number">1</span>]</span><br><span class="line"><span class="symbol">.text:</span><span class="number">00401078</span>                 <span class="keyword">jnz</span>     short loc_401088</span><br><span class="line"><span class="symbol">.text:</span>0040107A                 <span class="keyword">add</span>     <span class="built_in">ecx</span>, <span class="number">2</span></span><br><span class="line"><span class="symbol">.text:</span><span class="number">0040107D</span>                 <span class="keyword">add</span>     <span class="built_in">eax</span>, <span class="number">2</span></span><br><span class="line"><span class="symbol">.text:</span><span class="number">00401080</span>                 <span class="keyword">test</span>    <span class="built_in">dl</span>, <span class="built_in">dl</span></span><br><span class="line"><span class="symbol">.text:</span><span class="number">00401082</span>                 <span class="keyword">jnz</span>     short loc_401068</span><br></pre></td></tr></table></figure>
+<p>在401010处可以看到有个movdqu指令，网上查了一下，这个指令是用来在未对齐的内存位置中移入/移出双四字，xmm0这个寄存器也没接触过，百度一下了解了XMM寄存器是8个128位独立寄存器。双击查看内容可以看到这个就是flag了。也就是这个程序初始化变量的时候直接把flag那个变量赋值了，果然是很简单的逆向题……</p>
+<p>反编译验证一下推测：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> __<span class="function">cdecl <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">const</span> <span class="keyword">char</span> **argv, <span class="keyword">const</span> <span class="keyword">char</span> **envp)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="keyword">int</span> v3; <span class="comment">// eax</span></span><br><span class="line">  __int128 v5; <span class="comment">// [esp+0h] [ebp-44h]</span></span><br><span class="line">  __int64 v6; <span class="comment">// [esp+10h] [ebp-34h]</span></span><br><span class="line">  <span class="keyword">int</span> v7; <span class="comment">// [esp+18h] [ebp-2Ch]</span></span><br><span class="line">  __int16 v8; <span class="comment">// [esp+1Ch] [ebp-28h]</span></span><br><span class="line">  <span class="keyword">char</span> v9; <span class="comment">// [esp+20h] [ebp-24h]</span></span><br><span class="line"></span><br><span class="line">  _mm_storeu_si128((__m128i *)&amp;v5, _mm_loadu_si128((<span class="keyword">const</span> __m128i *)&amp;xmmword_413E34));</span><br><span class="line">  v7 = <span class="number">0</span>;</span><br><span class="line">  v6 = qword_413E44;</span><br><span class="line">  v8 = <span class="number">0</span>;</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">"欢迎来到DUTCTF呦\n"</span>);</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">"这是一道很可爱很简单的逆向题呦\n"</span>);</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">"输入flag吧:"</span>);</span><br><span class="line">  <span class="built_in">scanf</span>(<span class="string">"%s"</span>, &amp;v9);</span><br><span class="line">  v3 = <span class="built_in">strcmp</span>((<span class="keyword">const</span> <span class="keyword">char</span> *)&amp;v5, &amp;v9);</span><br><span class="line">  <span class="keyword">if</span> ( v3 )</span><br><span class="line">    v3 = -(v3 &lt; <span class="number">0</span>) | <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">if</span> ( v3 )</span><br><span class="line">    <span class="built_in">printf</span>(aFlag_0);</span><br><span class="line">  <span class="keyword">else</span></span><br><span class="line">    <span class="built_in">printf</span>((<span class="keyword">const</span> <span class="keyword">char</span> *)&amp;unk_413E90);</span><br><span class="line">  system(<span class="string">"pause"</span>);</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>其中，v6就是flag。</p>
+
       
     </div>
     
@@ -759,315 +440,40 @@
 
     <footer class="post-footer">
       
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/23/20190423/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Bwonsamdi">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="学逆向的阿昆达">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/04/23/20190423/" itemprop="url">20190423</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-23T08:01:16+08:00">
-                2019-04-23
-              </time>
-            
-
-            
-
-            
-          </span>
-
+        <div class="post-tags">
           
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/生活/" itemprop="url" rel="index">
-                    <span itemprop="name">生活</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
+            <a href="/tags/逆向工程/" rel="tag"><i class="fa fa-tag"></i> 逆向工程</a>
           
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
       
-        
-        
-          
-          把最初的Acid Burn那个逆向题又捡起来看了，之前爆破和key方法都试过了（这题包括了屏蔽弹窗、找固定key、爆破、注册算法各种解法，前一阵始终没能把这个的注册机搞定）。对照夜影师傅的文章算是对这道题的注册算法有了比较深刻的了解。咬牙又花了三位数买了几本书，深入浅出密码学、龙书、程序员的自我修养。并且立下了大四之前不再买课外实体书的flag。上了第一节系统分析与设计，感觉还是和UML一样让人头大，况且不像UML一样有一些实在的例子去学习，很担心这节课能不能坚持听下去了……目前决定尽量每天都记一下发生的事情，如果做了题那就单写一篇笔记，向夜影师傅学习~翻看夜影师傅的博客，有记载的是从17年5
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/04/23/20190423/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/04/27/20190427/" rel="next" title="20190427">
+                <i class="fa fa-chevron-left"></i> 20190427
+              </a>
+            
           </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
 
-    
+          <span class="post-nav-divider"></span>
 
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/22/20190422/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Bwonsamdi">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="学逆向的阿昆达">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/04/22/20190422/" itemprop="url">20190422</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
+          <div class="post-nav-prev post-nav-item">
             
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-22T15:05:15+08:00">
-                2019-04-22
-              </time>
+              <a href="/2019/04/28/ZSCTF-game/" rel="prev" title="ZSCTF game">
+                ZSCTF game <i class="fa fa-chevron-right"></i>
+              </a>
             
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/生活/" itemprop="url" rel="index">
-                    <span itemprop="name">生活</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
+          </div>
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-      
-        
-        
-          
-          终于，在想了很久之后，把博客搭起来了。虽然搭建的时候没添加一些花里胡哨的东西，但还是折腾了一两个小时。以前没写过多少东西，索性不论质量先把文章都扔上来吧。今天看了奈沙夜影师傅的CSDN博客，觉得像夜影师傅这样每天都坚持记下一点心得发布文章，对我来说还是有点难了。目前还没想好怎么维护这个小小的博客，先走一步看一步了。目前最要紧的事情大概是要复习操作系统/数据库/面向对象了，虽然Python第一个考试，但是考查课没什么需要慌的。还是觉得Python课比较水，不知道考试会不会考Django + vue那些东西……
-
-          
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/04/22/20190422/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -1077,14 +483,11 @@
   </article>
 
 
-    
-  </section>
 
-  
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
-  </nav>
-
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -1092,6 +495,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -1318,6 +725,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
