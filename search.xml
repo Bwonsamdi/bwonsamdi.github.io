@@ -4,6 +4,83 @@
   
     
     <entry>
+      <title>CSAW CTF 2014 csaw2013reversing2</title>
+      <link href="/2019/04/29/CSAW-CTF-2014-csaw2013reversing2/"/>
+      <url>/2019/04/29/CSAW-CTF-2014-csaw2013reversing2/</url>
+      
+        <content type="html"><![CDATA[<blockquote><p>hint: 听说运行就能拿到Flag，不过菜鸡运行的结果不知道为什么是乱码</p></blockquote><p><a href="csaw2013reversing2.exe">题目下载</a></p><p>拿到题目，运行一下是这样的：</p><p><img src="/2019/04/29/CSAW-CTF-2014-csaw2013reversing2/1.png" alt="首次运行"></p><p>用IDA查看一下：</p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> __cdecl __<span class="function">noreturn <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">const</span> <span class="keyword">char</span> **argv, <span class="keyword">const</span> <span class="keyword">char</span> **envp)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="keyword">int</span> v3; <span class="comment">// ecx</span></span><br><span class="line">  CHAR *lpMem; <span class="comment">// [esp+8h] [ebp-Ch]</span></span><br><span class="line">  HANDLE hHeap; <span class="comment">// [esp+10h] [ebp-4h]</span></span><br><span class="line"></span><br><span class="line">  hHeap = HeapCreate(<span class="number">0x40000</span>u, <span class="number">0</span>, <span class="number">0</span>);</span><br><span class="line">  lpMem = (CHAR *)HeapAlloc(hHeap, <span class="number">8u</span>, MaxCount + <span class="number">1</span>);</span><br><span class="line">  memcpy_s(lpMem, MaxCount, &amp;unk_409B10, MaxCount);</span><br><span class="line">  <span class="keyword">if</span> ( sub_40102A() || IsDebuggerPresent() )</span><br><span class="line">  &#123;</span><br><span class="line">    __debugbreak();</span><br><span class="line">    sub_401000(v3 + <span class="number">4</span>, (<span class="keyword">int</span>)lpMem);</span><br><span class="line">    ExitProcess(<span class="number">0xFFFFFFFF</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  MessageBoxA(<span class="number">0</span>, lpMem + <span class="number">1</span>, <span class="string">"Flag"</span>, <span class="number">2u</span>);</span><br><span class="line">  HeapFree(hHeap, <span class="number">0</span>, lpMem);</span><br><span class="line">  HeapDestroy(hHeap);</span><br><span class="line">  ExitProcess(<span class="number">0</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>看完之后大概可以得出，unk_409B10是加密后的flag，if判断中有IsDebuggerPresent()，需要在调试环境下才会执行到<code>sub_401000(v3 + 4, (int)lpMem)</code>这个解密步骤。但是执行解密函数前又有一个<code>int3</code>指令，该指令起到反调试的作用（具体原理待补充）。所以需要跳过这个指令。</p><figure class="highlight x86asm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">loc_401096:</span></span><br><span class="line"><span class="keyword">inc</span>     <span class="built_in">ecx</span></span><br><span class="line"><span class="keyword">inc</span>     <span class="built_in">ecx</span></span><br><span class="line"><span class="keyword">inc</span>     <span class="built_in">ecx</span></span><br><span class="line"><span class="keyword">inc</span>     <span class="built_in">ecx</span></span><br><span class="line"><span class="keyword">int</span>     <span class="number">3</span>               <span class="comment">; Trap to Debugger</span></span><br><span class="line"><span class="keyword">mov</span>     <span class="built_in">edx</span>, [<span class="built_in">ebp</span>+lpMem]</span><br><span class="line"><span class="keyword">call</span>    sub_401000</span><br><span class="line"><span class="keyword">jmp</span>     short loc_4010EF</span><br></pre></td></tr></table></figure><p>之前我试图用python实现解密算法，手动解密一下flag，结果因为数据类型的原因又把自己绕懵了，暂时没有写。于是我用x32dbg动态跑了一下，通过改jmp条件、nop掉INT3，执行到解密函数得到flag。</p><p>这个题应该可以写IDC脚本，在IDA下控制参数、手动执行解密函数得到答案，这个也待补充。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 玩安全 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 逆向工程 </tag>
+            
+            <tag> 待补充 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>20190428</title>
+      <link href="/2019/04/29/20190428/"/>
+      <url>/2019/04/29/20190428/</url>
+      
+        <content type="html"><![CDATA[<p>（写于20190429，补）</p><p>肝了一天的write up，把最初做过的水题又做了一遍，居然感觉稍微加深了一些理解，果然还是太菜了……</p><p>研究了面向对象课的课设，小组进展极其缓慢……用例描述还没有写，希望可以顺利肝完吧。</p><p>CSAPP就要到了，现在准备把这本书和自我修养在放假前过一遍。</p><p>五一前把攻防世界RE的新手区WP肝完。</p><p>现在还没想好什么时候开始搞移动逆向，感觉该开始了，但是又觉得没什么精力。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 生活 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 乱七八糟 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>20190429</title>
+      <link href="/2019/04/29/20190429/"/>
+      <url>/2019/04/29/20190429/</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      <categories>
+          
+          <category> 生活 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 乱七八糟 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>9447 CTF 2014 no_strings_attached</title>
       <link href="/2019/04/28/9447-CTF-2014-no-strings-attached/"/>
       <url>/2019/04/28/9447-CTF-2014-no-strings-attached/</url>
@@ -204,7 +281,7 @@
       <link href="/2019/04/27/20190427/"/>
       <url>/2019/04/27/20190427/</url>
       
-        <content type="html"><![CDATA[<p>今天拉着同学和两位学长陪华为杭研所的面试官吃了顿饭，期间说了很多有用的东西，而且明天不出意外的话他就是学长的面试官2333。<br>席间也问了一下关于996的事情，面试官没有直接回答，而是说不会经常通宵23333。<br>又没学习逆向，明天写一些攻防世界的WP，攻防世界找的各个CTF的题还是挺适合入门的，而且攻防世界前一阵有更新，还没体验过。</p>]]></content>
+        <content type="html"><![CDATA[<p>今天拉着同学和两位学长陪华为杭研所的面试官吃了顿饭，期间说了很多有用的东西，而且明天不出意外的话他就是学长的面试官2333。</p><p>席间也问了一下关于996的事情，面试官没有直接回答，而是说不会经常通宵23333。</p><p>又没学习逆向，明天写一些攻防世界的WP，攻防世界找的各个CTF的题还是挺适合入门的，而且攻防世界前一阵有更新，还没体验过。</p>]]></content>
       
       
       <categories>
@@ -229,7 +306,7 @@
       <link href="/2019/04/26/20190426/"/>
       <url>/2019/04/26/20190426/</url>
       
-        <content type="html"><![CDATA[<p>今天有学长找我，说是有另一个学长要找我聊聊，结果是想让我参加华为杭州研究所的实习……没办法只能拒绝，一是准备考研，无心立即找工作，二是能力被高估了，学长是听说我做pwn方向来找的我，而我自己清楚在pwn上面投入不足，产出更是没有。挺遗憾的，其实我是想在有时间的情况下出去实习锻炼锻炼的，可惜大二时候学校不会给这个机会。<br>前一阵玩pwn，看了各种堆的利用，到头来自己一道题的脚本都写不出来。逆向分析不到位，ROP不会构造，加上pwnlib不熟练，导致我暂时放弃了pwn，开始专注于逆向了。<br>羡慕学校信安专业17级的kirin-say师傅，很早就开始搞逆向了，现在在chamd5打pwn，只希望自己在大三上结束之前可以有一定基础，最起码不要再只能做出来比赛的签到题了……国赛捡漏做了第一天的逆向，GO语言一脸懵逼，全靠夜影师傅博客带（虽然最后没用上博客里的知识……）。<br>UML大作业要画十几个图，枯了。</p>]]></content>
+        <content type="html"><![CDATA[<p>今天有学长找我，说是有另一个学长要找我聊聊，结果是想让我参加华为杭州研究所的实习……没办法只能拒绝，一是准备考研，无心立即找工作，二是能力被高估了，学长是听说我做pwn方向来找的我，而我自己清楚在pwn上面投入不足，产出更是没有。挺遗憾的，其实我是想在有时间的情况下出去实习锻炼锻炼的，可惜大二时候学校不会给这个机会。</p><p>前一阵玩pwn，看了各种堆的利用，到头来自己一道题的脚本都写不出来。逆向分析不到位，ROP不会构造，加上pwnlib不熟练，导致我暂时放弃了pwn，开始专注于逆向了。</p><p>羡慕学校信安专业17级的kirin-say师傅，很早就开始搞逆向了，现在在chamd5打pwn，只希望自己在大三上结束之前可以有一定基础，最起码不要再只能做出来比赛的签到题了……国赛捡漏做了第一天的逆向，GO语言一脸懵逼，全靠夜影师傅博客带（虽然最后没用上博客里的知识……）。<br>UML大作业要画十几个图，枯了。</p>]]></content>
       
       
       <categories>
@@ -279,7 +356,7 @@
       <link href="/2019/04/26/20190425/"/>
       <url>/2019/04/26/20190425/</url>
       
-        <content type="html"><![CDATA[<p>昨天看权游忘记写，今天补上。<br>看了密码学书的第一章，学习了凯撒密码和仿射加密，读书笔记还没有写，等着之后补上。<br>还看了自我修养前两章，虽然第一章属于基础知识的部分，但是看了第一章居然把这学期操作系统没太学明白的内容看明白了2333，确实是一本好书。<br>整理一下欠账，以及需要长期进行的事项：</p><ul><li>第五空间任务发布及验收打分</li><li>韩语</li><li>哨笛</li><li>七月前把自我修养刷一遍</li><li>买一本CSAPP，暑期实习前刷一遍</li><li>把第五空间的任务发布改到博客上（引流233</li><li>操作系统实验…</li><li>一周三道左右（最少一道）逆向题，做题量实在太少了</li><li>整理出更多的欠账……</li></ul>]]></content>
+        <content type="html"><![CDATA[<p>昨天看权游忘记写，今天补上。</p><p>看了密码学书的第一章，学习了凯撒密码和仿射加密，读书笔记还没有写，等着之后补上。</p><p>还看了自我修养前两章，虽然第一章属于基础知识的部分，但是看了第一章居然把这学期操作系统没太学明白的内容看明白了2333，确实是一本好书。</p><p>整理一下欠账，以及需要长期进行的事项：</p><ul><li>第五空间任务发布及验收打分</li><li>韩语</li><li>哨笛</li><li>七月前把自我修养刷一遍</li><li>买一本CSAPP，暑期实习前刷一遍</li><li>把第五空间的任务发布改到博客上（引流233</li><li>操作系统实验…</li><li>一周三道左右（最少一道）逆向题，做题量实在太少了</li><li>整理出更多的欠账……</li></ul>]]></content>
       
       
       <categories>
@@ -304,7 +381,7 @@
       <link href="/2019/04/24/20190424/"/>
       <url>/2019/04/24/20190424/</url>
       
-        <content type="html"><![CDATA[<p>听了个考研讲座，本来以为九点回来还能学点东西，结果讲了两小时送了一小时，学习计划取消……<br>今天新开了运筹学的课，这个课主要是讲一些规划的算法，以及数学模型的建模方面的知识，感觉听听很有好处。<br>程序员的自我修养、龙书、深入浅出密码学到货，看了自我修养的前两章，周末有时间记一下笔记~<br>讲座上说本部的复试考CSAPP，看来还是要剁手买CSAPP了，虽然手上有一本英文版，但是根本没时间翻译啊……英语阅读起来比中文慢太多了。</p>]]></content>
+        <content type="html"><![CDATA[<p>听了个考研讲座，本来以为九点回来还能学点东西，结果讲了两小时送了一小时，学习计划取消……</p><p>今天新开了运筹学的课，这个课主要是讲一些规划的算法，以及数学模型的建模方面的知识，感觉听听很有好处。</p><p>程序员的自我修养、龙书、深入浅出密码学到货，看了自我修养的前两章，周末有时间记一下笔记~</p><p>讲座上说本部的复试考CSAPP，看来还是要剁手买CSAPP了，虽然手上有一本英文版，但是根本没时间翻译啊……英语阅读起来比中文慢太多了。</p>]]></content>
       
       
       <categories>
@@ -354,7 +431,7 @@
       <link href="/2019/04/23/20190423/"/>
       <url>/2019/04/23/20190423/</url>
       
-        <content type="html"><![CDATA[<p>把最初的Acid Burn那个逆向题又捡起来看了，之前爆破和key方法都试过了（这题包括了屏蔽弹窗、找固定key、爆破、注册算法各种解法，前一阵始终没能把这个的注册机搞定）。对照夜影师傅的文章算是对这道题的注册算法有了比较深刻的了解。<br>咬牙又花了三位数买了几本书，深入浅出密码学、龙书、程序员的自我修养。并且立下了大四之前<strong>不再买课外实体书</strong>的flag。<br>上了第一节系统分析与设计，感觉还是和UML一样让人头大，况且不像UML一样有一些实在的例子去学习，很担心这节课能不能坚持听下去了……<br>目前决定尽量每天都记一下发生的事情，如果做了题那就单写一篇笔记，向夜影师傅学习~<br>翻看夜影师傅的博客，有记载的是从17年5月24日做了第一道crackme，今天4月23日，差不多两年的时间，夜影师傅已经可以AK掉DDCTF的RE（包括移动端）了……<br>希望自己大三结束之前有机会参加一次XCTF的培训…<br>准备安排DYM（高中同学）来威海玩</p>]]></content>
+        <content type="html"><![CDATA[<p>把最初的Acid Burn那个逆向题又捡起来看了，之前爆破和key方法都试过了（这题包括了屏蔽弹窗、找固定key、爆破、注册算法各种解法，前一阵始终没能把这个的注册机搞定）。对照夜影师傅的文章算是对这道题的注册算法有了比较深刻的了解。</p><p>咬牙又花了三位数买了几本书，深入浅出密码学、龙书、程序员的自我修养。并且立下了大四之前<strong>不再买课外实体书</strong>的flag。</p><p>上了第一节系统分析与设计，感觉还是和UML一样让人头大，况且不像UML一样有一些实在的例子去学习，很担心这节课能不能坚持听下去了……</p><p>目前决定尽量每天都记一下发生的事情，如果做了题那就单写一篇笔记，向夜影师傅学习~</p><p>翻看夜影师傅的博客，有记载的是从17年5月24日做了第一道crackme，今天4月23日，差不多两年的时间，夜影师傅已经可以AK掉DDCTF的RE（包括移动端）了……</p><p>希望自己大三结束之前有机会参加一次XCTF的培训…</p><p>准备安排DYM（高中同学）来威海玩</p>]]></content>
       
       
       <categories>
@@ -379,7 +456,7 @@
       <link href="/2019/04/22/20190422/"/>
       <url>/2019/04/22/20190422/</url>
       
-        <content type="html"><![CDATA[<p>终于，在想了很久之后，把博客搭起来了。<br>虽然搭建的时候没添加一些花里胡哨的东西，但还是折腾了一两个小时。<br>以前没写过多少东西，索性不论质量先把文章都扔上来吧。<br>今天看了<a href="https://blog.csdn.net/whklhhhh" target="_blank" rel="noopener">奈沙夜影师傅的CSDN博客</a>，觉得像夜影师傅这样每天都坚持记下一点心得发布文章，对我来说还是有点难了。<br>目前还没想好怎么维护这个小小的博客，先走一步看一步了。<br>目前最要紧的事情大概是要复习操作系统/数据库/面向对象了，虽然Python第一个考试，但是考查课没什么需要慌的。<br>还是觉得Python课比较水，不知道考试会不会考Django + vue那些东西……</p>]]></content>
+        <content type="html"><![CDATA[<p>终于，在想了很久之后，把博客搭起来了。</p><p>虽然搭建的时候没添加一些花里胡哨的东西，但还是折腾了一两个小时。</p><p>以前没写过多少东西，索性不论质量先把文章都扔上来吧。</p><p>今天看了<a href="https://blog.csdn.net/whklhhhh" target="_blank" rel="noopener">奈沙夜影师傅的CSDN博客</a>，觉得像夜影师傅这样每天都坚持记下一点心得发布文章，对我来说还是有点难了。<br>目前还没想好怎么维护这个小小的博客，先走一步看一步了。</p><p>目前最要紧的事情大概是要复习操作系统/数据库/面向对象了，虽然Python第一个考试，但是考查课没什么需要慌的。</p><p>还是觉得Python课比较水，不知道考试会不会考Django + vue那些东西……</p>]]></content>
       
       
       <categories>
