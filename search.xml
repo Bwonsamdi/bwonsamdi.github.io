@@ -4,6 +4,96 @@
   
     
     <entry>
+      <title>20190430</title>
+      <link href="/2019/05/01/20190430/"/>
+      <url>/2019/05/01/20190430/</url>
+      
+        <content type="html"><![CDATA[<p>搞了两道题，一道python反序列化后逆向，一道CM，python的还不会，暂时搁置，CM的分析到一半感觉不太对，看了夜影师傅博客，发现好像是我的程序有问题。。。？CM里面有两个messageboxa，但是找不到交叉引用？正常应该是这两次引用都出于同一个函数，而且还是关键函数……</p><p>1号要从油管搬sploitfun的逆向视频了，B站应该还没有他们的逆向的视频。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 生活 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 乱七八糟 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>XCTF 4th-WHCTF-2017 CRACKME</title>
+      <link href="/2019/04/30/XCTF-4th-WHCTF-2017-CRACKME/"/>
+      <url>/2019/04/30/XCTF-4th-WHCTF-2017-CRACKME/</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>HITCON-CTF-2016 handcrafted-pyc</title>
+      <link href="/2019/04/30/HITCON-CTF-2016-handcrafted-pyc/"/>
+      <url>/2019/04/30/HITCON-CTF-2016-handcrafted-pyc/</url>
+      
+        <content type="html"><![CDATA[<p>挖坑，不太会做。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 玩安全 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 逆向工程 </tag>
+            
+            <tag> 待补充 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>SECCON-CTF-2014 Shuffle</title>
+      <link href="/2019/04/30/SECCON-CTF-2014-Shuffle/"/>
+      <url>/2019/04/30/SECCON-CTF-2014-Shuffle/</url>
+      
+        <content type="html"><![CDATA[<p><a href="shuffle">题目下载</a></p><p>hint（机翻？）：找到字符串在随机化之前</p><p>部分代码：</p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//......</span></span><br><span class="line">v49 = <span class="string">'\0'</span>;</span><br><span class="line">v3 = time(<span class="number">0</span>);</span><br><span class="line">v4 = getpid();</span><br><span class="line">srand(v3 + v4);</span><br><span class="line"><span class="keyword">for</span> ( i = <span class="number">0</span>; i &lt;= <span class="number">99</span>; ++i )</span><br><span class="line">&#123;</span><br><span class="line">  v5 = rand() % <span class="number">0x28</span>u;</span><br><span class="line">  v6 = rand() % <span class="number">0x28</span>u;</span><br><span class="line">  v7 = *(&amp;s + v5);</span><br><span class="line">  *(&amp;s + v5) = *(&amp;s + v6);</span><br><span class="line">  *(&amp;s + v6) = v7;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">puts</span>(&amp;s);</span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>;</span><br></pre></td></tr></table></figure><p>省略部分为数组初始化内容，根据题意…根据个屁的题意啊，flag在上面写着呢。像我这种比较懒的，用gdb跑到随机化函数前，从内存里读出来的，因为不会用IDA把这种运行时赋值的数组批量导出，懒得一个个字符敲了……这题为啥要给放到进阶场？</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 玩安全 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 逆向工程 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>NJUPT CTF 2017 maze</title>
       <link href="/2019/04/29/NJUPT-CTF-2017-maze/"/>
       <url>/2019/04/29/NJUPT-CTF-2017-maze/</url>
