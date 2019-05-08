@@ -1,0 +1,1130 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="https://fonts.loli.net/css?family=Noto Serif SC:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/binary32.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/binary16.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="逆向工程,逆向160题,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="这道题在win10运行时需要先下载VB的运行环境。 题目一打开就是输入框，没有开头需要跳过的弹窗了。 先运行一下，随便输入点东西，得到如下结果：  根据关键字下断（输入为123和456）： 1234567891011121314151617181920212223242526272829303132333435363738394041420040258B | 74 58">
+<meta name="keywords" content="逆向工程,逆向160题">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AfKayAs CrackMe #1">
+<meta property="og:url" content="http://yoursite.com/2019/05/08/AfKayAs-CrackMe-1/index.html">
+<meta property="og:site_name" content="学逆向的阿昆达">
+<meta property="og:description" content="这道题在win10运行时需要先下载VB的运行环境。 题目一打开就是输入框，没有开头需要跳过的弹窗了。 先运行一下，随便输入点东西，得到如下结果：  根据关键字下断（输入为123和456）： 1234567891011121314151617181920212223242526272829303132333435363738394041420040258B | 74 58">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://yoursite.com/2019/05/08/AfKayAs-CrackMe-1/1.png">
+<meta property="og:image" content="http://yoursite.com/2019/05/08/AfKayAs-CrackMe-1/2.png">
+<meta property="og:updated_time" content="2019-05-08T10:49:10.877Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="AfKayAs CrackMe #1">
+<meta name="twitter:description" content="这道题在win10运行时需要先下载VB的运行环境。 题目一打开就是输入框，没有开头需要跳过的弹窗了。 先运行一下，随便输入点东西，得到如下结果：  根据关键字下断（输入为123和456）： 1234567891011121314151617181920212223242526272829303132333435363738394041420040258B | 74 58">
+<meta name="twitter:image" content="http://yoursite.com/2019/05/08/AfKayAs-CrackMe-1/1.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"right","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/05/08/AfKayAs-CrackMe-1/">
+
+
+
+
+
+  <title>AfKayAs CrackMe #1 | 学逆向的阿昆达</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+    <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;"></canvas> 
+    <script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script> 
+    <script type="text/javascript" src="/js/src/firework.js"></script>
+  
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">学逆向的阿昆达</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">发牢骚记笔记的地方。</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/08/AfKayAs-CrackMe-1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Bwonsamdi">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="学逆向的阿昆达">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">AfKayAs CrackMe #1</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-08T16:28:27+08:00">
+                2019-05-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/玩安全/" itemprop="url" rel="index">
+                    <span itemprop="name">玩安全</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>这道题在win10运行时需要先下载VB的运行环境。</p>
+<p>题目一打开就是输入框，没有开头需要跳过的弹窗了。</p>
+<p>先运行一下，随便输入点东西，得到如下结果：</p>
+<p><img src="/2019/05/08/AfKayAs-CrackMe-1/1.png" alt="pic"></p>
+<p>根据关键字下断（输入为123和456）：</p>
+<figure class="highlight x86asm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">0040258B | <span class="number">74</span> <span class="number">58</span>                    | <span class="keyword">je</span> afkayas<span class="meta">.1</span><span class="meta">.4025E5</span>                            | 关键跳</span><br><span class="line"><span class="number">0040258D</span> | <span class="number">68</span> <span class="number">80</span> <span class="number">1B</span> <span class="number">40</span> <span class="number">00</span>           | <span class="keyword">push</span> afkayas<span class="meta">.1</span>.401B80                          | 401B80:L<span class="string">"You Get It"</span></span><br><span class="line"><span class="number">00402592</span> | <span class="number">68</span> 9C <span class="number">1B</span> <span class="number">40</span> <span class="number">00</span>           | <span class="keyword">push</span> afkayas<span class="meta">.1</span>.401B9C                          | 401B9C:L<span class="string">"\r\n"</span></span><br><span class="line"><span class="number">00402597</span> | FF D7                    | <span class="keyword">call</span> <span class="built_in">edi</span>                                       |</span><br><span class="line"><span class="number">00402599</span> | 8B D0                    | <span class="keyword">mov</span> <span class="built_in">edx</span>,<span class="built_in">eax</span>                                    | <span class="built_in">eax</span>:L<span class="string">"123"</span></span><br><span class="line">0040259B | <span class="number">8D</span> <span class="number">4D</span> E8                 | <span class="keyword">lea</span> <span class="built_in">ecx</span>,<span class="built_in">dword</span> <span class="built_in">ptr</span> <span class="built_in">ss</span>:[<span class="built_in">ebp</span>-<span class="number">18</span>]                  | [<span class="built_in">ebp</span>-<span class="number">18</span>]:L<span class="string">"123"</span></span><br><span class="line">0040259E | FF D3                    | <span class="keyword">call</span> <span class="built_in">ebx</span>                                       |</span><br><span class="line">004025A0 | <span class="number">50</span>                       | <span class="keyword">push</span> <span class="built_in">eax</span>                                       | <span class="built_in">eax</span>:L<span class="string">"123"</span></span><br><span class="line">004025A1 | <span class="number">68</span> A8 <span class="number">1B</span> <span class="number">40</span> <span class="number">00</span>           | <span class="keyword">push</span> afkayas<span class="meta">.1</span>.401BA8                          | 401BA8:L<span class="string">"KeyGen It Now"</span></span><br><span class="line">004025A6 | FF D7                    | <span class="keyword">call</span> <span class="built_in">edi</span>                                       |</span><br><span class="line">004025A8 | <span class="number">8D</span> <span class="number">4D</span> <span class="number">94</span>                 | <span class="keyword">lea</span> <span class="built_in">ecx</span>,<span class="built_in">dword</span> <span class="built_in">ptr</span> <span class="built_in">ss</span>:[<span class="built_in">ebp</span>-6C]                  |</span><br><span class="line">004025AB | <span class="number">89</span> <span class="number">45</span> CC                 | <span class="keyword">mov</span> <span class="built_in">dword</span> <span class="built_in">ptr</span> <span class="built_in">ss</span>:[<span class="built_in">ebp</span>-<span class="number">34</span>],<span class="built_in">eax</span>                  |</span><br><span class="line">004025AE | <span class="number">8D</span> <span class="number">55</span> A4                 | <span class="keyword">lea</span> <span class="built_in">edx</span>,<span class="built_in">dword</span> <span class="built_in">ptr</span> <span class="built_in">ss</span>:[<span class="built_in">ebp</span>-5C]                  |</span><br><span class="line">004025B1 | <span class="number">51</span>                       | <span class="keyword">push</span> <span class="built_in">ecx</span>                                       |</span><br><span class="line">004025B2 | <span class="number">8D</span> <span class="number">45</span> B4                 | <span class="keyword">lea</span> <span class="built_in">eax</span>,<span class="built_in">dword</span> <span class="built_in">ptr</span> <span class="built_in">ss</span>:[<span class="built_in">ebp</span>-4C]                  |</span><br><span class="line">004025B5 | <span class="number">52</span>                       | <span class="keyword">push</span> <span class="built_in">edx</span>                                       |</span><br><span class="line">004025B6 | <span class="number">50</span>                       | <span class="keyword">push</span> <span class="built_in">eax</span>                                       | <span class="built_in">eax</span>:L<span class="string">"123"</span></span><br><span class="line">004025B7 | <span class="number">8D</span> <span class="number">4D</span> C4                 | <span class="keyword">lea</span> <span class="built_in">ecx</span>,<span class="built_in">dword</span> <span class="built_in">ptr</span> <span class="built_in">ss</span>:[<span class="built_in">ebp</span>-3C]                  |</span><br><span class="line">004025BA | 6A <span class="number">00</span>                    | <span class="keyword">push</span> <span class="number">0</span>                                         |</span><br><span class="line">004025BC | <span class="number">51</span>                       | <span class="keyword">push</span> <span class="built_in">ecx</span>                                       |</span><br><span class="line">004025BD | C7 <span class="number">45</span> C4 <span class="number">08</span> <span class="number">00</span> <span class="number">00</span> <span class="number">00</span>     | <span class="keyword">mov</span> <span class="built_in">dword</span> <span class="built_in">ptr</span> <span class="built_in">ss</span>:[<span class="built_in">ebp</span>-3C],<span class="number">8</span>                    |</span><br><span class="line">004025C4 | FF <span class="number">15</span> <span class="number">10</span> <span class="number">41</span> <span class="number">40</span> <span class="number">00</span>        | <span class="keyword">call</span> <span class="built_in">dword</span> <span class="built_in">ptr</span> <span class="built_in">ds</span>:[&lt;&amp;rtcMsgBox&gt;]               |</span><br><span class="line">004025CA | <span class="number">8D</span> <span class="number">4D</span> E8                 | <span class="keyword">lea</span> <span class="built_in">ecx</span>,<span class="built_in">dword</span> <span class="built_in">ptr</span> <span class="built_in">ss</span>:[<span class="built_in">ebp</span>-<span class="number">18</span>]                  | [<span class="built_in">ebp</span>-<span class="number">18</span>]:L<span class="string">"123"</span></span><br><span class="line">004025CD | FF <span class="number">15</span> <span class="number">80</span> <span class="number">41</span> <span class="number">40</span> <span class="number">00</span>        | <span class="keyword">call</span> <span class="built_in">dword</span> <span class="built_in">ptr</span> <span class="built_in">ds</span>:[&lt;&amp;_vbaFreeStr&gt;]             |</span><br><span class="line">004025D3 | <span class="number">8D</span> <span class="number">55</span> <span class="number">94</span>                 | <span class="keyword">lea</span> <span class="built_in">edx</span>,<span class="built_in">dword</span> <span class="built_in">ptr</span> <span class="built_in">ss</span>:[<span class="built_in">ebp</span>-6C]                  |</span><br><span class="line">004025D6 | <span class="number">8D</span> <span class="number">45</span> A4                 | <span class="keyword">lea</span> <span class="built_in">eax</span>,<span class="built_in">dword</span> <span class="built_in">ptr</span> <span class="built_in">ss</span>:[<span class="built_in">ebp</span>-5C]                  |</span><br><span class="line">004025D9 | <span class="number">52</span>                       | <span class="keyword">push</span> <span class="built_in">edx</span>                                       |</span><br><span class="line">004025DA | <span class="number">8D</span> <span class="number">4D</span> B4                 | <span class="keyword">lea</span> <span class="built_in">ecx</span>,<span class="built_in">dword</span> <span class="built_in">ptr</span> <span class="built_in">ss</span>:[<span class="built_in">ebp</span>-4C]                  |</span><br><span class="line">004025<span class="built_in">DD</span> | <span class="number">50</span>                       | <span class="keyword">push</span> <span class="built_in">eax</span>                                       | <span class="built_in">eax</span>:L<span class="string">"123"</span></span><br><span class="line">004025DE | <span class="number">8D</span> <span class="number">55</span> C4                 | <span class="keyword">lea</span> <span class="built_in">edx</span>,<span class="built_in">dword</span> <span class="built_in">ptr</span> <span class="built_in">ss</span>:[<span class="built_in">ebp</span>-3C]                  |</span><br><span class="line">004025E1 | <span class="number">51</span>                       | <span class="keyword">push</span> <span class="built_in">ecx</span>                                       |</span><br><span class="line">004025E2 | <span class="number">52</span>                       | <span class="keyword">push</span> <span class="built_in">edx</span>                                       |</span><br><span class="line">004025E3 | EB <span class="number">56</span>                    | <span class="keyword">jmp</span> afkayas<span class="meta">.1</span>.40263B                           |</span><br><span class="line">004025E5 | <span class="number">68</span> C8 <span class="number">1B</span> <span class="number">40</span> <span class="number">00</span>           | <span class="keyword">push</span> afkayas<span class="meta">.1</span>.401BC8                          | 401BC8:L<span class="string">"You Get Wrong"</span></span><br><span class="line">004025EA | <span class="number">68</span> 9C <span class="number">1B</span> <span class="number">40</span> <span class="number">00</span>           | <span class="keyword">push</span> afkayas<span class="meta">.1</span>.401B9C                          | 401B9C:L<span class="string">"\r\n"</span></span><br><span class="line">004025EF | FF D7                    | <span class="keyword">call</span> <span class="built_in">edi</span>                                       |</span><br><span class="line">004025F1 | 8B D0                    | <span class="keyword">mov</span> <span class="built_in">edx</span>,<span class="built_in">eax</span>                                    | <span class="built_in">eax</span>:L<span class="string">"123"</span></span><br><span class="line">004025F3 | <span class="number">8D</span> <span class="number">4D</span> E8                 | <span class="keyword">lea</span> <span class="built_in">ecx</span>,<span class="built_in">dword</span> <span class="built_in">ptr</span> <span class="built_in">ss</span>:[<span class="built_in">ebp</span>-<span class="number">18</span>]                  | [<span class="built_in">ebp</span>-<span class="number">18</span>]:L<span class="string">"123"</span></span><br><span class="line">004025F6 | FF D3                    | <span class="keyword">call</span> <span class="built_in">ebx</span>                                       |</span><br><span class="line">004025F8 | <span class="number">50</span>                       | <span class="keyword">push</span> <span class="built_in">eax</span>                                       | <span class="built_in">eax</span>:L<span class="string">"123"</span></span><br><span class="line">004025F9 | <span class="number">68</span> E8 <span class="number">1B</span> <span class="number">40</span> <span class="number">00</span>           | <span class="keyword">push</span> afkayas<span class="meta">.1</span>.401BE8                          | 401BE8:L<span class="string">"Try Again"</span></span><br><span class="line">004025FE | FF D7                    | <span class="keyword">call</span> <span class="built_in">edi</span>                                       |</span><br></pre></td></tr></table></figure>
+<p>可以看到40258B处为控制正确错误信息的跳转，爆破的话改这里就好了。回到注册算法分析上，向上找几个函数：</p>
+<figure class="highlight x86asm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">00402415</span> | FF <span class="number">15</span> E4 <span class="number">40</span> <span class="number">40</span> <span class="number">00</span>        | <span class="keyword">call</span> <span class="built_in">dword</span> <span class="built_in">ptr</span> <span class="built_in">ds</span>:[&lt;&amp;_vbaLenBstr&gt;]             | get length</span><br><span class="line">0040241B | 8B F8                    | <span class="keyword">mov</span> <span class="built_in">edi</span>,<span class="built_in">eax</span>                                    | <span class="built_in">eax</span>:L<span class="string">"123"</span></span><br><span class="line"><span class="number">0040241D</span> | 8B <span class="number">4D</span> E8                 | <span class="keyword">mov</span> <span class="built_in">ecx</span>,<span class="built_in">dword</span> <span class="built_in">ptr</span> <span class="built_in">ss</span>:[<span class="built_in">ebp</span>-<span class="number">18</span>]                  | [<span class="built_in">ebp</span>-<span class="number">18</span>]:L<span class="string">"123"</span></span><br><span class="line"><span class="number">00402420</span> | <span class="number">69</span> FF FB 7C <span class="number">01</span> <span class="number">00</span>        | <span class="keyword">imul</span> <span class="built_in">edi</span>,<span class="built_in">edi</span>,17CFB                             | len * <span class="number">0x17cfb</span></span><br><span class="line"><span class="number">00402426</span> | <span class="number">51</span>                       | <span class="keyword">push</span> <span class="built_in">ecx</span>                                       |</span><br><span class="line"><span class="number">00402427</span> | 0F <span class="number">80</span> <span class="number">91</span> <span class="number">02</span> <span class="number">00</span> <span class="number">00</span>        | <span class="keyword">jo</span> afkayas<span class="meta">.1</span>.4026BE                            |</span><br><span class="line"><span class="number">0040242D</span> | FF <span class="number">15</span> F8 <span class="number">40</span> <span class="number">40</span> <span class="number">00</span>        | <span class="keyword">call</span> <span class="built_in">dword</span> <span class="built_in">ptr</span> <span class="built_in">ds</span>:[&lt;&amp;rtcAnsiValueBstr&gt;]        | 得到首字母</span><br><span class="line"><span class="number">00402433</span> | 0F BF D0                 | <span class="keyword">movsx</span> <span class="built_in">edx</span>,<span class="built_in">ax</span>                                   |</span><br><span class="line"><span class="number">00402436</span> | <span class="number">03</span> FA                    | <span class="keyword">add</span> <span class="built_in">edi</span>,<span class="built_in">edx</span>                                    | 得到 len * <span class="number">0x17cfb</span> + 首字母</span><br><span class="line"><span class="number">00402438</span> | 0F <span class="number">80</span> <span class="number">80</span> <span class="number">02</span> <span class="number">00</span> <span class="number">00</span>        | <span class="keyword">jo</span> afkayas<span class="meta">.1</span>.4026BE                            |</span><br><span class="line">0040243E | <span class="number">57</span>                       | <span class="keyword">push</span> <span class="built_in">edi</span>                                       |</span><br><span class="line">0040243F | FF <span class="number">15</span> E0 <span class="number">40</span> <span class="number">40</span> <span class="number">00</span>        | <span class="keyword">call</span> <span class="built_in">dword</span> <span class="built_in">ptr</span> <span class="built_in">ds</span>:[&lt;&amp;_vbaStrI4&gt;]               | 运算结果转为十进制数的字符串格式</span><br><span class="line"><span class="number">00402445</span> | 8B D0                    | <span class="keyword">mov</span> <span class="built_in">edx</span>,<span class="built_in">eax</span>                                    | <span class="built_in">eax</span>:L<span class="string">"123"</span></span><br><span class="line"><span class="number">00402447</span> | <span class="number">8D</span> <span class="number">4D</span> E0                 | <span class="keyword">lea</span> <span class="built_in">ecx</span>,<span class="built_in">dword</span> <span class="built_in">ptr</span> <span class="built_in">ss</span>:[<span class="built_in">ebp</span>-<span class="number">20</span>]                  |</span><br><span class="line">0040244A | FF <span class="number">15</span> <span class="number">70</span> <span class="number">41</span> <span class="number">40</span> <span class="number">00</span>        | <span class="keyword">call</span> <span class="built_in">dword</span> <span class="built_in">ptr</span> <span class="built_in">ds</span>:[&lt;&amp;_vbaStrMove&gt;]             |</span><br><span class="line"><span class="number">00402450</span> | 8B BD <span class="number">50</span> FF FF FF        | <span class="keyword">mov</span> <span class="built_in">edi</span>,<span class="built_in">dword</span> <span class="built_in">ptr</span> <span class="built_in">ss</span>:[<span class="built_in">ebp</span>-B0]                  |</span><br><span class="line"><span class="number">00402456</span> | <span class="number">50</span>                       | <span class="keyword">push</span> <span class="built_in">eax</span>                                       | <span class="built_in">eax</span>:L<span class="string">"123"</span></span><br><span class="line"><span class="number">00402457</span> | <span class="number">57</span>                       | <span class="keyword">push</span> <span class="built_in">edi</span>                                       |</span><br><span class="line"><span class="number">00402458</span> | FF <span class="number">93</span> A4 <span class="number">00</span> <span class="number">00</span> <span class="number">00</span>        | <span class="keyword">call</span> <span class="built_in">dword</span> <span class="built_in">ptr</span> <span class="built_in">ds</span>:[<span class="built_in">ebx</span>+A4]                     |</span><br><span class="line">0040245E | <span class="number">85</span> C0                    | <span class="keyword">test</span> <span class="built_in">eax</span>,<span class="built_in">eax</span>                                   | <span class="built_in">eax</span>:L<span class="string">"123"</span></span><br><span class="line"><span class="number">00402460</span> | <span class="number">7D</span> <span class="number">12</span>                    | <span class="keyword">jge</span> afkayas<span class="meta">.1</span><span class="meta">.402474</span>                           |</span><br><span class="line"><span class="number">00402462</span> | <span class="number">68</span> A4 <span class="number">00</span> <span class="number">00</span> <span class="number">00</span>           | <span class="keyword">push</span> A4                                        |</span><br><span class="line"><span class="number">00402467</span> | <span class="number">68</span> 5C <span class="number">1B</span> <span class="number">40</span> <span class="number">00</span>           | <span class="keyword">push</span> afkayas<span class="meta">.1</span>.401B5C                          |</span><br><span class="line">0040246C | <span class="number">57</span>                       | <span class="keyword">push</span> <span class="built_in">edi</span>                                       |</span><br><span class="line"><span class="number">0040246D</span> | <span class="number">50</span>                       | <span class="keyword">push</span> <span class="built_in">eax</span>                                       | <span class="built_in">eax</span>:L<span class="string">"123"</span></span><br><span class="line">0040246E | FF <span class="number">15</span> <span class="number">04</span> <span class="number">41</span> <span class="number">40</span> <span class="number">00</span>        | <span class="keyword">call</span> <span class="built_in">dword</span> <span class="built_in">ptr</span> <span class="built_in">ds</span>:[&lt;&amp;_vbaHresultCheckObj&gt;]     |</span><br><span class="line"><span class="number">00402474</span> | <span class="number">8D</span> <span class="number">45</span> E0                 | <span class="keyword">lea</span> <span class="built_in">eax</span>,<span class="built_in">dword</span> <span class="built_in">ptr</span> <span class="built_in">ss</span>:[<span class="built_in">ebp</span>-<span class="number">20</span>]                  |</span><br><span class="line"><span class="number">00402477</span> | <span class="number">8D</span> <span class="number">4D</span> E4                 | <span class="keyword">lea</span> <span class="built_in">ecx</span>,<span class="built_in">dword</span> <span class="built_in">ptr</span> <span class="built_in">ss</span>:[<span class="built_in">ebp</span>-1C]                  | [<span class="built_in">ebp</span>-1C]:L<span class="string">"123"</span></span><br><span class="line">0040247A | <span class="number">50</span>                       | <span class="keyword">push</span> <span class="built_in">eax</span>                                       | <span class="built_in">eax</span>:L<span class="string">"123"</span></span><br><span class="line">0040247B | <span class="number">8D</span> <span class="number">55</span> E8                 | <span class="keyword">lea</span> <span class="built_in">edx</span>,<span class="built_in">dword</span> <span class="built_in">ptr</span> <span class="built_in">ss</span>:[<span class="built_in">ebp</span>-<span class="number">18</span>]                  | [<span class="built_in">ebp</span>-<span class="number">18</span>]:L<span class="string">"123"</span></span><br><span class="line">0040247E | <span class="number">51</span>                       | <span class="keyword">push</span> <span class="built_in">ecx</span>                                       |</span><br><span class="line">0040247F | <span class="number">52</span>                       | <span class="keyword">push</span> <span class="built_in">edx</span>                                       |</span><br><span class="line"><span class="number">00402480</span> | 6A <span class="number">03</span>                    | <span class="keyword">push</span> <span class="number">3</span>                                         |</span><br><span class="line"><span class="number">00402482</span> | FF <span class="number">15</span> 5C <span class="number">41</span> <span class="number">40</span> <span class="number">00</span>        | <span class="keyword">call</span> <span class="built_in">dword</span> <span class="built_in">ptr</span> <span class="built_in">ds</span>:[&lt;&amp;_vbaFreeStrList&gt;]         |</span><br><span class="line"><span class="number">00402488</span> | <span class="number">83</span> C4 <span class="number">10</span>                 | <span class="keyword">add</span> <span class="built_in">esp</span>,<span class="number">10</span>                                     |</span><br><span class="line">0040248B | <span class="number">8D</span> <span class="number">45</span> D4                 | <span class="keyword">lea</span> <span class="built_in">eax</span>,<span class="built_in">dword</span> <span class="built_in">ptr</span> <span class="built_in">ss</span>:[<span class="built_in">ebp</span>-2C]                  |</span><br><span class="line">0040248E | <span class="number">8D</span> <span class="number">4D</span> D8                 | <span class="keyword">lea</span> <span class="built_in">ecx</span>,<span class="built_in">dword</span> <span class="built_in">ptr</span> <span class="built_in">ss</span>:[<span class="built_in">ebp</span>-<span class="number">28</span>]                  |</span><br><span class="line"><span class="number">00402491</span> | <span class="number">8D</span> <span class="number">55</span> DC                 | <span class="keyword">lea</span> <span class="built_in">edx</span>,<span class="built_in">dword</span> <span class="built_in">ptr</span> <span class="built_in">ss</span>:[<span class="built_in">ebp</span>-<span class="number">24</span>]                  |</span><br><span class="line"><span class="number">00402494</span> | <span class="number">50</span>                       | <span class="keyword">push</span> <span class="built_in">eax</span>                                       | <span class="built_in">eax</span>:L<span class="string">"123"</span></span><br><span class="line"><span class="number">00402495</span> | <span class="number">51</span>                       | <span class="keyword">push</span> <span class="built_in">ecx</span>                                       |</span><br><span class="line"><span class="number">00402496</span> | <span class="number">52</span>                       | <span class="keyword">push</span> <span class="built_in">edx</span>                                       |</span><br><span class="line"><span class="number">00402497</span> | 6A <span class="number">03</span>                    | <span class="keyword">push</span> <span class="number">3</span>                                         |</span><br><span class="line"><span class="number">00402499</span> | FF <span class="number">15</span> F4 <span class="number">40</span> <span class="number">40</span> <span class="number">00</span>        | <span class="keyword">call</span> <span class="built_in">dword</span> <span class="built_in">ptr</span> <span class="built_in">ds</span>:[&lt;&amp;_vbaFreeObjList&gt;]         |</span><br><span class="line">0040249F | 8B <span class="number">06</span>                    | <span class="keyword">mov</span> <span class="built_in">eax</span>,<span class="built_in">dword</span> <span class="built_in">ptr</span> <span class="built_in">ds</span>:[<span class="built_in">esi</span>]                     | <span class="built_in">eax</span>:L<span class="string">"123"</span></span><br><span class="line">004024A1 | <span class="number">83</span> C4 <span class="number">10</span>                 | <span class="keyword">add</span> <span class="built_in">esp</span>,<span class="number">10</span>                                     |</span><br><span class="line">004024A4 | <span class="number">56</span>                       | <span class="keyword">push</span> <span class="built_in">esi</span>                                       |</span><br><span class="line">004024A5 | FF <span class="number">90</span> <span class="number">04</span> <span class="number">03</span> <span class="number">00</span> <span class="number">00</span>        | <span class="keyword">call</span> <span class="built_in">dword</span> <span class="built_in">ptr</span> <span class="built_in">ds</span>:[<span class="built_in">eax</span>+<span class="number">304</span>]                    |</span><br><span class="line">004024AB | 8B <span class="number">1D</span> 0C <span class="number">41</span> <span class="number">40</span> <span class="number">00</span>        | <span class="keyword">mov</span> <span class="built_in">ebx</span>,<span class="built_in">dword</span> <span class="built_in">ptr</span> <span class="built_in">ds</span>:[&lt;&amp;_vbaObjSet&gt;]           |</span><br><span class="line">004024B1 | <span class="number">50</span>                       | <span class="keyword">push</span> <span class="built_in">eax</span>                                       | <span class="built_in">eax</span>:L<span class="string">"123"</span></span><br><span class="line">004024B2 | <span class="number">8D</span> <span class="number">45</span> DC                 | <span class="keyword">lea</span> <span class="built_in">eax</span>,<span class="built_in">dword</span> <span class="built_in">ptr</span> <span class="built_in">ss</span>:[<span class="built_in">ebp</span>-<span class="number">24</span>]                  |</span><br><span class="line">004024B5 | <span class="number">50</span>                       | <span class="keyword">push</span> <span class="built_in">eax</span>                                       | <span class="built_in">eax</span>:L<span class="string">"123"</span></span><br><span class="line">004024B6 | FF D3                    | <span class="keyword">call</span> <span class="built_in">ebx</span>                                       |</span><br><span class="line">004024B8 | 8B F8                    | <span class="keyword">mov</span> <span class="built_in">edi</span>,<span class="built_in">eax</span>                                    | <span class="built_in">eax</span>:L<span class="string">"123"</span></span><br><span class="line">004024BA | <span class="number">8D</span> <span class="number">55</span> E8                 | <span class="keyword">lea</span> <span class="built_in">edx</span>,<span class="built_in">dword</span> <span class="built_in">ptr</span> <span class="built_in">ss</span>:[<span class="built_in">ebp</span>-<span class="number">18</span>]                  | [<span class="built_in">ebp</span>-<span class="number">18</span>]:L<span class="string">"123"</span></span><br><span class="line">004024BD | <span class="number">52</span>                       | <span class="keyword">push</span> <span class="built_in">edx</span>                                       |</span><br><span class="line">004024BE | <span class="number">57</span>                       | <span class="keyword">push</span> <span class="built_in">edi</span>                                       |</span><br><span class="line">004024BF | 8B 0F                    | <span class="keyword">mov</span> <span class="built_in">ecx</span>,<span class="built_in">dword</span> <span class="built_in">ptr</span> <span class="built_in">ds</span>:[<span class="built_in">edi</span>]                     |</span><br><span class="line">004024C1 | FF <span class="number">91</span> A0 <span class="number">00</span> <span class="number">00</span> <span class="number">00</span>        | <span class="keyword">call</span> <span class="built_in">dword</span> <span class="built_in">ptr</span> <span class="built_in">ds</span>:[<span class="built_in">ecx</span>+A0]                     |</span><br><span class="line">004024C7 | <span class="number">85</span> C0                    | <span class="keyword">test</span> <span class="built_in">eax</span>,<span class="built_in">eax</span>                                   | <span class="built_in">eax</span>:L<span class="string">"123"</span></span><br><span class="line">004024C9 | <span class="number">7D</span> <span class="number">12</span>                    | <span class="keyword">jge</span> afkayas<span class="meta">.1</span>.4024<span class="built_in">DD</span>                           |</span><br><span class="line">004024CB | <span class="number">68</span> A0 <span class="number">00</span> <span class="number">00</span> <span class="number">00</span>           | <span class="keyword">push</span> A0                                        |</span><br><span class="line">004024D0 | <span class="number">68</span> 5C <span class="number">1B</span> <span class="number">40</span> <span class="number">00</span>           | <span class="keyword">push</span> afkayas<span class="meta">.1</span>.401B5C                          |</span><br><span class="line">004024D5 | <span class="number">57</span>                       | <span class="keyword">push</span> <span class="built_in">edi</span>                                       |</span><br><span class="line">004024D6 | <span class="number">50</span>                       | <span class="keyword">push</span> <span class="built_in">eax</span>                                       | <span class="built_in">eax</span>:L<span class="string">"123"</span></span><br><span class="line">004024D7 | FF <span class="number">15</span> <span class="number">04</span> <span class="number">41</span> <span class="number">40</span> <span class="number">00</span>        | <span class="keyword">call</span> <span class="built_in">dword</span> <span class="built_in">ptr</span> <span class="built_in">ds</span>:[&lt;&amp;_vbaHresultCheckObj&gt;]     |</span><br><span class="line">004024<span class="built_in">DD</span> | <span class="number">56</span>                       | <span class="keyword">push</span> <span class="built_in">esi</span>                                       |</span><br><span class="line">004024DE | FF <span class="number">95</span> <span class="number">40</span> FF FF FF        | <span class="keyword">call</span> <span class="built_in">dword</span> <span class="built_in">ptr</span> <span class="built_in">ss</span>:[<span class="built_in">ebp</span>-C0]                     | [<span class="built_in">ebp</span>-C0]:&amp;<span class="string">"牪l"</span></span><br><span class="line">004024E4 | <span class="number">50</span>                       | <span class="keyword">push</span> <span class="built_in">eax</span>                                       | <span class="built_in">eax</span>:L<span class="string">"123"</span></span><br><span class="line">004024E5 | <span class="number">8D</span> <span class="number">45</span> D8                 | <span class="keyword">lea</span> <span class="built_in">eax</span>,<span class="built_in">dword</span> <span class="built_in">ptr</span> <span class="built_in">ss</span>:[<span class="built_in">ebp</span>-<span class="number">28</span>]                  |</span><br><span class="line">004024E8 | <span class="number">50</span>                       | <span class="keyword">push</span> <span class="built_in">eax</span>                                       | <span class="built_in">eax</span>:L<span class="string">"123"</span></span><br><span class="line">004024E9 | FF D3                    | <span class="keyword">call</span> <span class="built_in">ebx</span>                                       |</span><br><span class="line">004024EB | 8B F0                    | <span class="keyword">mov</span> <span class="built_in">esi</span>,<span class="built_in">eax</span>                                    | <span class="built_in">eax</span>:L<span class="string">"123"</span></span><br><span class="line">004024ED | <span class="number">8D</span> <span class="number">55</span> E4                 | <span class="keyword">lea</span> <span class="built_in">edx</span>,<span class="built_in">dword</span> <span class="built_in">ptr</span> <span class="built_in">ss</span>:[<span class="built_in">ebp</span>-1C]                  | [<span class="built_in">ebp</span>-1C]:L<span class="string">"123"</span></span><br><span class="line">004024F0 | <span class="number">52</span>                       | <span class="keyword">push</span> <span class="built_in">edx</span>                                       |</span><br><span class="line">004024F1 | <span class="number">56</span>                       | <span class="keyword">push</span> <span class="built_in">esi</span>                                       |</span><br><span class="line">004024F2 | 8B 0E                    | <span class="keyword">mov</span> <span class="built_in">ecx</span>,<span class="built_in">dword</span> <span class="built_in">ptr</span> <span class="built_in">ds</span>:[<span class="built_in">esi</span>]                     |</span><br><span class="line">004024F4 | FF <span class="number">91</span> A0 <span class="number">00</span> <span class="number">00</span> <span class="number">00</span>        | <span class="keyword">call</span> <span class="built_in">dword</span> <span class="built_in">ptr</span> <span class="built_in">ds</span>:[<span class="built_in">ecx</span>+A0]                     |</span><br><span class="line">004024FA | <span class="number">85</span> C0                    | <span class="keyword">test</span> <span class="built_in">eax</span>,<span class="built_in">eax</span>                                   | <span class="built_in">eax</span>:L<span class="string">"123"</span></span><br><span class="line">004024FC | <span class="number">7D</span> <span class="number">12</span>                    | <span class="keyword">jge</span> afkayas<span class="meta">.1</span><span class="meta">.402510</span>                           |</span><br><span class="line">004024FE | <span class="number">68</span> A0 <span class="number">00</span> <span class="number">00</span> <span class="number">00</span>           | <span class="keyword">push</span> A0                                        |</span><br><span class="line"><span class="number">00402503</span> | <span class="number">68</span> 5C <span class="number">1B</span> <span class="number">40</span> <span class="number">00</span>           | <span class="keyword">push</span> afkayas<span class="meta">.1</span>.401B5C                          |</span><br><span class="line"><span class="number">00402508</span> | <span class="number">56</span>                       | <span class="keyword">push</span> <span class="built_in">esi</span>                                       |</span><br><span class="line"><span class="number">00402509</span> | <span class="number">50</span>                       | <span class="keyword">push</span> <span class="built_in">eax</span>                                       | <span class="built_in">eax</span>:L<span class="string">"123"</span></span><br><span class="line">0040250A | FF <span class="number">15</span> <span class="number">04</span> <span class="number">41</span> <span class="number">40</span> <span class="number">00</span>        | <span class="keyword">call</span> <span class="built_in">dword</span> <span class="built_in">ptr</span> <span class="built_in">ds</span>:[&lt;&amp;_vbaHresultCheckObj&gt;]     |</span><br><span class="line"><span class="number">00402510</span> | 8B <span class="number">45</span> E8                 | <span class="keyword">mov</span> <span class="built_in">eax</span>,<span class="built_in">dword</span> <span class="built_in">ptr</span> <span class="built_in">ss</span>:[<span class="built_in">ebp</span>-<span class="number">18</span>]                  | [<span class="built_in">ebp</span>-<span class="number">18</span>]:L<span class="string">"123"</span></span><br><span class="line"><span class="number">00402513</span> | 8B <span class="number">4D</span> E4                 | <span class="keyword">mov</span> <span class="built_in">ecx</span>,<span class="built_in">dword</span> <span class="built_in">ptr</span> <span class="built_in">ss</span>:[<span class="built_in">ebp</span>-1C]                  | [<span class="built_in">ebp</span>-1C]:L<span class="string">"123"</span></span><br><span class="line"><span class="number">00402516</span> | 8B <span class="number">3D</span> <span class="number">00</span> <span class="number">41</span> <span class="number">40</span> <span class="number">00</span>        | <span class="keyword">mov</span> <span class="built_in">edi</span>,<span class="built_in">dword</span> <span class="built_in">ptr</span> <span class="built_in">ds</span>:[&lt;&amp;_vbaStrCat&gt;]           |</span><br><span class="line">0040251C | <span class="number">50</span>                       | <span class="keyword">push</span> <span class="built_in">eax</span>                                       | <span class="built_in">eax</span>:L<span class="string">"123"</span></span><br><span class="line"><span class="number">0040251D</span> | <span class="number">68</span> <span class="number">70</span> <span class="number">1B</span> <span class="number">40</span> <span class="number">00</span>           | <span class="keyword">push</span> afkayas<span class="meta">.1</span>.401B70                          | 401B70:L<span class="string">"AKA-"</span></span><br><span class="line"><span class="number">00402522</span> | <span class="number">51</span>                       | <span class="keyword">push</span> <span class="built_in">ecx</span>                                       |</span><br><span class="line"><span class="number">00402523</span> | FF D7                    | <span class="keyword">call</span> <span class="built_in">edi</span>                                       |</span><br><span class="line"><span class="number">00402525</span> | 8B <span class="number">1D</span> <span class="number">70</span> <span class="number">41</span> <span class="number">40</span> <span class="number">00</span>        | <span class="keyword">mov</span> <span class="built_in">ebx</span>,<span class="built_in">dword</span> <span class="built_in">ptr</span> <span class="built_in">ds</span>:[&lt;&amp;_vbaStrMove&gt;]          | 拼接</span><br><span class="line">0040252B | 8B D0                    | <span class="keyword">mov</span> <span class="built_in">edx</span>,<span class="built_in">eax</span>                                    | <span class="built_in">eax</span>:L<span class="string">"123"</span></span><br><span class="line"><span class="number">0040252D</span> | <span class="number">8D</span> <span class="number">4D</span> E0                 | <span class="keyword">lea</span> <span class="built_in">ecx</span>,<span class="built_in">dword</span> <span class="built_in">ptr</span> <span class="built_in">ss</span>:[<span class="built_in">ebp</span>-<span class="number">20</span>]                  |</span><br><span class="line"><span class="number">00402530</span> | FF D3                    | <span class="keyword">call</span> <span class="built_in">ebx</span>                                       |</span><br><span class="line"><span class="number">00402532</span> | <span class="number">50</span>                       | <span class="keyword">push</span> <span class="built_in">eax</span>                                       | <span class="built_in">eax</span>:L<span class="string">"123"</span></span><br><span class="line"><span class="number">00402533</span> | FF <span class="number">15</span> <span class="number">28</span> <span class="number">41</span> <span class="number">40</span> <span class="number">00</span>        | <span class="keyword">call</span> <span class="built_in">dword</span> <span class="built_in">ptr</span> <span class="built_in">ds</span>:[&lt;&amp;_vbaStrCmp&gt;]              |</span><br></pre></td></tr></table></figure>
+<p>上面我已经对关键的函数和操作进行了注释，得出注释中这些结论的方法主要是看函数栈和返回值。最后那里的拼接，是在计算得到的字符串前加上“AKA-”这一前缀。</p>
+<p>则整个注册算法的思路是：</p>
+<ol>
+<li>取得name的长度。</li>
+<li>将长度乘以一个常数0x17cfb。</li>
+<li>再取得name的首字母。</li>
+<li>将首字母的ascii值加上步骤2得到的结果。</li>
+<li>最终得到字符串型的结果。</li>
+<li>将结果拼接得到key。</li>
+<li>将key与输入的key比较，最终联系到前面说过的关键跳转。</li>
+</ol>
+<p>根据注册算法写出注册机：<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">name = input(<span class="string">'name: '</span>)</span><br><span class="line">num = len(name) * <span class="number">0x17cfb</span> + ord(name[<span class="number">0</span>])</span><br><span class="line">print(<span class="string">'key is: AKA-'</span>+str(num))</span><br></pre></td></tr></table></figure></p>
+<p>最终验证结果：</p>
+<p><img src="/2019/05/08/AfKayAs-CrackMe-1/2.png" alt="final"></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/逆向工程/" rel="tag"><i class="fa fa-tag"></i> 逆向工程</a>
+          
+            <a href="/tags/逆向160题/" rel="tag"><i class="fa fa-tag"></i> 逆向160题</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/05/08/20190508/" rel="next" title="20190508">
+                <i class="fa fa-chevron-left"></i> 20190508
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="Bwonsamdi">
+            
+              <p class="site-author-name" itemprop="name">Bwonsamdi</p>
+              <p class="site-description motion-element" itemprop="description">一只兴趣使然的逆向菜鸡。</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">35</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Bwonsamdi</span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  <!-- 代码块复制功能 -->
+  <script type="text/javascript" src="/js/src/clipboard.min.js"></script>  
+  <script type="text/javascript" src="/js/src/clipboard-use.js"></script>
+</body>
+</html>
+<script type="text/javascript" src="/js/src/crash_cheat.js"></script>
