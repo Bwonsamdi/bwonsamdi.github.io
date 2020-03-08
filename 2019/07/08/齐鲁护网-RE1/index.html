@@ -115,7 +115,7 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoursite.com/2019/07/08/齐鲁护网-RE1/1.jpg">
 <meta property="og:image" content="http://yoursite.com/2019/07/08/齐鲁护网-RE1/2.jpg">
-<meta property="og:updated_time" content="2019-07-08T10:06:33.358Z">
+<meta property="og:updated_time" content="2020-03-08T11:13:22.808Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="齐鲁护网-RE1">
 <meta name="twitter:description" content="程序下载  一场简单的CTF，逆向一共7道，其中一道异或加密、一道不太清楚（我直接改跳转爆破出来的）、一道mfc、一道简单的虚拟化（虚拟化没接触过，看了真的头大，有没有师傅教教我）、一道wasm（没接触过）、一道脱壳、一道反调试，感觉题型还挺全的233，但是自己太菜，只做了两道，逆向学习任重道远啊。。。。。。  下载题目之后先运行一下  没什么特别的，直接上IDA了，搜索一下字符串。  查找引用，">
@@ -382,8 +382,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/玩安全/" itemprop="url" rel="index">
-                    <span itemprop="name">玩安全</span>
+                  <a href="/categories/安全/" itemprop="url" rel="index">
+                    <span itemprop="name">安全</span>
                   </a>
                 </span>
 
@@ -429,8 +429,9 @@
 <p><img src="/2019/07/08/齐鲁护网-RE1/2.jpg" alt="search"></p>
 <p>查找引用，只找到了一处引用，F5结果如下：</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">sub_401FF0</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="keyword">int</span> v0; <span class="comment">// ecx</span></span><br><span class="line">  <span class="keyword">int</span> v1; <span class="comment">// eax</span></span><br><span class="line">  <span class="keyword">int</span> v2; <span class="comment">// ecx</span></span><br><span class="line">  <span class="keyword">int</span> v3; <span class="comment">// eax</span></span><br><span class="line">  _BYTE *v4; <span class="comment">// ecx</span></span><br><span class="line">  <span class="keyword">unsigned</span> <span class="keyword">int</span> v5; <span class="comment">// edx</span></span><br><span class="line">  <span class="keyword">char</span> *v6; <span class="comment">// eax</span></span><br><span class="line">  <span class="keyword">bool</span> v7; <span class="comment">// cf</span></span><br><span class="line">  <span class="keyword">unsigned</span> __int8 v8; <span class="comment">// dl</span></span><br><span class="line">  <span class="keyword">int</span> v9; <span class="comment">// eax</span></span><br><span class="line">  <span class="keyword">const</span> <span class="keyword">char</span> *v10; <span class="comment">// edx</span></span><br><span class="line">  <span class="keyword">int</span> v11; <span class="comment">// eax</span></span><br><span class="line">  <span class="keyword">char</span> v13[<span class="number">108</span>]; <span class="comment">// [esp+8h] [ebp-70h]</span></span><br><span class="line"></span><br><span class="line">  sub_4073F0(v13, <span class="number">0</span>, <span class="number">100</span>);</span><br><span class="line">  v1 = sub_4022B0(v0, <span class="string">"welcome!"</span>);</span><br><span class="line">  sub_402560(v1);</span><br><span class="line">  v3 = sub_4022B0(v2, <span class="string">"please input the flag"</span>);</span><br><span class="line">  sub_402560(v3);</span><br><span class="line">  sub_4010E0((<span class="keyword">int</span>)<span class="string">"%s"</span>, v13, <span class="number">100</span>);</span><br><span class="line">  v4 = (_BYTE *)<span class="built_in">strlen</span>(v13);</span><br><span class="line">  <span class="keyword">if</span> ( v4 != (_BYTE *)<span class="number">38</span> )</span><br><span class="line">    <span class="keyword">goto</span> LABEL_16;</span><br><span class="line">  v5 = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">do</span></span><br><span class="line">  &#123;</span><br><span class="line">    v13[v5] = (v13[v5] ^ <span class="number">5</span>) + <span class="number">1</span>;</span><br><span class="line">    ++v5;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">while</span> ( v5 &lt; <span class="built_in">strlen</span>(v13) );</span><br><span class="line">  v4 = &amp;unk_4339B0;</span><br><span class="line">  v6 = v13;</span><br><span class="line">  <span class="keyword">while</span> ( <span class="number">1</span> )</span><br><span class="line">  &#123;</span><br><span class="line">    v7 = (<span class="keyword">unsigned</span> __int8)*v6 &lt; *v4;</span><br><span class="line">    <span class="keyword">if</span> ( *v6 != *v4 )</span><br><span class="line">      <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">if</span> ( !*v6 )</span><br><span class="line">      <span class="keyword">goto</span> LABEL_9;</span><br><span class="line">    v8 = v6[<span class="number">1</span>];</span><br><span class="line">    v7 = v8 &lt; v4[<span class="number">1</span>];</span><br><span class="line">    <span class="keyword">if</span> ( v8 != v4[<span class="number">1</span>] )</span><br><span class="line">      <span class="keyword">break</span>;</span><br><span class="line">    v6 += <span class="number">2</span>;</span><br><span class="line">    v4 += <span class="number">2</span>;</span><br><span class="line">    <span class="keyword">if</span> ( !v8 )</span><br><span class="line">    &#123;</span><br><span class="line">LABEL_9:</span><br><span class="line">      v9 = <span class="number">0</span>;</span><br><span class="line">      <span class="keyword">goto</span> LABEL_11;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  v9 = -v7 | <span class="number">1</span>;</span><br><span class="line">LABEL_11:</span><br><span class="line">  v10 = <span class="string">"right!"</span>;</span><br><span class="line">  <span class="keyword">if</span> ( v9 )</span><br><span class="line">LABEL_16:</span><br><span class="line">    v10 = <span class="string">"false!"</span>;</span><br><span class="line">  v11 = sub_4022B0(v4, v10);</span><br><span class="line">  sub_402560(v11);</span><br><span class="line">  sub_409F80(<span class="string">"pause"</span>);</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>根据<code>v4 = &amp;unk_4339B0</code>以及flag长度19，得到flag加密结果<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">经过解密得到flag。脚本：</span><br><span class="line"></span><br><span class="line">```py</span><br><span class="line">s = &apos;djec.1pj=6PHDqSbVwtwWDQJL`87ph1g2t~8&#125;y &apos;</span><br><span class="line">for i in range(0,len(s)):</span><br><span class="line">    x = (ord(s[i])-1)^5</span><br><span class="line">    print(chr(x),end=&apos;&apos;)</span><br></pre></td></tr></table></figure></p>
-
+<p>根据<code>v4 = &amp;unk_4339B0</code>以及flag长度19，得到flag加密结果djec.1pj=6PHDqSbVwtwWDQJL`87ph1g2t~8}y</p>
+<p>经过解密得到flag。脚本：</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">s = <span class="string">'djec.1pj=6PHDqSbVwtwWDQJL`87ph1g2t~8&#125;y '</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>,len(s)):</span><br><span class="line">    x = (ord(s[i])<span class="number">-1</span>)^<span class="number">5</span></span><br><span class="line">    print(chr(x),end=<span class="string">''</span>)</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -462,8 +463,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/06/14/20190614/" rel="next" title="20190614">
-                <i class="fa fa-chevron-left"></i> 20190614
+              <a href="/2019/05/08/AfKayAs-CrackMe-1/" rel="next" title="AfKayAs CrackMe #1">
+                <i class="fa fa-chevron-left"></i> AfKayAs CrackMe #1
               </a>
             
           </div>
@@ -544,7 +545,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">39</span>
+                  <span class="site-state-item-count">24</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -555,7 +556,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -566,7 +567,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -604,7 +605,7 @@
     <footer id="footer" class="footer">
       <div class="footer-inner">
         <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-<div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>

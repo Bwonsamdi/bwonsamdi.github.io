@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>写于20200308</title>
+      <link href="/2020/03/08/%E5%86%99%E4%BA%8E20200308/"/>
+      <url>/2020/03/08/%E5%86%99%E4%BA%8E20200308/</url>
+      
+        <content type="html"><![CDATA[<p>重新启用这个荒废了大半年的博客，清理掉了原来的日常性质文章，略微提高了博客的技术浓度。</p><p>半年来也没太多成长，开了好几个坑都没坚持写下去。加上报了考研班，这些坑要留到一年之后再慢慢完结了。</p><p>说到考研，这个问题决定了很久，最终是由于认识到技术基础的缺失和不足，难以满足自己心仪的岗位要求，加上对一些理论的东西也有兴趣，不排斥做科研，就决定考研了。但目前还是有一些迷茫，目前不清楚自己真正喜欢的方向，这点来源于自己对安全的认识依然不够深入，不能很好地区分出方向，导致现在像无头苍蝇一样。考研课听起来也没什么兴趣，做题背单词毫无效率。</p><p>决定将一些自己在学校学到的东西也更新到博客上，原本是想只放安全的东西的，现在想想自己专业课里其实还是有不少巩固基础的内容，更何况自己基础本来也不强。</p><p>最近又把pwn捡起来刷了十几道题，每次做题都会有一些新的体会，调试的时候能够看得更清晰一些，不过堆还是太牵涉精力，考研也不太有这种精力了。这十几道题的wp网上有很多，原理也十分的基础，没必要再像自己以前一样重新写一遍了。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 日常 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 乱七八糟 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>齐鲁护网-clipboard</title>
       <link href="/2019/07/08/%E9%BD%90%E9%B2%81%E6%8A%A4%E7%BD%91-clipboard/"/>
       <url>/2019/07/08/%E9%BD%90%E9%B2%81%E6%8A%A4%E7%BD%91-clipboard/</url>
@@ -13,7 +38,7 @@
       
       <categories>
           
-          <category> 玩安全 </category>
+          <category> 安全 </category>
           
       </categories>
       
@@ -21,8 +46,6 @@
         <tags>
             
             <tag> 逆向工程 </tag>
-            
-            <tag> CTF </tag>
             
         </tags>
       
@@ -35,12 +58,12 @@
       <link href="/2019/07/08/%E9%BD%90%E9%B2%81%E6%8A%A4%E7%BD%91-RE1/"/>
       <url>/2019/07/08/%E9%BD%90%E9%B2%81%E6%8A%A4%E7%BD%91-RE1/</url>
       
-        <content type="html"><![CDATA[<p><a href="re1.exe"><strong>程序下载</strong></a></p><blockquote><p>一场简单的CTF，逆向一共7道，其中一道异或加密、一道不太清楚（我直接改跳转爆破出来的）、一道mfc、一道简单的虚拟化（虚拟化没接触过，看了真的头大，有没有师傅教教我）、一道wasm（没接触过）、一道脱壳、一道反调试，感觉题型还挺全的233，但是自己太菜，只做了两道，逆向学习任重道远啊。。。。。。</p></blockquote><p>下载题目之后先运行一下</p><p><img src="/2019/07/08/齐鲁护网-RE1/1.jpg" alt="运行"></p><p>没什么特别的，直接上IDA了，搜索一下字符串。</p><p><img src="/2019/07/08/齐鲁护网-RE1/2.jpg" alt="search"></p><p>查找引用，只找到了一处引用，F5结果如下：</p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">sub_401FF0</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="keyword">int</span> v0; <span class="comment">// ecx</span></span><br><span class="line">  <span class="keyword">int</span> v1; <span class="comment">// eax</span></span><br><span class="line">  <span class="keyword">int</span> v2; <span class="comment">// ecx</span></span><br><span class="line">  <span class="keyword">int</span> v3; <span class="comment">// eax</span></span><br><span class="line">  _BYTE *v4; <span class="comment">// ecx</span></span><br><span class="line">  <span class="keyword">unsigned</span> <span class="keyword">int</span> v5; <span class="comment">// edx</span></span><br><span class="line">  <span class="keyword">char</span> *v6; <span class="comment">// eax</span></span><br><span class="line">  <span class="keyword">bool</span> v7; <span class="comment">// cf</span></span><br><span class="line">  <span class="keyword">unsigned</span> __int8 v8; <span class="comment">// dl</span></span><br><span class="line">  <span class="keyword">int</span> v9; <span class="comment">// eax</span></span><br><span class="line">  <span class="keyword">const</span> <span class="keyword">char</span> *v10; <span class="comment">// edx</span></span><br><span class="line">  <span class="keyword">int</span> v11; <span class="comment">// eax</span></span><br><span class="line">  <span class="keyword">char</span> v13[<span class="number">108</span>]; <span class="comment">// [esp+8h] [ebp-70h]</span></span><br><span class="line"></span><br><span class="line">  sub_4073F0(v13, <span class="number">0</span>, <span class="number">100</span>);</span><br><span class="line">  v1 = sub_4022B0(v0, <span class="string">"welcome!"</span>);</span><br><span class="line">  sub_402560(v1);</span><br><span class="line">  v3 = sub_4022B0(v2, <span class="string">"please input the flag"</span>);</span><br><span class="line">  sub_402560(v3);</span><br><span class="line">  sub_4010E0((<span class="keyword">int</span>)<span class="string">"%s"</span>, v13, <span class="number">100</span>);</span><br><span class="line">  v4 = (_BYTE *)<span class="built_in">strlen</span>(v13);</span><br><span class="line">  <span class="keyword">if</span> ( v4 != (_BYTE *)<span class="number">38</span> )</span><br><span class="line">    <span class="keyword">goto</span> LABEL_16;</span><br><span class="line">  v5 = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">do</span></span><br><span class="line">  &#123;</span><br><span class="line">    v13[v5] = (v13[v5] ^ <span class="number">5</span>) + <span class="number">1</span>;</span><br><span class="line">    ++v5;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">while</span> ( v5 &lt; <span class="built_in">strlen</span>(v13) );</span><br><span class="line">  v4 = &amp;unk_4339B0;</span><br><span class="line">  v6 = v13;</span><br><span class="line">  <span class="keyword">while</span> ( <span class="number">1</span> )</span><br><span class="line">  &#123;</span><br><span class="line">    v7 = (<span class="keyword">unsigned</span> __int8)*v6 &lt; *v4;</span><br><span class="line">    <span class="keyword">if</span> ( *v6 != *v4 )</span><br><span class="line">      <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">if</span> ( !*v6 )</span><br><span class="line">      <span class="keyword">goto</span> LABEL_9;</span><br><span class="line">    v8 = v6[<span class="number">1</span>];</span><br><span class="line">    v7 = v8 &lt; v4[<span class="number">1</span>];</span><br><span class="line">    <span class="keyword">if</span> ( v8 != v4[<span class="number">1</span>] )</span><br><span class="line">      <span class="keyword">break</span>;</span><br><span class="line">    v6 += <span class="number">2</span>;</span><br><span class="line">    v4 += <span class="number">2</span>;</span><br><span class="line">    <span class="keyword">if</span> ( !v8 )</span><br><span class="line">    &#123;</span><br><span class="line">LABEL_9:</span><br><span class="line">      v9 = <span class="number">0</span>;</span><br><span class="line">      <span class="keyword">goto</span> LABEL_11;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  v9 = -v7 | <span class="number">1</span>;</span><br><span class="line">LABEL_11:</span><br><span class="line">  v10 = <span class="string">"right!"</span>;</span><br><span class="line">  <span class="keyword">if</span> ( v9 )</span><br><span class="line">LABEL_16:</span><br><span class="line">    v10 = <span class="string">"false!"</span>;</span><br><span class="line">  v11 = sub_4022B0(v4, v10);</span><br><span class="line">  sub_402560(v11);</span><br><span class="line">  sub_409F80(<span class="string">"pause"</span>);</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>根据<code>v4 = &amp;unk_4339B0</code>以及flag长度19，得到flag加密结果<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">经过解密得到flag。脚本：</span><br><span class="line"></span><br><span class="line">```py</span><br><span class="line">s = &apos;djec.1pj=6PHDqSbVwtwWDQJL`87ph1g2t~8&#125;y &apos;</span><br><span class="line">for i in range(0,len(s)):</span><br><span class="line">    x = (ord(s[i])-1)^5</span><br><span class="line">    print(chr(x),end=&apos;&apos;)</span><br></pre></td></tr></table></figure></p>]]></content>
+        <content type="html"><![CDATA[<p><a href="re1.exe"><strong>程序下载</strong></a></p><blockquote><p>一场简单的CTF，逆向一共7道，其中一道异或加密、一道不太清楚（我直接改跳转爆破出来的）、一道mfc、一道简单的虚拟化（虚拟化没接触过，看了真的头大，有没有师傅教教我）、一道wasm（没接触过）、一道脱壳、一道反调试，感觉题型还挺全的233，但是自己太菜，只做了两道，逆向学习任重道远啊。。。。。。</p></blockquote><p>下载题目之后先运行一下</p><p><img src="/2019/07/08/齐鲁护网-RE1/1.jpg" alt="运行"></p><p>没什么特别的，直接上IDA了，搜索一下字符串。</p><p><img src="/2019/07/08/齐鲁护网-RE1/2.jpg" alt="search"></p><p>查找引用，只找到了一处引用，F5结果如下：</p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">sub_401FF0</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="keyword">int</span> v0; <span class="comment">// ecx</span></span><br><span class="line">  <span class="keyword">int</span> v1; <span class="comment">// eax</span></span><br><span class="line">  <span class="keyword">int</span> v2; <span class="comment">// ecx</span></span><br><span class="line">  <span class="keyword">int</span> v3; <span class="comment">// eax</span></span><br><span class="line">  _BYTE *v4; <span class="comment">// ecx</span></span><br><span class="line">  <span class="keyword">unsigned</span> <span class="keyword">int</span> v5; <span class="comment">// edx</span></span><br><span class="line">  <span class="keyword">char</span> *v6; <span class="comment">// eax</span></span><br><span class="line">  <span class="keyword">bool</span> v7; <span class="comment">// cf</span></span><br><span class="line">  <span class="keyword">unsigned</span> __int8 v8; <span class="comment">// dl</span></span><br><span class="line">  <span class="keyword">int</span> v9; <span class="comment">// eax</span></span><br><span class="line">  <span class="keyword">const</span> <span class="keyword">char</span> *v10; <span class="comment">// edx</span></span><br><span class="line">  <span class="keyword">int</span> v11; <span class="comment">// eax</span></span><br><span class="line">  <span class="keyword">char</span> v13[<span class="number">108</span>]; <span class="comment">// [esp+8h] [ebp-70h]</span></span><br><span class="line"></span><br><span class="line">  sub_4073F0(v13, <span class="number">0</span>, <span class="number">100</span>);</span><br><span class="line">  v1 = sub_4022B0(v0, <span class="string">"welcome!"</span>);</span><br><span class="line">  sub_402560(v1);</span><br><span class="line">  v3 = sub_4022B0(v2, <span class="string">"please input the flag"</span>);</span><br><span class="line">  sub_402560(v3);</span><br><span class="line">  sub_4010E0((<span class="keyword">int</span>)<span class="string">"%s"</span>, v13, <span class="number">100</span>);</span><br><span class="line">  v4 = (_BYTE *)<span class="built_in">strlen</span>(v13);</span><br><span class="line">  <span class="keyword">if</span> ( v4 != (_BYTE *)<span class="number">38</span> )</span><br><span class="line">    <span class="keyword">goto</span> LABEL_16;</span><br><span class="line">  v5 = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">do</span></span><br><span class="line">  &#123;</span><br><span class="line">    v13[v5] = (v13[v5] ^ <span class="number">5</span>) + <span class="number">1</span>;</span><br><span class="line">    ++v5;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">while</span> ( v5 &lt; <span class="built_in">strlen</span>(v13) );</span><br><span class="line">  v4 = &amp;unk_4339B0;</span><br><span class="line">  v6 = v13;</span><br><span class="line">  <span class="keyword">while</span> ( <span class="number">1</span> )</span><br><span class="line">  &#123;</span><br><span class="line">    v7 = (<span class="keyword">unsigned</span> __int8)*v6 &lt; *v4;</span><br><span class="line">    <span class="keyword">if</span> ( *v6 != *v4 )</span><br><span class="line">      <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">if</span> ( !*v6 )</span><br><span class="line">      <span class="keyword">goto</span> LABEL_9;</span><br><span class="line">    v8 = v6[<span class="number">1</span>];</span><br><span class="line">    v7 = v8 &lt; v4[<span class="number">1</span>];</span><br><span class="line">    <span class="keyword">if</span> ( v8 != v4[<span class="number">1</span>] )</span><br><span class="line">      <span class="keyword">break</span>;</span><br><span class="line">    v6 += <span class="number">2</span>;</span><br><span class="line">    v4 += <span class="number">2</span>;</span><br><span class="line">    <span class="keyword">if</span> ( !v8 )</span><br><span class="line">    &#123;</span><br><span class="line">LABEL_9:</span><br><span class="line">      v9 = <span class="number">0</span>;</span><br><span class="line">      <span class="keyword">goto</span> LABEL_11;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  v9 = -v7 | <span class="number">1</span>;</span><br><span class="line">LABEL_11:</span><br><span class="line">  v10 = <span class="string">"right!"</span>;</span><br><span class="line">  <span class="keyword">if</span> ( v9 )</span><br><span class="line">LABEL_16:</span><br><span class="line">    v10 = <span class="string">"false!"</span>;</span><br><span class="line">  v11 = sub_4022B0(v4, v10);</span><br><span class="line">  sub_402560(v11);</span><br><span class="line">  sub_409F80(<span class="string">"pause"</span>);</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>根据<code>v4 = &amp;unk_4339B0</code>以及flag长度19，得到flag加密结果djec.1pj=6PHDqSbVwtwWDQJL`87ph1g2t~8}y</p><p>经过解密得到flag。脚本：</p><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">s = <span class="string">'djec.1pj=6PHDqSbVwtwWDQJL`87ph1g2t~8&#125;y '</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>,len(s)):</span><br><span class="line">    x = (ord(s[i])<span class="number">-1</span>)^<span class="number">5</span></span><br><span class="line">    print(chr(x),end=<span class="string">''</span>)</span><br></pre></td></tr></table></figure>]]></content>
       
       
       <categories>
           
-          <category> 玩安全 </category>
+          <category> 安全 </category>
           
       </categories>
       
@@ -50,58 +73,6 @@
             <tag> 逆向工程 </tag>
             
             <tag> CTF </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>20190614</title>
-      <link href="/2019/06/14/20190614/"/>
-      <url>/2019/06/14/20190614/</url>
-      
-        <content type="html"><![CDATA[<p>又是将近一个月不写东西了，还有茫茫多的考试、报告、课设内容需要填坑，没时间学逆向。课设要求用软件工程的知识，从零到一撸一个web应用，要求采用scrum敏捷开发，两轮冲刺，版本管理（小组选择了git）、项目管理（禅道或者jira还没有确定）、以及各种文档。我们组准备用bootstrap写个简单点的前端，用flask + sqlite搞后端和数据库。昨天按着官方教程撸了一遍，晚上写了个登陆、注册功能的demo，这周末需要集体肝前端，周一先验收静态页面。比较担心计网和毛概考试。前几天翻译了一个系列教程，是关于win32 api的，教程时间比较长了，网上也有翻译，但是和原文对比后发现，作者废话不少，找到的翻译文章基本都是翻译了废话，我就自己试着翻一遍了，目前翻译了三四篇吧，这个准备等全部翻译完后扔到博客上，争取放假前翻译完。等课设做完，把代码和文档简单整理一下发出来。</p><p>整理一下七月份要完成的工作，六月份全部交给课内：</p><ol><li>去大连实习前，读完《程序员的自我修养————链接、装载与库》。</li><li>去大连实习前，整理课设的文档、代码、报告，写心得。</li><li>假期前，读完CSAPP。</li></ol><p>有个梦想，假期把CSAPP的所有题做一遍。上大学以来，看过了这么多本教材，没有一本是完全把内容吃透的，很惭愧，学习的劲头远不如高中了，所以精读一遍CSAPP，也算是给自己一个小小的交待。</p><p>目前计划毕业前读完而未读完的书：</p><ul><li>逆向工程核心原理</li><li>加密与解密四</li><li>鸟哥私房菜基础篇</li><li>程序员的自我修养</li><li>逆向工程权威指南上下两册</li><li>Linux内核设计与实现</li><li>windows核心编程</li><li>龙书</li><li>虎书</li><li>CSAPP</li><li>深入浅出密码学</li></ul><p>深感本科时间的可贵……</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> 生活 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 乱七八糟 </tag>
-            
-            <tag> 学习 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>20190525</title>
-      <link href="/2019/05/25/20190525/"/>
-      <url>/2019/05/25/20190525/</url>
-      
-        <content type="html"><![CDATA[<blockquote><p>颓了好长时间了，赶工做各种实验，学校不给钱去南京，考试，上课，天气升温……耽误了将近一个月了。</p></blockquote><p>大三分方向的事情决定下来了，报了物联网方向，另外两个方向是数字媒体和云计算。物联网大概是有21人报名，数字媒体大概也有30人左右，剩下的同学就都去了云计算……分方向这个事让我挺无语的，今年没限制各个方向的报名人数，报了就能去。就我身边的情况而言，报数字媒体（游戏）的同学基本都是真心喜欢的，报物联网的也都是对嵌入式、对计算机体系结构有兴趣的，只有云计算，绝大多数人报这个方向是因为随主流，甚至还有想报物联网的同学，觉得物联网人数太少最终选择了云计算的……除了从众心理报了云计算的，剩下的基本是把云计算当作一个就业热点或听说课程比较水而选择的，而并非是出于兴趣原因。</p><p>私以为，大学生还是要有主见为好。</p><p>读书笔记大概率要搁置一段时间了，感觉自己还是没找到记这类笔记的合适的方法，现在回头看之前的笔记，尤其是RE4B的笔记，感觉是为了记而记，没什么意思。而且RE4B、加密解密、自我修养、CSAPP这几本书都是穿插着看，期间遇到考试实验要中断好久。</p><p>感觉很长一段时间以来，自己都是以打比赛为动力学习，路走偏了。喜欢逆向，研究逆向长时间没有丝毫进步，是现在的问题所在。决定最近一段时间，到暑假为止，把学习逆向的时间全部转移回到学习基础知识上。</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> 生活 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 乱七八糟 </tag>
             
         </tags>
       
@@ -119,7 +90,7 @@
       
       <categories>
           
-          <category> 玩安全 </category>
+          <category> 安全 </category>
           
       </categories>
       
@@ -127,148 +98,6 @@
         <tags>
             
             <tag> 逆向工程 </tag>
-            
-            <tag> 逆向160题 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>20190508</title>
-      <link href="/2019/05/08/20190508/"/>
-      <url>/2019/05/08/20190508/</url>
-      
-        <content type="html"><![CDATA[<p>停了一周，最近事情太多，明天还有体测，周末前还要肝完python和OS实验上交。这周过去事情就能少一些了。</p><p>今天争取再做一道题。</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> 生活 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 乱七八糟 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>20190502</title>
-      <link href="/2019/05/02/20190502/"/>
-      <url>/2019/05/02/20190502/</url>
-      
-        <content type="html"><![CDATA[<p>dym来威海了，带他逛了一下哈工大，去海边走了一圈，回来在妈妈手吃的，点多了……</p><p>明天继续逛吃。</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> 生活 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 乱七八糟 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>20190501</title>
-      <link href="/2019/05/02/20190501/"/>
-      <url>/2019/05/02/20190501/</url>
-      
-        <content type="html"><![CDATA[<p>和室友出去吃烧烤，并没有学习。</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> 生活 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 乱七八糟 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>20190430</title>
-      <link href="/2019/05/01/20190430/"/>
-      <url>/2019/05/01/20190430/</url>
-      
-        <content type="html"><![CDATA[<p>搞了两道题，一道python反序列化后逆向，一道CM，python的还不会，暂时搁置，CM的分析到一半感觉不太对，看了夜影师傅博客，发现好像是我的程序有问题。。。？CM里面有两个messageboxa，但是找不到交叉引用？正常应该是这两次引用都出于同一个函数，而且还是关键函数……</p><p>1号要从油管搬LiveOverFlow的逆向视频了，B站应该还没有他们的逆向的视频。</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> 生活 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 乱七八糟 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>XCTF 4th-WHCTF-2017 CRACKME</title>
-      <link href="/2019/04/30/XCTF-4th-WHCTF-2017-CRACKME/"/>
-      <url>/2019/04/30/XCTF-4th-WHCTF-2017-CRACKME/</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-      
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>HITCON-CTF-2016 handcrafted-pyc</title>
-      <link href="/2019/04/30/HITCON-CTF-2016-handcrafted-pyc/"/>
-      <url>/2019/04/30/HITCON-CTF-2016-handcrafted-pyc/</url>
-      
-        <content type="html"><![CDATA[<p>挖坑，不太会做。</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> 玩安全 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 逆向工程 </tag>
-            
-            <tag> 待补充 </tag>
             
         </tags>
       
@@ -286,7 +115,7 @@
       
       <categories>
           
-          <category> 玩安全 </category>
+          <category> 安全 </category>
           
       </categories>
       
@@ -311,7 +140,7 @@
       
       <categories>
           
-          <category> 玩安全 </category>
+          <category> 安全 </category>
           
       </categories>
       
@@ -336,7 +165,7 @@
       
       <categories>
           
-          <category> 玩安全 </category>
+          <category> 安全 </category>
           
       </categories>
       
@@ -361,7 +190,7 @@
       
       <categories>
           
-          <category> 玩安全 </category>
+          <category> 安全 </category>
           
       </categories>
       
@@ -386,7 +215,7 @@
       
       <categories>
           
-          <category> 玩安全 </category>
+          <category> 安全 </category>
           
       </categories>
       
@@ -394,58 +223,6 @@
         <tags>
             
             <tag> 逆向工程 </tag>
-            
-            <tag> 待补充 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>20190428</title>
-      <link href="/2019/04/29/20190428/"/>
-      <url>/2019/04/29/20190428/</url>
-      
-        <content type="html"><![CDATA[<p>（写于20190429，补）</p><p>肝了一天的write up，把最初做过的水题又做了一遍，居然感觉稍微加深了一些理解，果然还是太菜了……</p><p>研究了面向对象课的课设，小组进展极其缓慢……用例描述还没有写，希望可以顺利肝完吧。</p><p>CSAPP就要到了，现在准备把这本书和自我修养在放假前过一遍。</p><p>五一前把攻防世界RE的新手区WP肝完。</p><p>现在还没想好什么时候开始搞移动逆向，感觉该开始了，但是又觉得没什么精力。</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> 生活 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 乱七八糟 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>20190429</title>
-      <link href="/2019/04/29/20190429/"/>
-      <url>/2019/04/29/20190429/</url>
-      
-        <content type="html"><![CDATA[<p>今天终于把攻防世界RE新手场的题解写完了，撒花~</p><p>进阶场有116题，慢慢做，希望技术可以有所提升。</p><p>感觉这些题重新做一遍有了一些新收获，写成博客还会有一些新收获，希望可以形成良性循环吧，也希望自己可以坚持学下去。</p><p>正式开始看CSAPP了，从第二章开始，尽量记读书笔记、做课后练习题，暂时先搁置homework，时间不太够。</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> 生活 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 乱七八糟 </tag>
             
         </tags>
       
@@ -463,7 +240,7 @@
       
       <categories>
           
-          <category> 玩安全 </category>
+          <category> 安全 </category>
           
       </categories>
       
@@ -490,7 +267,7 @@
       
       <categories>
           
-          <category> 玩安全 </category>
+          <category> 安全 </category>
           
       </categories>
       
@@ -515,7 +292,7 @@
       
       <categories>
           
-          <category> 玩安全 </category>
+          <category> 安全 </category>
           
       </categories>
       
@@ -540,7 +317,7 @@
       
       <categories>
           
-          <category> 玩安全 </category>
+          <category> 安全 </category>
           
       </categories>
       
@@ -565,7 +342,7 @@
       
       <categories>
           
-          <category> 玩安全 </category>
+          <category> 安全 </category>
           
       </categories>
       
@@ -590,7 +367,7 @@
       
       <categories>
           
-          <category> 玩安全 </category>
+          <category> 安全 </category>
           
       </categories>
       
@@ -634,7 +411,7 @@
       
       <categories>
           
-          <category> 玩安全 </category>
+          <category> 安全 </category>
           
       </categories>
       
@@ -642,56 +419,6 @@
         <tags>
             
             <tag> 逆向工程 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>20190427</title>
-      <link href="/2019/04/27/20190427/"/>
-      <url>/2019/04/27/20190427/</url>
-      
-        <content type="html"><![CDATA[<p>今天拉着同学和两位学长陪华为杭研所的面试官吃了顿饭，期间说了很多有用的东西，而且明天不出意外的话他就是学长的面试官2333。</p><p>席间也问了一下关于996的事情，面试官没有直接回答，而是说不会经常通宵23333。</p><p>又没学习逆向，明天写一些攻防世界的WP，攻防世界找的各个CTF的题还是挺适合入门的，而且攻防世界前一阵有更新，还没体验过。</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> 生活 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 乱七八糟 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>20190426</title>
-      <link href="/2019/04/26/20190426/"/>
-      <url>/2019/04/26/20190426/</url>
-      
-        <content type="html"><![CDATA[<p>今天有学长找我，说是有另一个学长要找我聊聊，结果是想让我参加华为杭州研究所的实习……没办法只能拒绝，一是准备考研，无心立即找工作，二是能力被高估了，学长是听说我做pwn方向来找的我，而我自己清楚在pwn上面投入不足，产出更是没有。挺遗憾的，其实我是想在有时间的情况下出去实习锻炼锻炼的，可惜大二时候学校不会给这个机会。</p><p>前一阵玩pwn，看了各种堆的利用，到头来自己一道题的脚本都写不出来。逆向分析不到位，ROP不会构造，加上pwnlib不熟练，导致我暂时放弃了pwn，开始专注于逆向了。</p><p>羡慕学校信安专业17级的kirin-say师傅，很早就开始搞逆向了，现在在chamd5打pwn，只希望自己在大三上结束之前可以有一定基础，最起码不要再只能做出来比赛的签到题了……国赛捡漏做了第一天的逆向，GO语言一脸懵逼，全靠夜影师傅博客带（虽然最后没用上博客里的知识……）。<br>UML大作业要画十几个图，枯了。</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> 生活 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 乱七八糟 </tag>
             
         </tags>
       
@@ -709,7 +436,7 @@
       
       <categories>
           
-          <category> 说个正事 </category>
+          <category> 学校 </category>
           
       </categories>
       
@@ -717,56 +444,6 @@
         <tags>
             
             <tag> 第五空间 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>20190425</title>
-      <link href="/2019/04/26/20190425/"/>
-      <url>/2019/04/26/20190425/</url>
-      
-        <content type="html"><![CDATA[<p>昨天看权游忘记写，今天补上。</p><p>看了密码学书的第一章，学习了凯撒密码和仿射加密，读书笔记还没有写，等着之后补上。</p><p>还看了自我修养前两章，虽然第一章属于基础知识的部分，但是看了第一章居然把这学期操作系统没太学明白的内容看明白了2333，确实是一本好书。</p><p>整理一下欠账，以及需要长期进行的事项：</p><ul><li>第五空间任务发布及验收打分</li><li>韩语</li><li>哨笛</li><li>七月前把自我修养刷一遍</li><li>买一本CSAPP，暑期实习前刷一遍</li><li>把第五空间的任务发布改到博客上（引流233</li><li>操作系统实验…</li><li>一周三道左右（最少一道）逆向题，做题量实在太少了</li><li>整理出更多的欠账……</li></ul>]]></content>
-      
-      
-      <categories>
-          
-          <category> 生活 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 乱七八糟 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>20190424</title>
-      <link href="/2019/04/24/20190424/"/>
-      <url>/2019/04/24/20190424/</url>
-      
-        <content type="html"><![CDATA[<p>听了个考研讲座，本来以为九点回来还能学点东西，结果讲了两小时送了一小时，学习计划取消……</p><p>今天新开了运筹学的课，这个课主要是讲一些规划的算法，以及数学模型的建模方面的知识，感觉听听很有好处。</p><p>程序员的自我修养、龙书、深入浅出密码学到货，看了自我修养的前两章，周末有时间记一下笔记~</p><p>讲座上说本部的复试考CSAPP，看来还是要剁手买CSAPP了，虽然手上有一本英文版，但是根本没时间翻译啊……英语阅读起来比中文慢太多了。</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> 生活 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 乱七八糟 </tag>
             
         </tags>
       
@@ -784,7 +461,7 @@
       
       <categories>
           
-          <category> 玩安全 </category>
+          <category> 安全 </category>
           
       </categories>
       
@@ -792,58 +469,6 @@
         <tags>
             
             <tag> 逆向工程 </tag>
-            
-            <tag> 逆向160题 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>20190423</title>
-      <link href="/2019/04/23/20190423/"/>
-      <url>/2019/04/23/20190423/</url>
-      
-        <content type="html"><![CDATA[<p>把最初的Acid Burn那个逆向题又捡起来看了，之前爆破和key方法都试过了（这题包括了屏蔽弹窗、找固定key、爆破、注册算法各种解法，前一阵始终没能把这个的注册机搞定）。对照夜影师傅的文章算是对这道题的注册算法有了比较深刻的了解。</p><p>咬牙又花了三位数买了几本书，深入浅出密码学、龙书、程序员的自我修养。并且立下了大四之前<strong>不再买课外实体书</strong>的flag。</p><p>上了第一节系统分析与设计，感觉还是和UML一样让人头大，况且不像UML一样有一些实在的例子去学习，很担心这节课能不能坚持听下去了……</p><p>目前决定尽量每天都记一下发生的事情，如果做了题那就单写一篇笔记，向夜影师傅学习~</p><p>翻看夜影师傅的博客，有记载的是从17年5月24日做了第一道crackme，今天4月23日，差不多两年的时间，夜影师傅已经可以AK掉DDCTF的RE（包括移动端）了……</p><p>希望自己大三结束之前有机会参加一次XCTF的培训…</p><p>准备安排DYM（高中同学）来威海玩</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> 生活 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 乱七八糟 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>20190422</title>
-      <link href="/2019/04/22/20190422/"/>
-      <url>/2019/04/22/20190422/</url>
-      
-        <content type="html"><![CDATA[<p>终于，在想了很久之后，把博客搭起来了。</p><p>虽然搭建的时候没添加一些花里胡哨的东西，但还是折腾了一两个小时。</p><p>以前没写过多少东西，索性不论质量先把文章都扔上来吧。</p><p>今天看了<a href="https://blog.csdn.net/whklhhhh" target="_blank" rel="noopener">奈沙夜影师傅的CSDN博客</a>，觉得像夜影师傅这样每天都坚持记下一点心得发布文章，对我来说还是有点难了。<br>目前还没想好怎么维护这个小小的博客，先走一步看一步了。</p><p>目前最要紧的事情大概是要复习操作系统/数据库/面向对象了，虽然Python第一个考试，但是考查课没什么需要慌的。</p><p>还是觉得Python课比较水，不知道考试会不会考Django + vue那些东西……</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> 生活 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 乱七八糟 </tag>
             
         </tags>
       
@@ -861,7 +486,7 @@
       
       <categories>
           
-          <category> 记笔记 </category>
+          <category> 笔记 </category>
           
       </categories>
       
@@ -888,7 +513,7 @@
       
       <categories>
           
-          <category> 记笔记 </category>
+          <category> 笔记 </category>
           
       </categories>
       
@@ -915,7 +540,7 @@
       
       <categories>
           
-          <category> 记笔记 </category>
+          <category> 笔记 </category>
           
       </categories>
       
@@ -942,7 +567,7 @@
       
       <categories>
           
-          <category> 玩安全 </category>
+          <category> 学校 </category>
           
       </categories>
       
@@ -967,14 +592,14 @@
       
       <categories>
           
-          <category> 玩安全 </category>
+          <category> 安全 </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> PWN </tag>
+            <tag> pwn </tag>
             
         </tags>
       

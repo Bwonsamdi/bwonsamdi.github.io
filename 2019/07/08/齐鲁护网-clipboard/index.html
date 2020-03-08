@@ -94,7 +94,7 @@
 
 
 
-  <meta name="keywords" content="逆向工程,CTF,">
+  <meta name="keywords" content="逆向工程,">
 
 
 
@@ -106,14 +106,14 @@
 
 
 <meta name="description" content="程序下载 在IDA中搜索字符串、查引用。大致看了一下猜测应该是程序从剪贴板读取flag做判断。使用IDA调试时，发现IsClipboardFormatAvaliable方法调用失败，导致程序直接退出。通过此处爆破，以及后面一处爆破（IDA的Graph view下，有一步跳转之后可以看到格式化字符串输出，由此猜测跳转为关键跳，爆破后果然输出了flag）最后得到flag。但是这道题还是没太看明白，太浮">
-<meta name="keywords" content="逆向工程,CTF">
+<meta name="keywords" content="逆向工程">
 <meta property="og:type" content="article">
 <meta property="og:title" content="齐鲁护网-clipboard">
 <meta property="og:url" content="http://yoursite.com/2019/07/08/齐鲁护网-clipboard/index.html">
 <meta property="og:site_name" content="学逆向的阿昆达">
 <meta property="og:description" content="程序下载 在IDA中搜索字符串、查引用。大致看了一下猜测应该是程序从剪贴板读取flag做判断。使用IDA调试时，发现IsClipboardFormatAvaliable方法调用失败，导致程序直接退出。通过此处爆破，以及后面一处爆破（IDA的Graph view下，有一步跳转之后可以看到格式化字符串输出，由此猜测跳转为关键跳，爆破后果然输出了flag）最后得到flag。但是这道题还是没太看明白，太浮">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-07-08T11:27:17.940Z">
+<meta property="og:updated_time" content="2020-03-08T11:15:10.135Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="齐鲁护网-clipboard">
 <meta name="twitter:description" content="程序下载 在IDA中搜索字符串、查引用。大致看了一下猜测应该是程序从剪贴板读取flag做判断。使用IDA调试时，发现IsClipboardFormatAvaliable方法调用失败，导致程序直接退出。通过此处爆破，以及后面一处爆破（IDA的Graph view下，有一步跳转之后可以看到格式化字符串输出，由此猜测跳转为关键跳，爆破后果然输出了flag）最后得到flag。但是这道题还是没太看明白，太浮">
@@ -379,8 +379,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/玩安全/" itemprop="url" rel="index">
-                    <span itemprop="name">玩安全</span>
+                  <a href="/categories/安全/" itemprop="url" rel="index">
+                    <span itemprop="name">安全</span>
                   </a>
                 </span>
 
@@ -437,8 +437,6 @@
           
             <a href="/tags/逆向工程/" rel="tag"><i class="fa fa-tag"></i> 逆向工程</a>
           
-            <a href="/tags/CTF/" rel="tag"><i class="fa fa-tag"></i> CTF</a>
-          
         </div>
       
 
@@ -459,6 +457,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/03/08/写于20200308/" rel="prev" title="写于20200308">
+                写于20200308 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -528,7 +530,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">39</span>
+                  <span class="site-state-item-count">24</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -539,7 +541,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -550,7 +552,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -588,7 +590,7 @@
     <footer id="footer" class="footer">
       <div class="footer-inner">
         <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-<div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
