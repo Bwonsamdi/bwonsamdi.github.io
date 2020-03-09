@@ -108,7 +108,7 @@
 <meta name="description" content="一只兴趣使然的逆向菜鸡。">
 <meta property="og:type" content="website">
 <meta property="og:title" content="学逆向的阿昆达">
-<meta property="og:url" content="http://yoursite.com/tags/pwn/index.html">
+<meta property="og:url" content="http://yoursite.com/tags/PWN/index.html">
 <meta property="og:site_name" content="学逆向的阿昆达">
 <meta property="og:description" content="一只兴趣使然的逆向菜鸡。">
 <meta property="og:locale" content="zh-Hans">
@@ -144,13 +144,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/tags/pwn/">
+  <link rel="canonical" href="http://yoursite.com/tags/PWN/">
 
 
 
 
 
-  <title>标签: pwn | 学逆向的阿昆达</title>
+  <title>标签: PWN | 学逆向的阿昆达</title>
   
 
 
@@ -318,7 +318,7 @@
 
     <div id="posts" class="posts-collapse">
       <div class="collection-title">
-        <h1>pwn<small>标签</small>
+        <h1>PWN<small>标签</small>
         </h1>
       </div>
 
@@ -330,16 +330,16 @@
 
       <h2 class="post-title">
         
-            <a class="post-title-link" href="/2019/04/22/JarvisOJ-pwn-0-4/" itemprop="url">
+            <a class="post-title-link" href="/2019/04/22/寒假任务笔记/" itemprop="url">
               
-                <span itemprop="name">JarvisOJ-pwn-0~4题解</span>
+                <span itemprop="name">寒假任务笔记</span>
               
             </a>
         
       </h2>
 
       <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-04-22T14:37:36+08:00" content="2019-04-22">
+        <time class="post-time" itemprop="dateCreated" datetime="2019-04-22T14:51:34+08:00" content="2019-04-22">
           04-22
         </time>
       </div>
@@ -402,7 +402,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">24</span>
+                  <span class="site-state-item-count">26</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -424,7 +424,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">10</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -936,6 +936,46 @@
         proceedsearch();
       };
     });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  <!-- 代码块复制功能 -->
+  <script type="text/javascript" src="/js/src/clipboard.min.js"></script>  
+  <script type="text/javascript" src="/js/src/clipboard-use.js"></script>
+</body>
+</html>
+<script type="text/javascript" src="/js/src/crash_cheat.js"></script>
+ });
 
     $('.popup-btn-close').click(onPopupClose);
     $('.popup').click(function(e){
