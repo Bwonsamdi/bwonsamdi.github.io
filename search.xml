@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>重拾保护模式</title>
+      <link href="/2020/03/10/%E9%87%8D%E6%8B%BE%E4%BF%9D%E6%8A%A4%E6%A8%A1%E5%BC%8F/"/>
+      <url>/2020/03/10/%E9%87%8D%E6%8B%BE%E4%BF%9D%E6%8A%A4%E6%A8%A1%E5%BC%8F/</url>
+      
+        <content type="html"><![CDATA[<blockquote><p>标题可能起的有点大了。总之本文是对保护模式的一些针对性复习，主要是为了编写相关代码。</p></blockquote><h2 id="实模式的一些特点"><a href="#实模式的一些特点" class="headerlink" title="实模式的一些特点"></a>实模式的一些特点</h2><ul><li>16位数据总线、20位地址总线，1MB寻址能力。</li><li>寻址方式：Physical Address = Segment * 16 + Offset</li></ul><h2 id="实模式的进化"><a href="#实模式的进化" class="headerlink" title="实模式的进化"></a>实模式的进化</h2><ul><li>原因：自80386时代开始，Intel的CPU进化到32位。寻址能力上升到4GB。</li><li>解决方法：保护模式下的地址依然使用<code>Segment:Offset</code>的形式来表示，但其中段的含义发生了变化：段值的含义由原来的地址的一部分（这么称呼是因为实模式的段值直接参与了地址的计算）变为一个数据结构表（GDT）的其中一个表项（描述符）的指针。该结构包含一些属性，用于描述段的一些性质。</li></ul><h2 id="GDT相关"><a href="#GDT相关" class="headerlink" title="GDT相关"></a>GDT相关</h2><ul><li>每个GDT描述符占8字节，包括了段属性、段基地址、段界限三个部分。其中基址和界限根据名字就可理解，属性一共使用了2字节（里面有4bit是段界限的内容。由于历史原因，GDT描述符的结构很混乱）来表示段的一些特征。</li></ul><figure class="highlight x86asm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">;从上到下对应地址从低到高</span></span><br><span class="line">%macro Descriptor <span class="number">3</span></span><br><span class="line">    <span class="built_in">dw</span>  <span class="subst">%2</span> &amp; <span class="number">0FFFFh</span>             <span class="comment">; 段界限1</span></span><br><span class="line">    <span class="built_in">dw</span>  <span class="subst">%1</span> &amp; <span class="number">0FFFFh</span>             <span class="comment">; 段基址1</span></span><br><span class="line">    <span class="built_in">db</span>  (<span class="subst">%1</span> &gt;&gt; <span class="number">16</span>) &amp; <span class="number">0FFh</span>       <span class="comment">; 段基址2</span></span><br><span class="line">    <span class="built_in">dw</span>  ((<span class="subst">%2</span> &gt;&gt; <span class="number">8</span>) &amp; <span class="number">0F00h</span>) | (<span class="subst">%3</span> &amp; <span class="number">0F0FFh</span>)<span class="comment">; 属性1 + 段界限2 + 属性2</span></span><br><span class="line">    <span class="built_in">db</span>  (<span class="subst">%1</span> &gt;&gt; <span class="number">24</span>) &amp; <span class="number">0FFh</span>       <span class="comment">; 段基址3</span></span><br><span class="line">%endmacro <span class="comment">; 共 8 字节</span></span><br></pre></td></tr></table></figure><p>上述代码利用NASM的宏定义了一个描述符的数据结构。</p><p>这里插一下NASM的语法，<code>Descriptor 3</code>中的3表示数据结构里有三个变量需要传入参数（用%1，%2，%3来表示）。使用时，按照下列代码的格式就可以传入参数完整构造一个实例化的描述符结构。</p><figure class="highlight x86asm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">LABEL_GDT:</span>          Descriptor       <span class="number">0</span>,                <span class="number">0</span>,            <span class="number">0</span></span><br><span class="line"><span class="symbol">LABEL_DESC_CODE32:</span>  Descriptor       <span class="number">0</span>, SegCode32Len - <span class="number">1</span>, DA_C + DA_32</span><br><span class="line"><span class="comment">;B8000h处为显存基地址</span></span><br><span class="line"><span class="symbol">LABEL_DESC_VIDEO:</span>   Descriptor <span class="number">0B8000h</span>,           <span class="number">0ffffh</span>,       DA_DRW</span><br></pre></td></tr></table></figure><p>上面的代码创建了三个描述符，对应定义了三个段。</p><figure class="highlight x86asm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">mov</span> <span class="built_in">ax</span>, SelectorVideo</span><br><span class="line"><span class="keyword">mov</span> <span class="built_in">gs</span>, <span class="built_in">ax</span>          <span class="comment">; 视频段选择子(目的)</span></span><br><span class="line">============分割线======================</span><br><span class="line">SelectorVideo       <span class="built_in">equ</span> LABEL_DESC_VIDEO - LABEL_GDT</span><br><span class="line">============分割线======================</span><br><span class="line"><span class="keyword">mov</span> [<span class="built_in">gs</span>:<span class="built_in">edi</span>],   <span class="built_in">ax</span></span><br></pre></td></tr></table></figure><p>前两行将<code>SelectorVideo</code>移动到了gs中,最下面那一行代码的<code>[gs:edi]</code>实际上就等于<code>[SelectorVideo:edi]</code>。</p><p>一个选择子结构的3-15位是描述符的索引，选择子顾名思义就是选择一个段（即指向一个段描述符，正如上节“实模式的进化”中提到的那样）。</p><p>上述的寻址计算过程结束后，将得到一个线性地址，这里和实模式得到的物理地址依然概念不相同。总体寻址过程可以描述为：<code>SEG:OFFSET &lt;=&gt; GDT.BASE + OFFSET</code>，其中<code>GDT.BASE</code>正是由<code>SEG</code>索引得到。</p><blockquote><p>待补充</p></blockquote><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul><li>《自己动手写操作系统》</li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> 基础知识 </category>
+          
+          <category> 待补充 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> os </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>ucore第一章及相关拓展</title>
       <link href="/2020/03/10/ucore%E7%AC%AC%E4%B8%80%E7%AB%A0%E5%8F%8A%E7%9B%B8%E5%85%B3%E6%8B%93%E5%B1%95/"/>
       <url>/2020/03/10/ucore%E7%AC%AC%E4%B8%80%E7%AB%A0%E5%8F%8A%E7%9B%B8%E5%85%B3%E6%8B%93%E5%B1%95/</url>
@@ -40,6 +67,8 @@
           
           <category> 基础知识 </category>
           
+          <category> 待补充 </category>
+          
       </categories>
       
       
@@ -64,6 +93,8 @@
       <categories>
           
           <category> 基础知识 </category>
+          
+          <category> 待补充 </category>
           
       </categories>
       
