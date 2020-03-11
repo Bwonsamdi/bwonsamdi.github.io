@@ -105,18 +105,18 @@
 
 
 
-<meta name="description" content="标题可能起的有点大了。总之本文是对保护模式的一些针对性复习，主要是为了编写相关代码。  实模式的一些特点 16位数据总线、20位地址总线，1MB寻址能力。 寻址方式：Physical Address = Segment * 16 + Offset  实模式的进化 原因：自80386时代开始，Intel的CPU进化到32位。寻址能力上升到4GB。 解决方法：保护模式下的地址依然使用Segment:">
+<meta name="description" content="标题可能起的有点大了。总之本文是对进入保护模式过程的一些针对性复习，主要是为了写代码做的准备。  实模式的一些特点 16 位数据总线、20 位地址总线，1MB 寻址能力。 寻址方式：Physical Address = Segment * 16 + Offset  实模式的进化 原因：自 80386 时代开始，Intel 的 CPU 进化到 32 位。寻址能力上升到 4GB。 解决方法：保护模式">
 <meta name="keywords" content="os">
 <meta property="og:type" content="article">
 <meta property="og:title" content="重拾保护模式">
 <meta property="og:url" content="http://yoursite.com/2020/03/10/重拾保护模式/index.html">
 <meta property="og:site_name" content="学逆向的阿昆达">
-<meta property="og:description" content="标题可能起的有点大了。总之本文是对保护模式的一些针对性复习，主要是为了编写相关代码。  实模式的一些特点 16位数据总线、20位地址总线，1MB寻址能力。 寻址方式：Physical Address = Segment * 16 + Offset  实模式的进化 原因：自80386时代开始，Intel的CPU进化到32位。寻址能力上升到4GB。 解决方法：保护模式下的地址依然使用Segment:">
+<meta property="og:description" content="标题可能起的有点大了。总之本文是对进入保护模式过程的一些针对性复习，主要是为了写代码做的准备。  实模式的一些特点 16 位数据总线、20 位地址总线，1MB 寻址能力。 寻址方式：Physical Address = Segment * 16 + Offset  实模式的进化 原因：自 80386 时代开始，Intel 的 CPU 进化到 32 位。寻址能力上升到 4GB。 解决方法：保护模式">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-03-10T15:43:48.214Z">
+<meta property="og:updated_time" content="2020-03-11T11:33:37.558Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="重拾保护模式">
-<meta name="twitter:description" content="标题可能起的有点大了。总之本文是对保护模式的一些针对性复习，主要是为了编写相关代码。  实模式的一些特点 16位数据总线、20位地址总线，1MB寻址能力。 寻址方式：Physical Address = Segment * 16 + Offset  实模式的进化 原因：自80386时代开始，Intel的CPU进化到32位。寻址能力上升到4GB。 解决方法：保护模式下的地址依然使用Segment:">
+<meta name="twitter:description" content="标题可能起的有点大了。总之本文是对进入保护模式过程的一些针对性复习，主要是为了写代码做的准备。  实模式的一些特点 16 位数据总线、20 位地址总线，1MB 寻址能力。 寻址方式：Physical Address = Segment * 16 + Offset  实模式的进化 原因：自 80386 时代开始，Intel 的 CPU 进化到 32 位。寻址能力上升到 4GB。 解决方法：保护模式">
 
 
 
@@ -428,28 +428,46 @@
 
       
         <blockquote>
-<p>标题可能起的有点大了。总之本文是对保护模式的一些针对性复习，主要是为了编写相关代码。</p>
+<p>标题可能起的有点大了。总之本文是对进入保护模式过程的一些针对性复习，主要是为了写代码做的准备。</p>
 </blockquote>
 <h2 id="实模式的一些特点"><a href="#实模式的一些特点" class="headerlink" title="实模式的一些特点"></a>实模式的一些特点</h2><ul>
-<li>16位数据总线、20位地址总线，1MB寻址能力。</li>
+<li>16 位数据总线、20 位地址总线，1MB 寻址能力。</li>
 <li>寻址方式：Physical Address = Segment * 16 + Offset</li>
 </ul>
 <h2 id="实模式的进化"><a href="#实模式的进化" class="headerlink" title="实模式的进化"></a>实模式的进化</h2><ul>
-<li>原因：自80386时代开始，Intel的CPU进化到32位。寻址能力上升到4GB。</li>
+<li>原因：自 80386 时代开始，Intel 的 CPU 进化到 32 位。寻址能力上升到 4GB。</li>
 <li>解决方法：保护模式下的地址依然使用<code>Segment:Offset</code>的形式来表示，但其中段的含义发生了变化：段值的含义由原来的地址的一部分（这么称呼是因为实模式的段值直接参与了地址的计算）变为一个数据结构表（GDT）的其中一个表项（描述符）的指针。该结构包含一些属性，用于描述段的一些性质。</li>
 </ul>
-<h2 id="GDT相关"><a href="#GDT相关" class="headerlink" title="GDT相关"></a>GDT相关</h2><ul>
-<li>每个GDT描述符占8字节，包括了段属性、段基地址、段界限三个部分。其中基址和界限根据名字就可理解，属性一共使用了2字节（里面有4bit是段界限的内容。由于历史原因，GDT描述符的结构很混乱）来表示段的一些特征。</li>
+<h2 id="GDT-相关"><a href="#GDT-相关" class="headerlink" title="GDT 相关"></a>GDT 相关</h2><ul>
+<li>每个 GDT 描述符占 8 字节，包括了段属性、段基地址、段界限三个部分。其中基址和界限根据名字就可理解，属性一共使用了 2 字节（里面有 4bit 是段界限的内容。由于历史原因，GDT 描述符的结构很混乱）来表示段的一些特征。</li>
 </ul>
 <figure class="highlight x86asm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">;从上到下对应地址从低到高</span></span><br><span class="line">%macro Descriptor <span class="number">3</span></span><br><span class="line">    <span class="built_in">dw</span>  <span class="subst">%2</span> &amp; <span class="number">0FFFFh</span>             <span class="comment">; 段界限1</span></span><br><span class="line">    <span class="built_in">dw</span>  <span class="subst">%1</span> &amp; <span class="number">0FFFFh</span>             <span class="comment">; 段基址1</span></span><br><span class="line">    <span class="built_in">db</span>  (<span class="subst">%1</span> &gt;&gt; <span class="number">16</span>) &amp; <span class="number">0FFh</span>       <span class="comment">; 段基址2</span></span><br><span class="line">    <span class="built_in">dw</span>  ((<span class="subst">%2</span> &gt;&gt; <span class="number">8</span>) &amp; <span class="number">0F00h</span>) | (<span class="subst">%3</span> &amp; <span class="number">0F0FFh</span>)<span class="comment">; 属性1 + 段界限2 + 属性2</span></span><br><span class="line">    <span class="built_in">db</span>  (<span class="subst">%1</span> &gt;&gt; <span class="number">24</span>) &amp; <span class="number">0FFh</span>       <span class="comment">; 段基址3</span></span><br><span class="line">%endmacro <span class="comment">; 共 8 字节</span></span><br></pre></td></tr></table></figure>
-<p>上述代码利用NASM的宏定义了一个描述符的数据结构。</p>
-<p>这里插一下NASM的语法，<code>Descriptor 3</code>中的3表示数据结构里有三个变量需要传入参数（用%1，%2，%3来表示）。使用时，按照下列代码的格式就可以传入参数完整构造一个实例化的描述符结构。</p>
+<p>上述代码利用 NASM 的宏定义了一个描述符的数据结构。</p>
+<p>这里提一下 NASM 的语法，<code>Descriptor 3</code>中的 3 表示数据结构里有三个变量需要传入参数（用%1，%2，%3 来表示）。使用时，按照下列代码的格式就可以传入参数完整构造一个实例化的描述符结构。</p>
 <figure class="highlight x86asm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">LABEL_GDT:</span>          Descriptor       <span class="number">0</span>,                <span class="number">0</span>,            <span class="number">0</span></span><br><span class="line"><span class="symbol">LABEL_DESC_CODE32:</span>  Descriptor       <span class="number">0</span>, SegCode32Len - <span class="number">1</span>, DA_C + DA_32</span><br><span class="line"><span class="comment">;B8000h处为显存基地址</span></span><br><span class="line"><span class="symbol">LABEL_DESC_VIDEO:</span>   Descriptor <span class="number">0B8000h</span>,           <span class="number">0ffffh</span>,       DA_DRW</span><br></pre></td></tr></table></figure>
 <p>上面的代码创建了三个描述符，对应定义了三个段。</p>
 <figure class="highlight x86asm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">mov</span> <span class="built_in">ax</span>, SelectorVideo</span><br><span class="line"><span class="keyword">mov</span> <span class="built_in">gs</span>, <span class="built_in">ax</span>          <span class="comment">; 视频段选择子(目的)</span></span><br><span class="line">============分割线======================</span><br><span class="line">SelectorVideo       <span class="built_in">equ</span> LABEL_DESC_VIDEO - LABEL_GDT</span><br><span class="line">============分割线======================</span><br><span class="line"><span class="keyword">mov</span> [<span class="built_in">gs</span>:<span class="built_in">edi</span>],   <span class="built_in">ax</span></span><br></pre></td></tr></table></figure>
-<p>前两行将<code>SelectorVideo</code>移动到了gs中,最下面那一行代码的<code>[gs:edi]</code>实际上就等于<code>[SelectorVideo:edi]</code>。</p>
-<p>一个选择子结构的3-15位是描述符的索引，选择子顾名思义就是选择一个段（即指向一个段描述符，正如上节“实模式的进化”中提到的那样）。</p>
-<p>上述的寻址计算过程结束后，将得到一个线性地址，这里和实模式得到的物理地址依然概念不相同。总体寻址过程可以描述为：<code>SEG:OFFSET &lt;=&gt; GDT.BASE + OFFSET</code>，其中<code>GDT.BASE</code>正是由<code>SEG</code>索引得到。</p>
+<p>前两行将<code>SelectorVideo</code>移动到了 gs 中,最下面那一行代码的<code>[gs:edi]</code>实际上就等于<code>[SelectorVideo:edi]</code>。</p>
+<p>一个选择子结构的 3-15 位是描述符的索引，根据定义可以看到是相对于一个描述符相对于 LABEL_GDT 的偏移量。选择子指向一个段描述符，正如上节“实模式的进化”中提到的那样。</p>
+<p>上述的寻址计算过程结束后将得到一个线性地址。总体寻址过程可以描述为：<code>SEG:OFFSET &lt;=&gt; GDT.BASE + OFFSET</code>，其中<code>GDT.BASE</code>正是由<code>SEG</code>索引得到。</p>
+<figure class="highlight x86asm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line">[<span class="meta">SECTION</span> .s16]</span><br><span class="line">[<span class="meta">BITS</span>   <span class="number">16</span>]</span><br><span class="line"><span class="symbol">LABEL_BEGIN:</span></span><br><span class="line">    <span class="keyword">mov</span> <span class="built_in">ax</span>, <span class="built_in">cs</span></span><br><span class="line">    <span class="keyword">mov</span> <span class="built_in">ds</span>, <span class="built_in">ax</span></span><br><span class="line">    <span class="keyword">mov</span> <span class="built_in">es</span>, <span class="built_in">ax</span></span><br><span class="line">    <span class="keyword">mov</span> <span class="built_in">ss</span>, <span class="built_in">ax</span></span><br><span class="line">    <span class="keyword">mov</span> <span class="built_in">sp</span>, <span class="number">0100h</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">; 初始化 32 位代码段描述符</span></span><br><span class="line">    <span class="keyword">xor</span> <span class="built_in">eax</span>, <span class="built_in">eax</span></span><br><span class="line">    <span class="keyword">mov</span> <span class="built_in">ax</span>, <span class="built_in">cs</span></span><br><span class="line">    <span class="keyword">shl</span> <span class="built_in">eax</span>, <span class="number">4</span>          <span class="comment">;左移4位,代码段首地址</span></span><br><span class="line">    <span class="keyword">add</span> <span class="built_in">eax</span>, LABEL_SEG_CODE32       <span class="comment">;eax保存描述符地址</span></span><br><span class="line">    <span class="keyword">mov</span> <span class="built_in">word</span> [LABEL_DESC_CODE32 + <span class="number">2</span>], <span class="built_in">ax</span></span><br><span class="line">    <span class="keyword">shr</span> <span class="built_in">eax</span>, <span class="number">16</span></span><br><span class="line">    <span class="keyword">mov</span> <span class="built_in">byte</span> [LABEL_DESC_CODE32 + <span class="number">4</span>], <span class="built_in">al</span></span><br><span class="line">    <span class="keyword">mov</span> <span class="built_in">byte</span> [LABEL_DESC_CODE32 + <span class="number">7</span>], <span class="number">ah</span>    <span class="comment">;使用32位存放描述符地址</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">; 为加载 GDTR 作准备</span></span><br><span class="line">    <span class="keyword">xor</span> <span class="built_in">eax</span>, <span class="built_in">eax</span></span><br><span class="line">    <span class="keyword">mov</span> <span class="built_in">ax</span>, <span class="built_in">ds</span></span><br><span class="line">    <span class="keyword">shl</span> <span class="built_in">eax</span>, <span class="number">4</span></span><br><span class="line">    <span class="keyword">add</span> <span class="built_in">eax</span>, LABEL_GDT      <span class="comment">; eax &lt;- gdt 基地址</span></span><br><span class="line">    <span class="keyword">mov</span> <span class="built_in">dword</span> [GdtPtr + <span class="number">2</span>], <span class="built_in">eax</span> <span class="comment">; [GdtPtr + 2] &lt;- gdt 基地址</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">; 加载 GDTR</span></span><br><span class="line">    <span class="keyword">lgdt</span>    [GdtPtr]</span><br><span class="line"></span><br><span class="line">    <span class="comment">; 关中断</span></span><br><span class="line">    <span class="keyword">cli</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">; 打开地址线A20</span></span><br><span class="line">    <span class="keyword">in</span>  <span class="built_in">al</span>, <span class="number">92h</span></span><br><span class="line">    <span class="keyword">or</span>  <span class="built_in">al</span>, <span class="number">00000010b</span></span><br><span class="line">    <span class="keyword">out</span> <span class="number">92h</span>, <span class="built_in">al</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">; 准备切换到保护模式</span></span><br><span class="line">    <span class="keyword">mov</span> <span class="built_in">eax</span>, <span class="built_in">cr0</span></span><br><span class="line">    <span class="keyword">or</span>  <span class="built_in">eax</span>, <span class="number">1</span></span><br><span class="line">    <span class="keyword">mov</span> <span class="built_in">cr0</span>, <span class="built_in">eax</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">; 真正进入保护模式</span></span><br><span class="line">    <span class="keyword">jmp</span> <span class="built_in">dword</span> SelectorCode32:<span class="number">0</span>  <span class="comment">; 执行这一句会把 SelectorCode32 装入 cs,</span></span><br><span class="line">                                <span class="comment">; 并跳转到 Code32Selector:0  处</span></span><br><span class="line"><span class="comment">; END of [SECTION .s16]</span></span><br></pre></td></tr></table></figure>
+<p>上面一段代码为进入保护模式做了一些准备工作：</p>
+<ul>
+<li>初始化保护模式代码段：首先把.s32代码段的物理地址存入eax，接着将这个地址拆分存入32位代码段描述符，这里只操作了DESC_CODE32的段基址，段界限和属性在前面已经定义过。后面的<code>xor eax, eax</code>意味着DESC_CODE32已经完成了赋值，现在该描述符已经可以描述保护模式下的地址了。</li>
+<li>接下来是将GDT基地址复制到gdtptr这个结构中（gdtptr的数据结构设计和gdtr寄存器的访问方式是完全一致的），然后使用lgdt指令将指针送入gdtr寄存器，这步结束后，就可以通过寄存器很方便地访问GDT了。</li>
+</ul>
+<h2 id="A20"><a href="#A20" class="headerlink" title="A20"></a>A20</h2><blockquote>
+<p>关于这部分的详细介绍在ucore第一章的笔记里。</p>
+</blockquote>
+<ul>
+<li>对于实模式的地址，其最大寻址空间为1MB，但可表示的最大地址为FFFF:FFFF（即0x10ffef），比1MB多了0xffef，实模式在遇到这种情况时会采取回滚机制。</li>
+<li>随着计算机的发展，地址线位数增加后，既要允许更大的地址空间访问，又要保证对原20根地址线的兼容，因此IBM使用键盘控制器来控制第20根地址线，具体控制过程不再描述。</li>
+</ul>
+<h2 id="进入保护模式"><a href="#进入保护模式" class="headerlink" title="进入保护模式"></a>进入保护模式</h2><ul>
+<li>首先把CR0寄存器第0位置1，表示CPU切换到保护模式，此时cs的值仍为实模式的地址。</li>
+<li>接下来将事先初始化后的32位代码段选择子复制到CS中，这个过程借助jmp指令实现。这条指令本身处于16位的代码段，但是跳转目的地是32位的地址，因此诸如<code>SelectorCode32:0x11112222</code>会被截断高位，只剩下0x2222。</li>
+<li>在Linux中，对于上述问题的解决方案，采用了使用DB直接写入机器码强制执行的方法，在NASM中，支持利用<code>jmp   dword SelectorCode32:0</code>的方式（加上dw）来解决。</li>
+</ul>
 <blockquote>
 <p>待补充</p>
 </blockquote>
@@ -573,7 +591,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">30</span>
+                  <span class="site-state-item-count">29</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -628,7 +646,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#实模式的一些特点"><span class="nav-number">1.</span> <span class="nav-text">实模式的一些特点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实模式的进化"><span class="nav-number">2.</span> <span class="nav-text">实模式的进化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#GDT相关"><span class="nav-number">3.</span> <span class="nav-text">GDT相关</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">4.</span> <span class="nav-text">参考</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#实模式的一些特点"><span class="nav-number">1.</span> <span class="nav-text">实模式的一些特点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实模式的进化"><span class="nav-number">2.</span> <span class="nav-text">实模式的进化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#GDT-相关"><span class="nav-number">3.</span> <span class="nav-text">GDT 相关</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#A20"><span class="nav-number">4.</span> <span class="nav-text">A20</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#进入保护模式"><span class="nav-number">5.</span> <span class="nav-text">进入保护模式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">6.</span> <span class="nav-text">参考</span></a></li></ol></div>
             
 
           </div>
