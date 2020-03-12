@@ -114,7 +114,7 @@
 <meta property="og:description" content="本文记录在无线传感器网络课中，老师布置的作业的回答内容，回答主要基于课件，部分课件上没有标准回答的问题则采用了网上的主流回答。  第一章 什么是无线传感器网络？  是大量的静止或移动的传感器以自组织和多跳的方式构成的无线网络，目的是协作地探测、处理和传输网络覆盖区域内感知对象的监测信息，并报告给用户。简称WSN。   什么是无线Ad Hoc网络？无线Ad Hoc网络的分类？  无基础设施网又称为">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoursite.com/2020/03/09/无线传感器知识点（随课时更新）/1.png">
-<meta property="og:updated_time" content="2020-03-10T15:44:13.316Z">
+<meta property="og:updated_time" content="2020-03-12T04:35:18.968Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="无线传感器知识点（随课时更新）">
 <meta name="twitter:description" content="本文记录在无线传感器网络课中，老师布置的作业的回答内容，回答主要基于课件，部分课件上没有标准回答的问题则采用了网上的主流回答。  第一章 什么是无线传感器网络？  是大量的静止或移动的传感器以自组织和多跳的方式构成的无线网络，目的是协作地探测、处理和传输网络覆盖区域内感知对象的监测信息，并报告给用户。简称WSN。   什么是无线Ad Hoc网络？无线Ad Hoc网络的分类？  无基础设施网又称为">
@@ -587,6 +587,107 @@
 </ul>
 </li>
 </ol>
+<h2 id="第四章"><a href="#第四章" class="headerlink" title="第四章"></a>第四章</h2><ol>
+<li><p><strong>传感器网络实现时间同步的作用是什么？</strong></p>
+<ul>
+<li>时间同步机制的意义和作用主要体现在如下两方面：<ul>
+<li>首先，传感器节点通常需要彼此协作，去完成复杂的监测和感知任务。（需要统一时间）</li>
+<li>其次，传感器网络的一些节能方案是利用时间同步来实现的。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>简述TPSN的同步算法的工作原理。</strong></p>
+<ul>
+<li>TPSN协议包括两个阶段：<ul>
+<li>第一个阶段生成层次结构，每个节点赋予一个级别，根节点赋予最高级别第0级，第i级的节点至少能够与一个第（i－1）级的节点通信；</li>
+<li>第二个阶段实现所有树节点的时间同步，第1级节点同步到根节点，第i级的节点同步到第（i－1）级的一个节点，最终所有节点都同步到根节点，实现整个网络的时间同步。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>传感器网络定位问题的含义是什么？</strong></p>
+<ul>
+<li>无线传感器网络定位问题的含义是指自组织的网络通过特定方法提供节点的位置信息，分为节点自身定位和目标定位。</li>
+</ul>
+</li>
+<li><p><strong>如何对传感器网络的定位方法进行分类？</strong></p>
+<ul>
+<li>根据是否依靠测量距离，分为基于测距的定位和不需要测距的定位；</li>
+<li>根据部署的场合不同，分为室内定位和室外定位；</li>
+<li>根据信息收集的方式，网络收集传感器数据称为被动定位，节点主动发出信息，用于定位称为主动定位。</li>
+</ul>
+</li>
+<li><p><strong>如何评价一种传感器网络定位系统的性能？</strong></p>
+<ul>
+<li>位置精度（分为相对精度和绝对精度）</li>
+<li>覆盖范围、刷新速度和功耗</li>
+</ul>
+</li>
+<li><p><strong>什么是数据融合技术？它在传感器网络中的主要作用是什么？</strong></p>
+<ul>
+<li>数据融合也被人们称作信息融合，是一种多源信息处理技术，它通过对来自同一目标的多源数据进行优化合成，消除噪声与干扰，获得比单一信息源更精确、完整的估计或判决。</li>
+<li>主要作用<ul>
+<li>提高信息的准确性和全面性</li>
+<li>降低信息的不确定性</li>
+<li>提高系统的可靠性</li>
+<li>增加系统的实时性</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>简述数据融合技术的不同分类方法及其类型。</strong></p>
+<ul>
+<li>依据融合前后数据的信息含量进行分类<ul>
+<li>无损失融合</li>
+<li>有损失融合</li>
+</ul>
+</li>
+<li>依据数据融合与应用层数据的语义关系进行分类<ul>
+<li>依赖于应用的数据融合</li>
+<li>独立于应用的数据融合</li>
+</ul>
+</li>
+<li>依据融合操作的级别进行分类<ul>
+<li>数据级融合</li>
+<li>特征级融合</li>
+<li>决策级融合</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>无线通信的能量消耗与距离的关系是什么？它反映出传感器网络数据传输的什么特点？</strong></p>
+<ul>
+<li>在无线网络通信中，能量消耗E与通信距离d存在关系：E=kd^n，其中k为常量，2≤n≤4。</li>
+<li>反映出的特点：随着通信距离的增加，能耗会急剧增加。</li>
+</ul>
+</li>
+<li><p><strong>简述节能策略和休眠机制的实现思想。</strong></p>
+<ul>
+<li>节能策略主要有休眠机制、数据融合。</li>
+<li>休眠机制的主要思想是，在节点周围没有感兴趣的事件发生时，计算与通信单元处于空闲状态，把这些组件关掉或调到更低能耗的状态，即休眠状态。</li>
+<li>数据融合的主要思想是，同一区域内的节点发送的数据具有很大的冗余性，中间节点需要对这些数据进行数据融合，将经过本地融合处理后的数据路由到汇聚点，只转发有用的信息。</li>
+</ul>
+</li>
+<li><p><strong>简述传感器网络节点各单元能量消耗的特点。</strong></p>
+<ul>
+<li>除了休眠状态外，其他三种状态（发送、接收、空闲）的能耗都很大，空闲状态的能耗接近于接收状态.</li>
+</ul>
+</li>
+<li><p><strong>动态电源管理的工作原理是什么？</strong></p>
+<ul>
+<li>动态电源管理(DPM)的工作原理是，当节点周围没有感兴趣的事件发生时，部分模块处于空闲状态，应该把这些组件关掉或调到更低能耗的状态，从而节省能量</li>
+</ul>
+</li>
+<li><p><strong>覆盖修复过程可分为几个阶段？</strong></p>
+<ul>
+<li>初始化阶段：节点计算自己的覆盖区域以及每个覆盖区域对应的移动区域；</li>
+<li>恐慌请求阶段：垂死节点广播求助消息；</li>
+<li>恐慌回应阶段：垂死节点的邻居收到求助消息后计算如果自己移动到垂死节点的移动区域，是否会影响到自身的覆盖区域，如果不影响则给求助节点返回消息；</li>
+<li>决策阶段：垂死节点根据收到的回应信息，决定让哪个节点移动。</li>
+</ul>
+</li>
+</ol>
 
       
     </div>
@@ -708,7 +809,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">29</span>
+                  <span class="site-state-item-count">30</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -763,7 +864,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#第一章"><span class="nav-number">1.</span> <span class="nav-text">第一章</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第二章"><span class="nav-number">2.</span> <span class="nav-text">第二章</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第三章"><span class="nav-number">3.</span> <span class="nav-text">第三章</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#第一章"><span class="nav-number">1.</span> <span class="nav-text">第一章</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第二章"><span class="nav-number">2.</span> <span class="nav-text">第二章</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第三章"><span class="nav-number">3.</span> <span class="nav-text">第三章</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第四章"><span class="nav-number">4.</span> <span class="nav-text">第四章</span></a></li></ol></div>
             
 
           </div>

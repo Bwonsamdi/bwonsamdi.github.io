@@ -94,7 +94,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="os,">
 
 
 
@@ -105,16 +105,18 @@
 
 
 
-<meta name="description" content="一只兴趣使然的逆向菜鸡。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="学逆向的阿昆达">
-<meta property="og:url" content="http://yoursite.com/categories/安全/index.html">
+<meta name="description" content="本篇用来记录在使用NASM+Bochs调试实验代码过程中遇到的一些坑。  Bochs用于运行a.img的bochs配置脚本（用批处理方式执行脚本） 12345678910111213megs: 32romimage: file=BIOS-bochs-latestvgaromimage: file=VGABIOS-lgpl-latestfloppya: 1_44=a.img, status=ins">
+<meta name="keywords" content="os">
+<meta property="og:type" content="article">
+<meta property="og:title" content="使用NASM+Bochs时遇到的坑">
+<meta property="og:url" content="http://yoursite.com/2020/03/12/使用NASM-Bochs时遇到的坑/index.html">
 <meta property="og:site_name" content="学逆向的阿昆达">
-<meta property="og:description" content="一只兴趣使然的逆向菜鸡。">
+<meta property="og:description" content="本篇用来记录在使用NASM+Bochs调试实验代码过程中遇到的一些坑。  Bochs用于运行a.img的bochs配置脚本（用批处理方式执行脚本） 12345678910111213megs: 32romimage: file=BIOS-bochs-latestvgaromimage: file=VGABIOS-lgpl-latestfloppya: 1_44=a.img, status=ins">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2020-03-12T14:12:14.691Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="学逆向的阿昆达">
-<meta name="twitter:description" content="一只兴趣使然的逆向菜鸡。">
+<meta name="twitter:title" content="使用NASM+Bochs时遇到的坑">
+<meta name="twitter:description" content="本篇用来记录在使用NASM+Bochs调试实验代码过程中遇到的一些坑。  Bochs用于运行a.img的bochs配置脚本（用批处理方式执行脚本） 12345678910111213megs: 32romimage: file=BIOS-bochs-latestvgaromimage: file=VGABIOS-lgpl-latestfloppya: 1_44=a.img, status=ins">
 
 
 
@@ -144,13 +146,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/categories/安全/">
+  <link rel="canonical" href="http://yoursite.com/2020/03/12/使用NASM-Bochs时遇到的坑/">
 
 
 
 
 
-  <title>分类: 安全 | 学逆向的阿昆达</title>
+  <title>使用NASM+Bochs时遇到的坑 | 学逆向的阿昆达</title>
   
 
 
@@ -175,7 +177,7 @@
     
   
 
-  <div class="container sidebar-position-right ">
+  <div class="container sidebar-position-right page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -311,469 +313,246 @@
           <div id="content" class="content">
             
 
+  <div id="posts" class="posts-expand">
+    
+
+  
+
   
   
   
-  <div class="post-block category">
-
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>安全<small>分类</small>
-        </h1>
-      </div>
-
-      
-        
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/12/使用NASM-Bochs时遇到的坑/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Bwonsamdi">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="学逆向的阿昆达">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2020/03/09/pwn题中遇到的stdio缓冲区问题/" itemprop="url">
-              
-                <span itemprop="name">pwn题中遇到的stdio缓冲区问题</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">使用NASM+Bochs时遇到的坑</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2020-03-09T08:52:55+08:00" content="2020-03-09">
-          03-09
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-03-12T22:10:34+08:00">
+                2020-03-12
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/基础知识/" itemprop="url" rel="index">
+                    <span itemprop="name">基础知识</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/07/08/齐鲁护网-RE1/" itemprop="url">
-              
-                <span itemprop="name">齐鲁护网-RE1</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-07-08T17:31:40+08:00" content="2019-07-08">
-          07-08
-        </time>
-      </div>
-
-    </header>
-  </article>
-
+      
 
       
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/05/08/AfKayAs-CrackMe-1/" itemprop="url">
-              
-                <span itemprop="name">AfKayAs CrackMe #1</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-05-08T16:28:27+08:00" content="2019-05-08">
-          05-08
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/04/30/SECCON-CTF-2014-Shuffle/" itemprop="url">
-              
-                <span itemprop="name">SECCON-CTF-2014 Shuffle</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-04-30T09:30:02+08:00" content="2019-04-30">
-          04-30
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/04/29/NJUPT-CTF-2017-maze/" itemprop="url">
-              
-                <span itemprop="name">NJUPT CTF 2017 maze</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-04-29T15:19:05+08:00" content="2019-04-29">
-          04-29
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/04/29/SharifCTF-2016-getit/" itemprop="url">
-              
-                <span itemprop="name">SharifCTF 2016 getit</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-04-29T14:55:13+08:00" content="2019-04-29">
-          04-29
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/04/29/NJUPT-CTF-2017-python-trade/" itemprop="url">
-              
-                <span itemprop="name">NJUPT CTF 2017 python-trade</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-04-29T14:39:12+08:00" content="2019-04-29">
-          04-29
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/04/29/CSAW-CTF-2014-csaw2013reversing2/" itemprop="url">
-              
-                <span itemprop="name">CSAW CTF 2014 csaw2013reversing2</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-04-29T11:25:00+08:00" content="2019-04-29">
-          04-29
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/04/28/9447-CTF-2014-no-strings-attached/" itemprop="url">
-              
-                <span itemprop="name">9447 CTF 2014 no_strings_attached</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-04-28T19:11:46+08:00" content="2019-04-28">
-          04-28
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/04/28/RC3-CTF-2016-logmein/" itemprop="url">
-              
-                <span itemprop="name">RC3 CTF 2016 logmein</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-04-28T18:42:32+08:00" content="2019-04-28">
-          04-28
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/04/28/9447-CTF-2014-insanity/" itemprop="url">
-              
-                <span itemprop="name">9447 CTF 2014 insanity</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-04-28T18:39:45+08:00" content="2019-04-28">
-          04-28
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/04/28/simple-unpack/" itemprop="url">
-              
-                <span itemprop="name">simple-unpack</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-04-28T17:40:04+08:00" content="2019-04-28">
-          04-28
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/04/28/HackYou-CTF-open-source/" itemprop="url">
-              
-                <span itemprop="name">HackYou CTF open-source</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-04-28T13:51:49+08:00" content="2019-04-28">
-          04-28
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/04/28/PediyCTF2018-helloctf/" itemprop="url">
-              
-                <span itemprop="name">PediyCTF2018 helloctf</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-04-28T11:55:35+08:00" content="2019-04-28">
-          04-28
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/04/28/DUTCTF-re1/" itemprop="url">
-              
-                <span itemprop="name">DUTCTF re1</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-04-28T10:00:59+08:00" content="2019-04-28">
-          04-28
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/04/23/AcidBurn分析/" itemprop="url">
-              
-                <span itemprop="name">AcidBurn分析</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-04-23T20:04:03+08:00" content="2019-04-23">
-          04-23
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/04/22/JarvisOJ-pwn-0-4/" itemprop="url">
-              
-                <span itemprop="name">JarvisOJ-pwn-0~4题解</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-04-22T14:37:36+08:00" content="2019-04-22">
-          04-22
-        </time>
-      </div>
-
-    </header>
-  </article>
-
+        <blockquote>
+<p>本篇用来记录在使用NASM+Bochs调试实验代码过程中遇到的一些坑。</p>
+</blockquote>
+<h2 id="Bochs"><a href="#Bochs" class="headerlink" title="Bochs"></a>Bochs</h2><p>用于运行a.img的bochs配置脚本（用批处理方式执行脚本）</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">megs: 32</span><br><span class="line">romimage: file=BIOS-bochs-latest</span><br><span class="line">vgaromimage: file=VGABIOS-lgpl-latest</span><br><span class="line">floppya: 1_44=a.img, status=inserted</span><br><span class="line">floppyb: 1_44=floppyb.img, status=inserted</span><br><span class="line">ata0: enabled=1, ioaddr1=0x1f0, ioaddr2=0x3f0, irq=14</span><br><span class="line">ata0-master: <span class="built_in">type</span>=disk, path=<span class="string">"./hd10meg.img"</span>, cylinders=306, heads=4, spt=17</span><br><span class="line">boot: a</span><br><span class="line"><span class="built_in">log</span>: bochsout.txt</span><br><span class="line">mouse: enabled=0</span><br><span class="line">cpu: ips=15000000</span><br><span class="line">clock: sync=both</span><br><span class="line">keyboard: keymap=keymaps/x11-pc-us.map</span><br></pre></td></tr></table></figure>
+<p>上述脚本所在目录的文件如下（否则需要修改文件路径）</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">E:.</span><br><span class="line">│  a.img</span><br><span class="line">│  BIOS-bochs-latest</span><br><span class="line">│  BIOS-bochs-legacy</span><br><span class="line">│  bios.bin-1.13.0</span><br><span class="line">│  bochsout.txt</span><br><span class="line">│  bochsrc.bxrc</span><br><span class="line">│  hd10meg.img</span><br><span class="line">│  hd10meg.img.lock</span><br><span class="line">│  run.bat</span><br><span class="line">│  vgabios-cirrus.bin-1.13.0</span><br><span class="line">│  VGABIOS-elpin-2.40</span><br><span class="line">│  VGABIOS-lgpl-latest</span><br><span class="line">│  VGABIOS-lgpl-latest-cirrus</span><br><span class="line">│  VGABIOS-lgpl-latest-cirrus-debug</span><br><span class="line">│  VGABIOS-lgpl-latest-debug</span><br><span class="line">│</span><br><span class="line">└─keymaps</span><br><span class="line">        sdl-pc-de.map</span><br><span class="line">        sdl-pc-us.map</span><br><span class="line">        sdl2-pc-de.map</span><br><span class="line">        sdl2-pc-us.map</span><br><span class="line">        x11-pc-be.map</span><br><span class="line">        x11-pc-da.map</span><br><span class="line">        x11-pc-de.map</span><br><span class="line">        x11-pc-es.map</span><br><span class="line">        x11-pc-fr.map</span><br><span class="line">        x11-pc-it.map</span><br><span class="line">        x11-pc-ru.map</span><br><span class="line">        x11-pc-se.map</span><br><span class="line">        x11-pc-si.map</span><br><span class="line">        x11-pc-uk.map</span><br><span class="line">        x11-pc-us.map</span><br></pre></td></tr></table></figure>
+<p>上述文件除了a.img，其他的直接从bochs的安装路径，以及demo系统的文件夹中复制即可。</p>
+<p>最后是bochs以调试模式模拟a.img的批处理文件</p>
+<figure class="highlight bat"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">del</span> hd10meg.img.lock</span><br><span class="line">bochsdbg -q -f bochsrc.bxrc</span><br></pre></td></tr></table></figure>
+<p>这里的.lock文件如果不删除，在直接双击bxrc文件运行时会显示找不到硬盘img。因此建议用run.bat来运行，也不费事。</p>
+<p>总之Bochs的配置和运行、调试还是相当简单的，只不过调试的命令和gdb差不多，没有插件调试起来比较费劲。</p>
+<h2 id="NASM"><a href="#NASM" class="headerlink" title="NASM"></a>NASM</h2><p>没找到中文的介绍NASM语法的手册，只能啃英文的官方手册了。对于汇编的编程环境相当不熟悉，导致有很多写法只能懂个大概，因此遇到了坑</p>
+<figure class="highlight x86asm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">SIZE <span class="built_in">equ</span> $-$$</span><br><span class="line"><span class="meta">%if</span> SIZE+<span class="number">2</span> &gt;<span class="number">512</span></span><br><span class="line"><span class="meta">%error</span> <span class="string">"code is too large for boot sector"</span></span><br><span class="line"><span class="meta">%endif</span></span><br><span class="line"><span class="built_in">times</span>      (<span class="number">512</span> - SIZE - <span class="number">2</span>) <span class="built_in">db</span> <span class="number">0</span></span><br><span class="line"><span class="built_in">db</span>   <span class="number">0x55</span>, <span class="number">0xAA</span></span><br></pre></td></tr></table></figure>
+<p>原本把上面这段代码加到了保护模式的代码最后面，想着调试感受一下保护模式的进入过程。结果编译出来的大小不对劲。对比了一下发现，加入<code>[section]</code>声明之后的大小有点奇怪，于是百度了半天，但是由于能找到的相同问题太少，不得已只好自己做做实验来探索一下<code>label</code>和<code>[section]</code>对编译后的二进制文件的大小影响。</p>
+<p>测试用的代码是这样的:</p>
+<figure class="highlight x86asm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">test_1:</span></span><br><span class="line">    <span class="keyword">mov</span> <span class="built_in">ax</span>,<span class="number">1234h</span></span><br><span class="line"><span class="symbol">test_2:</span></span><br><span class="line">    <span class="keyword">mov</span> <span class="built_in">ax</span>,<span class="number">5678h</span></span><br><span class="line"><span class="symbol">test_3:</span></span><br><span class="line">    <span class="keyword">mov</span> <span class="built_in">ax</span>,<span class="number">9abch</span></span><br><span class="line">SIZE <span class="built_in">equ</span> $-$$</span><br><span class="line"><span class="built_in">times</span> SIZE <span class="built_in">db</span> <span class="number">0xff</span></span><br></pre></td></tr></table></figure>
+<p>分别把<code>[section]</code>标记添加到不同的label前，经过排列组合后记录结果如下：</p>
+<p>（最前面的数字代表test_n前加了section声明，0表示初始状态，extra_size表示代码填充以外的多出来的字节数。每个<code>mov ax,xxxh</code>指令长3字节）</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>\$-\$\$</th>
+<th>extra_size</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>9</td>
+<td>0</td>
+</tr>
+<tr>
+<td>1</td>
+<td>9</td>
+<td>0</td>
+</tr>
+<tr>
+<td>2</td>
+<td>6</td>
+<td>1</td>
+</tr>
+<tr>
+<td>3</td>
+<td>3</td>
+<td>2</td>
+</tr>
+<tr>
+<td>12</td>
+<td>6</td>
+<td>1</td>
+</tr>
+<tr>
+<td>13</td>
+<td>3</td>
+<td>2</td>
+</tr>
+<tr>
+<td>23</td>
+<td>3</td>
+<td>2</td>
+</tr>
+<tr>
+<td>123</td>
+<td>3</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<p>基本可以确定，<code>$$</code>会索引到前一个section标记处，因此<code>$-$$</code>的长度就是最近一个section的长度。而每个插入的section意味着从一个对齐后的地址开始代码，section本身相当于一些用于对齐的00字节。</p>
+<p>最终的补齐512字节的解决方案：在每个section后定义一个长度量，值为<code>$-$$</code>，最后一个段的长度为<code>$-$$+4-($-$$) % 4</code>（因为<code>$-$$</code>计算的最后一段长度没有计算section的对齐填充长度），这里我是用<code>%assign</code>宏实现的。将上述长度累加后，利用</p>
+<figure class="highlight x86asm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">times</span>      (<span class="number">512</span> - SIZE - <span class="number">2</span>) <span class="built_in">db</span> <span class="number">0</span></span><br><span class="line"><span class="built_in">db</span>   <span class="number">0x55</span>, <span class="number">0xAA</span></span><br></pre></td></tr></table></figure>
+<p>生成大小恰好为512字节的引导扇区镜像。</p>
+<blockquote>
+<p>注1：书中代码一般在第一个段的定义前还会有一部分代码不属于任何段，这部分的长度计算时也要注意手动计算其对齐填充长度。<br>注2：取模运算符%前后要加空格，否则会连带数字被识别为参数。</p>
+</blockquote>
+<p>坑了一下午，终于整好了，可以继续学习了（</p>
 
       
     </div>
+    
+    
+    
 
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/os/" rel="tag"><i class="fa fa-tag"></i> os</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/03/10/重拾保护模式/" rel="next" title="重拾保护模式">
+                <i class="fa fa-chevron-left"></i> 重拾保护模式
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -781,6 +560,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -801,8 +584,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -864,6 +656,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Bochs"><span class="nav-number">1.</span> <span class="nav-text">Bochs</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#NASM"><span class="nav-number">2.</span> <span class="nav-text">NASM</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -1007,6 +815,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
