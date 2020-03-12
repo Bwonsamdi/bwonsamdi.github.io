@@ -113,7 +113,7 @@
 <meta property="og:site_name" content="学逆向的阿昆达">
 <meta property="og:description" content="本篇用来记录在使用NASM+Bochs调试实验代码过程中遇到的一些坑。  Bochs用于运行a.img的bochs配置脚本（用批处理方式执行脚本） 12345678910111213megs: 32romimage: file=BIOS-bochs-latestvgaromimage: file=VGABIOS-lgpl-latestfloppya: 1_44=a.img, status=ins">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-03-12T14:12:14.691Z">
+<meta property="og:updated_time" content="2020-03-12T16:07:40.918Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用NASM+Bochs时遇到的坑">
 <meta name="twitter:description" content="本篇用来记录在使用NASM+Bochs调试实验代码过程中遇到的一些坑。  Bochs用于运行a.img的bochs配置脚本（用批处理方式执行脚本） 12345678910111213megs: 32romimage: file=BIOS-bochs-latestvgaromimage: file=VGABIOS-lgpl-latestfloppya: 1_44=a.img, status=ins">
@@ -486,14 +486,19 @@
 </tr>
 </tbody>
 </table>
-<p>基本可以确定，<code>$$</code>会索引到前一个section标记处，因此<code>$-$$</code>的长度就是最近一个section的长度。而每个插入的section意味着从一个对齐后的地址开始代码，section本身相当于一些用于对齐的00字节。</p>
-<p>最终的补齐512字节的解决方案：在每个section后定义一个长度量，值为<code>$-$$</code>，最后一个段的长度为<code>$-$$+4-($-$$) % 4</code>（因为<code>$-$$</code>计算的最后一段长度没有计算section的对齐填充长度），这里我是用<code>%assign</code>宏实现的。将上述长度累加后，利用</p>
-<figure class="highlight x86asm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">times</span>      (<span class="number">512</span> - SIZE - <span class="number">2</span>) <span class="built_in">db</span> <span class="number">0</span></span><br><span class="line"><span class="built_in">db</span>   <span class="number">0x55</span>, <span class="number">0xAA</span></span><br></pre></td></tr></table></figure>
-<p>生成大小恰好为512字节的引导扇区镜像。</p>
+<p><code>$$</code>会索引到前一个section标记处，因此<code>$-$$</code>的长度就是其所在section的长度。每个插入的section意味着强制从一个对齐后的地址开始代码。</p>
+<p>最终的补齐512字节的解决方案：</p>
+<ol>
+<li>引入一个计算对齐填充量的宏，输入一个段的长度，计算出其4字节对齐后的长度</li>
+<li>在每个段末尾添加<code>SEG_XXX_LEN equ $-$$</code>计算该段长度，如果<code>SEG_XXX_LEN</code>的下面有section存在，那么调用宏来补充实际长度</li>
+<li>将每段长度加总，计算、填充，得到固定512字节的引导扇区镜像</li>
+</ol>
+<p>以启动保护模式的代码为例，省略了部分代码，其SIZE的计算应当如下：</p>
+<figure class="highlight x86asm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">%macro PAD <span class="number">1</span></span><br><span class="line">    <span class="meta">%assign</span> <span class="subst">%1</span>  <span class="subst">%1</span>+<span class="number">4</span>-<span class="subst">%1</span> % <span class="number">4</span></span><br><span class="line">%endmacro</span><br><span class="line"></span><br><span class="line">...</span><br><span class="line">SEG_START_LEN <span class="built_in">equ</span> $-$$</span><br><span class="line"></span><br><span class="line">[<span class="meta">SECTION</span> .gdt]</span><br><span class="line">    ...</span><br><span class="line">SEG_GDT_LEN <span class="built_in">equ</span> $-$$</span><br><span class="line"></span><br><span class="line">[<span class="meta">SECTION</span> .s16]</span><br><span class="line">    ...</span><br><span class="line">SEG_CODE16_LEN <span class="built_in">equ</span> $-$$</span><br><span class="line"></span><br><span class="line">[<span class="meta">SECTION</span> .s32]</span><br><span class="line">    ...</span><br><span class="line">SEG_CODE32_LEN  <span class="built_in">equ</span> $-LABEL_SEG_CODE32</span><br><span class="line"></span><br><span class="line">PAD SEG_START_LEN</span><br><span class="line">PAD SEG_GDT_LEN</span><br><span class="line">PAD SEG_CODE16_LEN</span><br><span class="line"></span><br><span class="line">SIZE <span class="built_in">equ</span> SEG_START_LEN+SEG_GDT_LEN+SEG_CODE16_LEN+SEG_CODE32_LEN</span><br><span class="line"></span><br><span class="line"><span class="built_in">times</span>      (<span class="number">512</span> - SIZE - <span class="number">2</span>) <span class="built_in">db</span> <span class="number">0</span></span><br><span class="line"><span class="built_in">db</span>   <span class="number">0x55</span>, <span class="number">0xAA</span></span><br></pre></td></tr></table></figure>
 <blockquote>
-<p>注1：书中代码一般在第一个段的定义前还会有一部分代码不属于任何段，这部分的长度计算时也要注意手动计算其对齐填充长度。<br>注2：取模运算符%前后要加空格，否则会连带数字被识别为参数。</p>
+<p>注：取模运算符%前后要加空格，否则会连带数字被识别为参数。</p>
 </blockquote>
-<p>坑了一下午，终于整好了，可以继续学习了（</p>
+<p>坑了一下午+晚上，期间因为有几次正好碰上了以为自己解决了，耽误了不少时间，总的来说这个坑不是什么难点，主要是由于不熟悉NASM的语法引起的问题。</p>
 
       
     </div>
