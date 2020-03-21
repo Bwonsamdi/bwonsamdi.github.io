@@ -113,7 +113,7 @@
 <meta property="og:site_name" content="学逆向的阿昆达">
 <meta property="og:description" content="标题可能起的有点大了。总之本文是对进入保护模式过程的一些针对性复习，主要是为了写代码做的准备。  实模式的一些特点 16 位数据总线、20 位地址总线，1MB 寻址能力。 寻址方式：Physical Address = Segment * 16 + Offset  实模式的进化 原因：自 80386 时代开始，Intel 的 CPU 进化到 32 位。寻址能力上升到 4GB。 解决方法：保护模式">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-03-11T11:33:37.558Z">
+<meta property="og:updated_time" content="2020-03-13T14:08:22.856Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="重拾保护模式">
 <meta name="twitter:description" content="标题可能起的有点大了。总之本文是对进入保护模式过程的一些针对性复习，主要是为了写代码做的准备。  实模式的一些特点 16 位数据总线、20 位地址总线，1MB 寻址能力。 寻址方式：Physical Address = Segment * 16 + Offset  实模式的进化 原因：自 80386 时代开始，Intel 的 CPU 进化到 32 位。寻址能力上升到 4GB。 解决方法：保护模式">
@@ -468,11 +468,60 @@
 <li>接下来将事先初始化后的32位代码段选择子复制到CS中，这个过程借助jmp指令实现。这条指令本身处于16位的代码段，但是跳转目的地是32位的地址，因此诸如<code>SelectorCode32:0x11112222</code>会被截断高位，只剩下0x2222。</li>
 <li>在Linux中，对于上述问题的解决方案，采用了使用DB直接写入机器码强制执行的方法，在NASM中，支持利用<code>jmp   dword SelectorCode32:0</code>的方式（加上dw）来解决。</li>
 </ul>
-<blockquote>
-<p>待补充</p>
-</blockquote>
+<h2 id="特权级"><a href="#特权级" class="headerlink" title="特权级"></a>特权级</h2><h3 id="Current-Privilege-Level"><a href="#Current-Privilege-Level" class="headerlink" title="Current Privilege Level"></a>Current Privilege Level</h3><p>CPL是当前执行的程序或任务的特权级，存储在CS和SS的0位和1位上，<strong>通常情况下</strong>CPL等于代码所在段的特权级。当程序转移到不同特权级的代码段时，CPL将会改变。</p>
+<p>一致代码段可以被相同或更低级的代码访问。访问与CPL不同的一致代码段时，CPL不会改变。</p>
+<h3 id="Descriptor-Privilege-Level"><a href="#Descriptor-Privilege-Level" class="headerlink" title="Descriptor Privilege Level"></a>Descriptor Privilege Level</h3><p>DPL表示段或门的特权级，存储在段描述符或门描述符的DPL字段中。当前代码段访问段或门时，DPL会与CPL、段或门选择子的RPL进行比较，根据段或门的类型，DPL会被区别对待</p>
+<ul>
+<li>数据段：DPL规定了可以访问该段的<strong>最低特权级</strong>。若数据段的DPL为1，则CPL为0或1的程序可以访问此段。</li>
+<li>没有调用门的非一致代码段：DPL规定了可以访问该段的<strong>特权级</strong>。</li>
+<li>调用门：与数据段一致。</li>
+<li>一致代码段/通过调用门访问的非一致代码段：DPL规定了可以访问该段的<strong>最高特权级</strong>。若段DPL为1，则CPL为2或3的低特权代码段可以访问该段。</li>
+<li>TSS：和数据段一致。</li>
+</ul>
+<h3 id="Requested-Privilege-Level"><a href="#Requested-Privilege-Level" class="headerlink" title="Requested Privilege Level"></a>Requested Privilege Level</h3><p>RPL是段选择子的0位和1位，表示当前进程想要的请求权限。通过RPL和CPL可以确认访问请求的合法性。即便段的特权级足够，也要考虑RPL的级别，即访问合法性的判断取决于CPL和RPL中特权级最低的那个（数字最大）。</p>
+<p>操作系统使用RPL避免低特权级应用程序访问高特权级段数据。当被调用过程（操作系统过程）从调用过程（应用程序）接收到选择子时，会把选择子的RPL设置成调用者的特权级，当操作系统使用该选择子访问对应段时，处理器会用已经被存到RPL的调用过程的特权级，而不是CPL进行检验。</p>
+<h3 id="特权级总结"><a href="#特权级总结" class="headerlink" title="特权级总结"></a>特权级总结</h3><ol>
+<li>调用门本质上是一个描述符，长8字节。一个门描述了由一个选择子和一个偏移指定的线性地址。</li>
+<li>一般通过call/jmp加上远指针的方式访问调用门。这个远指针的段选择子用于指定调用门。</li>
+<li>通过调用门进行程序控制流的段转移时，CPU会按以下顺序检查：<ol>
+<li>当前代码段的CPL</li>
+<li>调用门描述符的DPL</li>
+<li>调用门描述符的RPL</li>
+<li>目的代码段描述符的DPL</li>
+<li>目的代码段描述符的一致性标志C</li>
+</ol>
+<ul>
+<li>同时，对于call和jmp，优先级检查规则也不同：<ul>
+<li>对于call指令<ul>
+<li>CPL&lt;=调用门描述符DPL</li>
+<li>RPL&lt;=调用门描述符DPL</li>
+<li>CPL&gt;=目的代码段描述符DPL</li>
+</ul>
+</li>
+<li>对于jmp指令<ul>
+<li>CPL&lt;=调用门描述符DPL</li>
+<li>RPL&lt;=调用门描述符DPL</li>
+<li>如果目的代码段为一致代码段：CPL&gt;=目的代码段描述符DPL</li>
+<li>如果目的代码段为非一致代码段：CPL=目的代码段描述符DPL</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>调用门的作用是使得一个代码段被不同特权级的程序访问。</li>
+<li>一致代码段：属于内核，允许用户访问的代码段。对于一致性代码来说，特权级高的程序不允许访问特权级低的数据（内核不能访问用户数据），特权级低的代码可以访问到特权级高的数据，但访问中<strong>特权级不会改变</strong>，访问内核的程序依然属于用户态。</li>
+<li>非一致性代码段：仅允许同级访问，内核态只能访问内核代码，用户态只能访问用户代码。</li>
+<li>通常低特权代码必须通过门来实现对高特权代码的访问。</li>
+<li>RPL说明的是进程对段访问的请求权限，意思是当前进程想要的请求权限。RPL的值由程序员自己来自由的设置，并不一定RPL&gt;=CPL，</li>
+<li>当RPL &lt; CPL时，实际起作用的就是CPL了。当选择子成功装入CS寄存器后，相应的选择子中的RPL就变成了CPL。</li>
+<li>在call调用门时，需要进行堆栈转移，堆栈转移需要借助TSS实现。</li>
+<li>TSS是一个包含了多个字段的数据结构，其中包括了ring0-ring3的栈区指针，利用这个结构，可以将栈参数复制。</li>
+</ol>
+<h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2><p>关于特权级的部分，看得不是很详细，以后需要再特别写一篇文章来按位解析GDT、选择子、调用门、TSS这些数据结构，否则在理解一些机制的时候常常会晕头转向。这一部分的一些细节的地方就暂时搁置起来，目前距离脱离汇编进入C编程还有很长一段路要走。</p>
 <h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
 <li>《自己动手写操作系统》</li>
+<li><a href="https://www.cnblogs.com/bamboos/archive/2009/03/26/1422041.html" target="_blank" rel="noopener">https://www.cnblogs.com/bamboos/archive/2009/03/26/1422041.html</a></li>
 </ul>
 
       
@@ -595,7 +644,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">30</span>
+                  <span class="site-state-item-count">32</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -650,7 +699,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#实模式的一些特点"><span class="nav-number">1.</span> <span class="nav-text">实模式的一些特点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实模式的进化"><span class="nav-number">2.</span> <span class="nav-text">实模式的进化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#GDT-相关"><span class="nav-number">3.</span> <span class="nav-text">GDT 相关</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#A20"><span class="nav-number">4.</span> <span class="nav-text">A20</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#进入保护模式"><span class="nav-number">5.</span> <span class="nav-text">进入保护模式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">6.</span> <span class="nav-text">参考</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#实模式的一些特点"><span class="nav-number">1.</span> <span class="nav-text">实模式的一些特点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实模式的进化"><span class="nav-number">2.</span> <span class="nav-text">实模式的进化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#GDT-相关"><span class="nav-number">3.</span> <span class="nav-text">GDT 相关</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#A20"><span class="nav-number">4.</span> <span class="nav-text">A20</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#进入保护模式"><span class="nav-number">5.</span> <span class="nav-text">进入保护模式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#特权级"><span class="nav-number">6.</span> <span class="nav-text">特权级</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Current-Privilege-Level"><span class="nav-number">6.1.</span> <span class="nav-text">Current Privilege Level</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Descriptor-Privilege-Level"><span class="nav-number">6.2.</span> <span class="nav-text">Descriptor Privilege Level</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Requested-Privilege-Level"><span class="nav-number">6.3.</span> <span class="nav-text">Requested Privilege Level</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#特权级总结"><span class="nav-number">6.4.</span> <span class="nav-text">特权级总结</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#后记"><span class="nav-number">7.</span> <span class="nav-text">后记</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">8.</span> <span class="nav-text">参考</span></a></li></ol></div>
             
 
           </div>
