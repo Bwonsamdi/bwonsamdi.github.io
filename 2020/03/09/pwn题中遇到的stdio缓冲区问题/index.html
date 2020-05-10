@@ -116,7 +116,7 @@
 <meta property="og:image" content="http://yoursite.com/2020/03/09/pwn题中遇到的stdio缓冲区问题/1.jpg">
 <meta property="og:image" content="http://yoursite.com/2020/03/09/pwn题中遇到的stdio缓冲区问题/2.jpg">
 <meta property="og:image" content="http://yoursite.com/2020/03/09/pwn题中遇到的stdio缓冲区问题/3.jpg">
-<meta property="og:updated_time" content="2020-03-09T05:37:32.795Z">
+<meta property="og:updated_time" content="2020-04-29T18:50:12.810Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="pwn题中遇到的stdio缓冲区问题">
 <meta name="twitter:description" content="前言在调试了how2heap的first_fit后，自己又写了一个first fit机制的demo想要动手调试一下，果然遇到了问题。 问题 图中12行是代码中第一次进行malloc，但是在12行执行结束后，查看堆块发现了下面的问题  可以看到，“一次”malloc之后出现了两个堆块，看到0x602000处的堆数据感觉到有些蹊跷，很明显其数据部分存储着一些字符串内容  这里发现这个堆块中存储的内容就">
@@ -435,8 +435,8 @@
 - 附带介绍一下fflush，其定义为`int fflush(FILE *stream)`其常见用法如下(stdin、stdout、stderr对应的文件标识符分别为0、1、2)：
   - `fflush(stdin)`：刷新stdin缓冲区，清除输入缓冲区。（标准中未定义此方法）
   - `fflush(stdout)`：刷新stdout缓冲区，把缓冲区内容打印到标准输出设备。
-  - `fflush(stderr)`：刷新……不好意思这里不能刷新了，stderr没有缓冲区，因此也不存在`fflush(stderr)`的用法
-</code></pre><p>弄清了这部分，已经可以说明为什么first_fit使用<code>fprintf(stderr, &quot;...&quot;);</code>来输出了：stderr没有对应的缓冲区。</p>
+  - `fflush(stderr)`：刷新……哎还没刷呢，stderr没有缓冲区，因此也不存在`fflush(stderr)`的用法
+</code></pre><p>弄懂了这部分，已经可以说明为什么how2heap中first_fit使用<code>fprintf(stderr, &quot;...&quot;);</code>来输出了：stderr没有对应的缓冲区。</p>
 <p>stdio缓冲有三种模式：</p>
 <pre><code>1. `_IONBF`：不缓冲
 2. `_IOLBF`：行缓冲，遇到换行符或缓存满时执行实际的IO操作
@@ -448,7 +448,7 @@
 </code></pre><p>查看glibc源码，其实现如下：</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span></span><br><span class="line">setbuf (_IO_FILE *fp, <span class="keyword">char</span> *buf)</span><br><span class="line">&#123;</span><br><span class="line">    _IO_setbuffer (fp, buf, _IO_BUFSIZ);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>setbuf实际就是setbuffer的包装（将buffer size设为了默认值）,其中<code>_IO_BUFSIZ</code>的默认值来自<code>#define _G_BUFSIZ 8192</code>。</p>
-<p>最终，通过setbuf设置stdout为无缓冲模式，解决了额外内存块的问题，本文没有分析缓冲区相应的堆内存问题。</p>
+<p>最终，通过setbuf设置stdout为无缓冲模式，解决了申请额外堆块的问题。本文不对缓冲区内存的具体分配模式做深入分析，暂时还用不到它。</p>
 <h2 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h2><p><a href="https://www.litreily.top/2018/10/25/io-cache/" target="_blank" rel="noopener">https://www.litreily.top/2018/10/25/io-cache/</a></p>
 
       
@@ -573,7 +573,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">32</span>
+                  <span class="site-state-item-count">33</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
